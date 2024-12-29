@@ -1,22 +1,23 @@
-
 # Anuerysm Transient Flow PINNs
 
 ## Overview
 
-Anuerysm Transient Flow PINNs is a Physics-Informed Neural Networks (PINNs) project designed to model transient flow in aneurysms. The project leverages PyTorch for model development and training.
+Anuerysm Transient Flow PINNs is a Physics-Informed Neural Networks (PINNs) project designed to model transient flow in aneurysms. The project leverages PyTorch for model development and training, providing a robust framework for simulating and analyzing blood flow dynamics.
 
 ## Table of Contents
 
-- [Anuerysm Transient Flow PINNs](#anuerysm-transient-flow-pinns)
-  - [Overview](#overview)
-  - [Table of Contents](#table-of-contents)
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Project Structure](#project-structure)
-  - [Data Processing](#data-processing)
-  - [Training](#training)
-  - [Evaluation](#evaluation)
-  - [License](#license)
+- [Overview](#overview)
+- [Table of Contents](#table-of-contents)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Methodology](#methodology)
+- [Project Structure](#project-structure)
+- [Data Processing](#data-processing)
+- [Training](#training)
+- [Evaluation](#evaluation)
+- [Results](#results)
+- [Citation](#citation)
+- [License](#license)
 
 ## Installation
 
@@ -66,6 +67,10 @@ Anuerysm Transient Flow PINNs is a Physics-Informed Neural Networks (PINNs) proj
 
    Evaluation metrics are automatically generated during training and saved in the `metrics/` directory.
 
+## Methodology
+
+The project employs Physics-Informed Neural Networks (PINNs) to integrate CFD data with physical laws governing fluid dynamics. The methodology encompasses data preprocessing, model architecture design, training with self-adaptive loss weighting, and comprehensive evaluation using metrics such as R², NRMSE, and MAE. Boundary conditions and inlet velocity profiles are enforced to ensure realistic simulations. Visualization tools are utilized to analyze loss curves and model performance.
+
 ## Project Structure
 
 ```
@@ -82,6 +87,7 @@ Anuerysm_transientFlow_PINNs/
 │   ├── models.py
 │   ├── train.py
 │   └── utils.py
+│   └── full_pinn_experiment.py
 ├── logs/
 ├── models/
 ├── metrics/
@@ -101,6 +107,24 @@ The training pipeline is managed by `main_experiment.py`, which initializes mode
 ## Evaluation
 
 After training, models are evaluated using `evaluate.py`, which computes metrics such as R², NRMSE, and MAE. Results are saved for further analysis.
+
+## Results
+
+The trained PINN models achieved high accuracy in predicting flow-related variables, as evidenced by evaluation metrics. Loss curves indicate stable convergence, and visualizations of pressure distributions and wall shear stress align closely with CFD data. Histograms and distribution plots further validate the models' performance, demonstrating their potential applicability in biomedical research.
+
+## Citation
+
+If you use this project in your research, please cite it as follows:
+
+```bibtex
+@misc{anuerysm2024transient,
+  author = {Your Name},
+  title = {Anuerysm Transient Flow PINNs},
+  year = {2024},
+  howpublished = {\url{https://github.com/yourusername/Anuerysm_transientFlow_PINNs}},
+  note = {Accessed: YYYY-MM-DD}
+}
+```
 
 ## License
 
