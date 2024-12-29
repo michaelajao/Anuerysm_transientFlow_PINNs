@@ -280,11 +280,11 @@ class Config:
     Holds all hyperparameters, file paths, and architectural details required for the experiment.
     """
     # Directory Paths
-    model_dir: str = "../../models/pinn_experiment"             # Directory to save trained models
-    plot_dir: str = "../../reports/figures/pinn_experiment"     # Directory to save generated plots
-    metrics_dir: str = "../../metrics/pinn_experiment"          # Directory to save logs and metrics
-    data_dir: str = "../../data"                                 # Directory containing raw data
-    processed_data_dir: str = "../../data/processed"            # Directory containing processed data
+    model_dir: str = "../../models"                         # Directory to save trained models
+    plot_dir: str = "../../figures"                          # Directory to save generated plots
+    metrics_dir: str = "../../reports/metrics"               # Directory to save logs and metrics
+    data_dir: str = "../../data"                              # Directory containing raw data
+    processed_data_dir: str = "../../data/processed"         # Directory containing processed data
 
     # Experiment Parameters
     categories: list = field(default_factory=lambda: ["aneurysm", "healthy"])  # Data categories
@@ -1239,7 +1239,8 @@ def evaluate_pinn(
 
     # Save metrics summary to CSV
     df_metrics = pd.DataFrame([metrics_summary])
-    metrics_summary_path = os.path.join(config.metrics_dir, f"metrics_summary_{run_id}.csv")
+    metrics_summary_path = os.path.join(config.metrics_dir, run_id, f"metrics_summary_{run_id}.csv")
+    os.makedirs(os.path.dirname(metrics_summary_path), exist_ok=True)
     df_metrics.to_csv(metrics_summary_path, index=False)
     logger.info(f"Saved metrics summary to '{metrics_summary_path}'.")
 
@@ -1462,6 +1463,7 @@ def plot_pressure_and_wss_magnitude_surface(
     )
     # Inverse transform predictions to original scale
     # Assuming the same scaler applies to all wall shear components
+    # If different scalers are used, adjust accordingly
     wss_pred = dataset.scalers["wall_shear_x"].inverse_transform(wss_pred.reshape(-1, 1)).flatten()
 
     # Interpolate WSS Magnitude onto the grid
@@ -1803,7 +1805,6 @@ def plot_wss_histogram(
     plt.close(fig_hist)
     logger.info(f"Saved WSS Magnitude histogram plot to '{histogram_plot_path}'.")
 
-
 # =========================================
 # 12. Main Experiment Loop
 # =========================================
@@ -1951,6 +1952,18 @@ def main():
             run_id,
             dataset_name
         )
+
+        # Save the final model checkpoint
+        final_model_path = os.path.join(config.model_dir, run_id, f"final_model_{run_id}.pt")
+        os.makedirs(os.path.dirname(final_model_path), exist_ok=True)
+        checkpoint = {}
+        for key, model in models.items():
+            checkpoint[f"{key}_state_dict"] = model.state_dict()
+        checkpoint['optimizer_state_dict'] = optimizer.state_dict()
+        checkpoint['scheduler_state_dict'] = scheduler.state_dict()
+        checkpoint['loss_history'] = loss_history
+        torch.save(checkpoint, final_model_path)
+        logger.info(f"Saved final model checkpoint to '{final_model_path}'.")
 
         logger.info(f"Completed experiment for dataset '{run_id}'.")
 
