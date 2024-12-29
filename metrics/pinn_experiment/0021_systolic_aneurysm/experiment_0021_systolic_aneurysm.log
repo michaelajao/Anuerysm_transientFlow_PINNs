@@ -70,3 +70,8 @@
 2024-12-29 03:31:09,601 - INFO - Loss improved to 0.257296. Resetting early stopping counter.
 2024-12-29 03:31:09,710 - INFO - Saved best model checkpoint to '../../models/pinn_experiment\0021_systolic_aneurysm\best_model_0021_systolic_aneurysm.pt'.
 2024-12-29 03:31:13,573 - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 03:31:17,410 - INFO - Loss improved to 0.232197. Resetting early stopping counter.
+2024-12-29 03:31:17,501 - INFO - Saved best model checkpoint to '../../models/pinn_experiment\0021_systolic_aneurysm\best_model_0021_systolic_aneurysm.pt'.
+2024-12-29 03:31:21,191 - INFO - Loss improved to 0.212626. Resetting early stopping counter.
+2024-12-29 03:31:21,292 - INFO - Saved best model checkpoint to '../../models/pinn_experiment\0021_systolic_aneurysm\best_model_0021_systolic_aneurysm.pt'.
+2024-12-29 03:31:24,998 - INFO - Loss improved to 0.195412. Resetting early stopping counter.
