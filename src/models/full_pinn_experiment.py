@@ -54,50 +54,90 @@ from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
 from scipy.interpolate import griddata
 from mpl_toolkits.mplot3d import Axes3D
 
-# Set the default plotting style for consistency
+# =========================================
+# 1. Set the Default Plotting Style
+# =========================================
+
+# Use Seaborn's "paper" style for clean and professional aesthetics
 plt.style.use("seaborn-v0_8-paper")
+
+# =========================================
+# 2. Update rcParams for Publication-Quality Plots
+# =========================================
+
 plt.rcParams.update(
     {
-        "font.size": 14,
-        "figure.figsize": [10, 6],
-        "text.usetex": False,
-        "figure.facecolor": "white",
-        "figure.autolayout": True,
-        "figure.dpi": 300,
-        "savefig.dpi": 300,
-        "savefig.format": "png",
-        "savefig.bbox": "tight",
-        "axes.labelweight": "bold",
-        "axes.titleweight": "bold",
-        "axes.labelsize": 12,
-        "axes.titlesize": 18,
-        "axes.facecolor": "white",
-        "axes.grid": False,
-        "axes.spines.top": False,
-        "axes.spines.right": False,
-        "axes.formatter.limits": (0, 5),
-        "axes.formatter.use_mathtext": True,
-        "axes.formatter.useoffset": False,
-        "axes.xmargin": 0,
-        "axes.ymargin": 0,
-        "legend.fontsize": 12,
-        "legend.frameon": False,
-        "legend.loc": "best",
-        "lines.linewidth": 2,
-        "lines.markersize": 8,
-        "xtick.labelsize": 12,
-        "xtick.direction": "in",
-        "xtick.top": False,
-        "ytick.labelsize": 12,
-        "ytick.direction": "in",
-        "ytick.right": False,
-        "grid.color": "grey",
-        "grid.linestyle": "--",
-        "grid.linewidth": 0.5,
-        "errorbar.capsize": 4,
-        "figure.subplot.wspace": 0.4,
-        "figure.subplot.hspace": 0.4,
-        "image.cmap": "viridis",
+        # -------------------------------------
+        # General Figure Settings
+        # -------------------------------------
+        "font.size": 12,                       # Base font size for all text elements
+        "figure.figsize": [7, 4],              # Figure size suitable for double-column layouts
+        "text.usetex": False,                  # Disable LaTeX rendering; set to True if needed
+        "figure.facecolor": "white",           # White background for compatibility
+        "figure.autolayout": True,             # Automatically adjust subplot params
+        "figure.dpi": 300,                     # High resolution for print quality
+        "savefig.dpi": 300,                    # High resolution for saved figures
+        "savefig.format": "pdf",               # Vector format for scalability; use 'png' if raster is needed
+        "savefig.bbox": "tight",               # Minimize whitespace around the figure
+
+        # -------------------------------------
+        # Axes and Titles
+        # -------------------------------------
+        "axes.labelweight": "bold",            # Bold axis labels for emphasis
+        "axes.titleweight": "bold",            # Bold titles for emphasis
+        "axes.labelsize": 12,                  # Font size for axis labels
+        "axes.titlesize": 16,                  # Font size for plot titles
+        "axes.facecolor": "white",             # White background for axes
+        "axes.grid": False,                    # Disable gridlines for clarity
+        "axes.spines.top": False,              # Remove top spine for a cleaner look
+        "axes.spines.right": False,            # Remove right spine for a cleaner look
+        "axes.formatter.limits": (0, 5),       # Limit exponent formatting
+        "axes.formatter.use_mathtext": True,   # Use LaTeX-style formatting for tick labels
+        "axes.formatter.useoffset": False,     # Disable offset in tick labels
+        "axes.xmargin": 0,                      # Remove horizontal margin
+        "axes.ymargin": 0,                      # Remove vertical margin
+
+        # -------------------------------------
+        # Legend Settings
+        # -------------------------------------
+        "legend.fontsize": 12,                  # Font size for legend text
+        "legend.frameon": False,                # Remove legend frame for a cleaner look
+        "legend.loc": "best",                   # Automatically place legend in the best location
+
+        # -------------------------------------
+        # Line and Marker Settings
+        # -------------------------------------
+        "lines.linewidth": 2,                   # Thickness of plot lines
+        "lines.markersize": 6,                  # Size of plot markers
+
+        # -------------------------------------
+        # Tick Settings
+        # -------------------------------------
+        "xtick.labelsize": 12,                  # Font size for x-axis tick labels
+        "xtick.direction": "in",                # Ticks point inward for better aesthetics
+        "xtick.top": False,                     # Disable ticks on the top edge
+        "ytick.labelsize": 12,                  # Font size for y-axis tick labels
+        "ytick.direction": "in",                # Ticks point inward for better aesthetics
+        "ytick.right": False,                   # Disable ticks on the right edge
+
+        # -------------------------------------
+        # Grid and Error Bar Settings
+        # -------------------------------------
+        "grid.color": "grey",                   # Color of gridlines
+        "grid.linestyle": "--",                 # Style of gridlines
+        "grid.linewidth": 0.5,                  # Thickness of gridlines
+        "errorbar.capsize": 3,                  # Length of error bar caps
+
+        # -------------------------------------
+        # Subplot Spacing
+        # -------------------------------------
+        "figure.subplot.wspace": 0.3,           # Width space between subplots
+        "figure.subplot.hspace": 0.3,           # Height space between subplots
+
+        # -------------------------------------
+        # Image Settings
+        # -------------------------------------
+        "image.cmap": "viridis",                 # Default colormap for images
     }
 )
 
