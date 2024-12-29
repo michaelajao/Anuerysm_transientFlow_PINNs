@@ -1,0 +1,4 @@
+2024-12-29 18:35:22,511 - experiment_logger_final - INFO - Experiment run initialized with Run ID: final
+2024-12-29 18:35:22,512 - experiment_logger_final - INFO - Using device: cuda:0
+2024-12-29 18:35:22,512 - experiment_logger_final - INFO - Random seed set to 142
+2024-12-29 18:35:22,513 - experiment_logger_final - INFO - All experiments completed successfully.

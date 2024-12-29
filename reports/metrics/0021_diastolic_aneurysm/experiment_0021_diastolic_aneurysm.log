@@ -1,0 +1,396 @@
+2024-12-29 04:45:58,932 - experiment_logger_0021_diastolic_aneurysm - INFO - Experiment run initialized with Run ID: 0021_diastolic_aneurysm
+2024-12-29 04:45:58,932 - experiment_logger_0021_diastolic_aneurysm - INFO - Using device: cuda:0
+2024-12-29 04:45:58,933 - experiment_logger_0021_diastolic_aneurysm - INFO - Random seed set to 142
+2024-12-29 04:45:58,933 - experiment_logger_0021_diastolic_aneurysm - INFO - Fitting scalers on the data.
+2024-12-29 04:45:58,934 - experiment_logger_0021_diastolic_aneurysm - INFO - Fitted scaler for 'features'.
+2024-12-29 04:45:58,946 - experiment_logger_0021_diastolic_aneurysm - INFO - Fitted scaler for 'time'.
+2024-12-29 04:45:58,948 - experiment_logger_0021_diastolic_aneurysm - INFO - Fitted scaler for 'pressure'.
+2024-12-29 04:45:58,948 - experiment_logger_0021_diastolic_aneurysm - INFO - Fitted scaler for 'velocity_u'.
+2024-12-29 04:45:58,950 - experiment_logger_0021_diastolic_aneurysm - INFO - Fitted scaler for 'velocity_v'.
+2024-12-29 04:45:58,951 - experiment_logger_0021_diastolic_aneurysm - INFO - Fitted scaler for 'velocity_w'.
+2024-12-29 04:45:58,953 - experiment_logger_0021_diastolic_aneurysm - INFO - Fitted scaler for 'wall_shear_x'.
+2024-12-29 04:45:58,954 - experiment_logger_0021_diastolic_aneurysm - INFO - Fitted scaler for 'wall_shear_y'.
+2024-12-29 04:45:58,956 - experiment_logger_0021_diastolic_aneurysm - INFO - Fitted scaler for 'wall_shear_z'.
+2024-12-29 04:45:58,965 - experiment_logger_0021_diastolic_aneurysm - INFO - Dataset and DataLoader created with 11005 samples.
+2024-12-29 04:45:59,012 - experiment_logger_0021_diastolic_aneurysm - INFO - Initialized 7 separate PINN models for p, u, v, w, tau_x, tau_y, tau_z.
+2024-12-29 04:45:59,014 - experiment_logger_0021_diastolic_aneurysm - INFO - Optimizer and scheduler initialized for all separate PINNs.
+2024-12-29 04:45:59,014 - experiment_logger_0021_diastolic_aneurysm - INFO - Starting training loop for multi-model PINNs.
+2024-12-29 04:46:02,830 - experiment_logger_0021_diastolic_aneurysm - INFO - Initial loss set to 642.995770.
+2024-12-29 04:46:02,871 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:46:02,872 - experiment_logger_0021_diastolic_aneurysm - INFO - Epoch 1/500 - Total: 642.995770, Physics: 630.974091, Boundary: 2.872111, Data: 6.272612, Inlet: 2.876947
+2024-12-29 04:46:02,873 - experiment_logger_0021_diastolic_aneurysm - INFO - Lambda Physics: 1.0000 Lambda Boundary: 1.0000 Lambda Data: 1.0000 Lambda Inlet: 1.0000
+2024-12-29 04:46:06,478 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:46:10,063 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 296.052948. Resetting early stopping counter.
+2024-12-29 04:46:10,158 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:46:13,763 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 39.039234. Resetting early stopping counter.
+2024-12-29 04:46:13,854 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:46:17,530 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 19.355663. Resetting early stopping counter.
+2024-12-29 04:46:17,618 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:46:21,246 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 11.594999. Resetting early stopping counter.
+2024-12-29 04:46:21,336 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:46:24,998 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 6.985400. Resetting early stopping counter.
+2024-12-29 04:46:25,088 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:46:28,681 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 4.654474. Resetting early stopping counter.
+2024-12-29 04:46:28,773 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:46:32,392 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 3.187762. Resetting early stopping counter.
+2024-12-29 04:46:32,481 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:46:36,138 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 2.355451. Resetting early stopping counter.
+2024-12-29 04:46:36,228 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:46:39,817 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 1.889787. Resetting early stopping counter.
+2024-12-29 04:46:39,959 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:46:43,539 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 1.440145. Resetting early stopping counter.
+2024-12-29 04:46:43,641 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:46:47,227 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 1.088624. Resetting early stopping counter.
+2024-12-29 04:46:47,317 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:46:50,959 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.891161. Resetting early stopping counter.
+2024-12-29 04:46:51,050 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:46:54,628 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.686858. Resetting early stopping counter.
+2024-12-29 04:46:54,717 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:46:58,363 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.627357. Resetting early stopping counter.
+2024-12-29 04:46:58,455 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:47:02,061 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.523951. Resetting early stopping counter.
+2024-12-29 04:47:02,151 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:47:05,828 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.467778. Resetting early stopping counter.
+2024-12-29 04:47:05,927 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:47:09,552 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.433138. Resetting early stopping counter.
+2024-12-29 04:47:09,658 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:47:13,280 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.361265. Resetting early stopping counter.
+2024-12-29 04:47:13,373 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:47:17,051 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.330905. Resetting early stopping counter.
+2024-12-29 04:47:17,140 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:47:20,800 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.314680. Resetting early stopping counter.
+2024-12-29 04:47:20,891 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:47:24,586 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.285306. Resetting early stopping counter.
+2024-12-29 04:47:24,677 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:47:28,320 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.263911. Resetting early stopping counter.
+2024-12-29 04:47:28,413 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:47:32,024 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.233569. Resetting early stopping counter.
+2024-12-29 04:47:32,116 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:47:35,794 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.224928. Resetting early stopping counter.
+2024-12-29 04:47:35,890 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:47:39,478 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.208408. Resetting early stopping counter.
+2024-12-29 04:47:39,568 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:47:43,223 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.193292. Resetting early stopping counter.
+2024-12-29 04:47:43,315 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:47:46,954 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.181616. Resetting early stopping counter.
+2024-12-29 04:47:47,043 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:47:50,687 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.164583. Resetting early stopping counter.
+2024-12-29 04:47:50,776 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:47:54,391 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:47:58,066 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.159701. Resetting early stopping counter.
+2024-12-29 04:47:58,157 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:48:01,790 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.147664. Resetting early stopping counter.
+2024-12-29 04:48:01,880 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:48:05,489 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.140021. Resetting early stopping counter.
+2024-12-29 04:48:05,580 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:48:09,259 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:48:12,891 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.126990. Resetting early stopping counter.
+2024-12-29 04:48:12,985 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:48:16,657 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:48:20,336 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.117744. Resetting early stopping counter.
+2024-12-29 04:48:20,425 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:48:24,011 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:48:27,673 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 04:48:31,315 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.107062. Resetting early stopping counter.
+2024-12-29 04:48:31,413 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:48:35,015 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:48:38,667 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.102208. Resetting early stopping counter.
+2024-12-29 04:48:38,761 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:48:42,348 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:48:46,002 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 04:48:49,552 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.101645. Resetting early stopping counter.
+2024-12-29 04:48:49,641 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:48:53,276 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:48:56,965 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.093567. Resetting early stopping counter.
+2024-12-29 04:48:57,055 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:49:00,691 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.091410. Resetting early stopping counter.
+2024-12-29 04:49:00,780 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:49:04,449 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:49:04,450 - experiment_logger_0021_diastolic_aneurysm - INFO - Epoch 50/500 - Total: 0.095385, Physics: 0.021098, Boundary: 0.013003, Data: 0.021484, Inlet: 0.045400
+2024-12-29 04:49:04,451 - experiment_logger_0021_diastolic_aneurysm - INFO - Lambda Physics: 0.9606 Lambda Boundary: 0.9475 Lambda Data: 0.9463 Lambda Inlet: 0.9341
+2024-12-29 04:49:08,066 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 04:49:11,670 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.090797. Resetting early stopping counter.
+2024-12-29 04:49:11,761 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:49:15,422 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.087351. Resetting early stopping counter.
+2024-12-29 04:49:15,515 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:49:19,129 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.083971. Resetting early stopping counter.
+2024-12-29 04:49:19,219 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:49:22,855 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:49:26,519 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 04:49:30,122 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 3/5.
+2024-12-29 04:49:33,749 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.081895. Resetting early stopping counter.
+2024-12-29 04:49:33,892 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:49:37,497 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:49:41,127 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.081656. Resetting early stopping counter.
+2024-12-29 04:49:41,269 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:49:44,896 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:49:48,533 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.078584. Resetting early stopping counter.
+2024-12-29 04:49:48,625 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:49:52,252 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:49:55,807 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 04:49:59,402 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.076168. Resetting early stopping counter.
+2024-12-29 04:49:59,501 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:50:03,191 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.074242. Resetting early stopping counter.
+2024-12-29 04:50:03,285 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:50:06,982 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:50:10,638 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 04:50:14,244 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.073397. Resetting early stopping counter.
+2024-12-29 04:50:14,334 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:50:18,001 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:50:21,639 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 04:50:25,277 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.073230. Resetting early stopping counter.
+2024-12-29 04:50:25,372 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:50:29,020 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:50:32,669 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.072722. Resetting early stopping counter.
+2024-12-29 04:50:32,760 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:50:36,395 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.071203. Resetting early stopping counter.
+2024-12-29 04:50:36,486 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:50:40,115 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:50:43,872 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.070750. Resetting early stopping counter.
+2024-12-29 04:50:43,982 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:50:47,783 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.069394. Resetting early stopping counter.
+2024-12-29 04:50:47,874 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:50:51,538 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:50:55,305 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 04:50:58,959 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 3/5.
+2024-12-29 04:51:02,636 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.068517. Resetting early stopping counter.
+2024-12-29 04:51:02,728 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:51:06,433 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.067589. Resetting early stopping counter.
+2024-12-29 04:51:06,525 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:51:10,238 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:51:13,875 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 04:51:17,521 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 3/5.
+2024-12-29 04:51:21,261 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.066557. Resetting early stopping counter.
+2024-12-29 04:51:21,354 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:51:25,032 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.066406. Resetting early stopping counter.
+2024-12-29 04:51:25,126 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:51:28,875 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.066298. Resetting early stopping counter.
+2024-12-29 04:51:28,969 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:51:32,707 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:51:36,405 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 04:51:40,025 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.065942. Resetting early stopping counter.
+2024-12-29 04:51:40,116 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:51:43,796 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:51:47,481 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 04:51:51,150 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.065251. Resetting early stopping counter.
+2024-12-29 04:51:51,241 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:51:54,881 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.064373. Resetting early stopping counter.
+2024-12-29 04:51:54,972 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:51:58,597 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:52:02,237 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 04:52:05,895 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 3/5.
+2024-12-29 04:52:09,550 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 4/5.
+2024-12-29 04:52:09,550 - experiment_logger_0021_diastolic_aneurysm - INFO - Epoch 100/500 - Total: 0.065211, Physics: 0.005671, Boundary: 0.010956, Data: 0.015690, Inlet: 0.041139
+2024-12-29 04:52:09,551 - experiment_logger_0021_diastolic_aneurysm - INFO - Lambda Physics: 0.9413 Lambda Boundary: 0.8941 Lambda Data: 0.8957 Lambda Inlet: 0.8750
+2024-12-29 04:52:13,226 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 5/5.
+2024-12-29 04:52:13,227 - experiment_logger_0021_diastolic_aneurysm - INFO - Early stopping triggered.
+2024-12-29 04:52:13,227 - experiment_logger_0021_diastolic_aneurysm - INFO - Early stopping at epoch 101
+2024-12-29 04:52:13,228 - experiment_logger_0021_diastolic_aneurysm - INFO - Training completed.
+2024-12-29 04:52:13,582 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved metrics summary to '../../reports/metrics\0021_diastolic_aneurysm\metrics_summary_0021_diastolic_aneurysm.csv'.
+2024-12-29 04:52:15,498 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved Pressure distribution plots to '../../figures\0021_diastolic_aneurysm\pressure_distribution_0021_diastolic_aneurysm.png'.
+2024-12-29 04:52:17,545 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved WSS Magnitude distribution plots to '../../figures\0021_diastolic_aneurysm\wss_magnitude_distribution_0021_diastolic_aneurysm.png'.
+2024-12-29 04:52:17,549 - experiment_logger_0021_diastolic_aneurysm - WARNING - No data found for y=0.5, z=0.5 with tol=0.001. Increasing tolerance.
+2024-12-29 04:52:17,550 - experiment_logger_0021_diastolic_aneurysm - INFO - Selected y=0.5 and z=0.5 with tolerance=0.002.
+2024-12-29 04:52:18,441 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved WSS line profiles to '../../figures\0021_diastolic_aneurysm\wss_line_profiles_0021_diastolic_aneurysm.png'.
+2024-12-29 04:52:19,019 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved WSS Magnitude histogram plot to '../../figures\0021_diastolic_aneurysm\wss_magnitude_histogram_0021_diastolic_aneurysm.png'.
+2024-12-29 04:52:19,731 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved loss curves plot to '../../figures\0021_diastolic_aneurysm\0021_diastolic_aneurysm\loss_curves_0021_diastolic_aneurysm.png'.
+2024-12-29 04:52:19,853 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved final model checkpoint to '../../models\0021_diastolic_aneurysm\final_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 04:52:19,853 - experiment_logger_0021_diastolic_aneurysm - INFO - Completed experiment for dataset '0021_diastolic_aneurysm'.
+2024-12-29 10:37:26,021 - experiment_logger_0021_diastolic_aneurysm - INFO - Experiment run initialized with Run ID: 0021_diastolic_aneurysm
+2024-12-29 10:37:26,021 - experiment_logger_0021_diastolic_aneurysm - INFO - Using device: cuda:0
+2024-12-29 10:37:26,021 - experiment_logger_0021_diastolic_aneurysm - INFO - Random seed set to 142
+2024-12-29 10:37:26,022 - experiment_logger_0021_diastolic_aneurysm - INFO - Fitting scalers on the data.
+2024-12-29 10:37:26,023 - experiment_logger_0021_diastolic_aneurysm - INFO - Fitted scaler for 'features'.
+2024-12-29 10:37:26,025 - experiment_logger_0021_diastolic_aneurysm - INFO - Fitted scaler for 'time'.
+2024-12-29 10:37:26,027 - experiment_logger_0021_diastolic_aneurysm - INFO - Fitted scaler for 'pressure'.
+2024-12-29 10:37:26,028 - experiment_logger_0021_diastolic_aneurysm - INFO - Fitted scaler for 'velocity_u'.
+2024-12-29 10:37:26,029 - experiment_logger_0021_diastolic_aneurysm - INFO - Fitted scaler for 'velocity_v'.
+2024-12-29 10:37:26,031 - experiment_logger_0021_diastolic_aneurysm - INFO - Fitted scaler for 'velocity_w'.
+2024-12-29 10:37:26,032 - experiment_logger_0021_diastolic_aneurysm - INFO - Fitted scaler for 'wall_shear_x'.
+2024-12-29 10:37:26,034 - experiment_logger_0021_diastolic_aneurysm - INFO - Fitted scaler for 'wall_shear_y'.
+2024-12-29 10:37:26,036 - experiment_logger_0021_diastolic_aneurysm - INFO - Fitted scaler for 'wall_shear_z'.
+2024-12-29 10:37:26,045 - experiment_logger_0021_diastolic_aneurysm - INFO - Dataset and DataLoader created with 11005 samples.
+2024-12-29 10:37:26,093 - experiment_logger_0021_diastolic_aneurysm - INFO - Initialized 7 separate PINN models for p, u, v, w, tau_x, tau_y, tau_z.
+2024-12-29 10:37:26,095 - experiment_logger_0021_diastolic_aneurysm - INFO - Optimizer and scheduler initialized for all separate PINNs.
+2024-12-29 10:37:26,096 - experiment_logger_0021_diastolic_aneurysm - INFO - Starting training loop for multi-model PINNs.
+2024-12-29 10:37:29,717 - experiment_logger_0021_diastolic_aneurysm - INFO - Initial loss set to 642.995770.
+2024-12-29 10:37:29,760 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:37:29,761 - experiment_logger_0021_diastolic_aneurysm - INFO - Epoch 1/500 - Total: 642.995770, Physics: 630.974091, Boundary: 2.872111, Data: 6.272612, Inlet: 2.876947
+2024-12-29 10:37:29,762 - experiment_logger_0021_diastolic_aneurysm - INFO - Lambda Physics: 1.0000 Lambda Boundary: 1.0000 Lambda Data: 1.0000 Lambda Inlet: 1.0000
+2024-12-29 10:37:33,122 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:37:36,606 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 296.052948. Resetting early stopping counter.
+2024-12-29 10:37:36,697 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:37:40,110 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 39.039234. Resetting early stopping counter.
+2024-12-29 10:37:40,202 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:37:43,662 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 19.355663. Resetting early stopping counter.
+2024-12-29 10:37:43,756 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:37:47,230 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 11.594999. Resetting early stopping counter.
+2024-12-29 10:37:47,323 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:37:50,825 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 6.985400. Resetting early stopping counter.
+2024-12-29 10:37:50,916 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:37:54,366 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 4.654474. Resetting early stopping counter.
+2024-12-29 10:37:54,459 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:37:57,987 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 3.187762. Resetting early stopping counter.
+2024-12-29 10:37:58,078 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:38:01,558 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 2.355451. Resetting early stopping counter.
+2024-12-29 10:38:01,651 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:38:05,067 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 1.889787. Resetting early stopping counter.
+2024-12-29 10:38:05,157 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:38:08,611 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 1.440145. Resetting early stopping counter.
+2024-12-29 10:38:08,703 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:38:12,179 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 1.088624. Resetting early stopping counter.
+2024-12-29 10:38:12,271 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:38:15,762 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.891161. Resetting early stopping counter.
+2024-12-29 10:38:15,856 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:38:19,266 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.686858. Resetting early stopping counter.
+2024-12-29 10:38:19,358 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:38:22,825 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.627357. Resetting early stopping counter.
+2024-12-29 10:38:22,917 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:38:26,327 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.523951. Resetting early stopping counter.
+2024-12-29 10:38:26,422 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:38:29,857 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.467778. Resetting early stopping counter.
+2024-12-29 10:38:29,948 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:38:33,396 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.433138. Resetting early stopping counter.
+2024-12-29 10:38:33,488 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:38:36,912 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.361265. Resetting early stopping counter.
+2024-12-29 10:38:37,064 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:38:40,510 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.330905. Resetting early stopping counter.
+2024-12-29 10:38:40,605 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:38:44,051 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.314680. Resetting early stopping counter.
+2024-12-29 10:38:44,141 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:38:47,632 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.285306. Resetting early stopping counter.
+2024-12-29 10:38:47,726 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:38:51,202 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.263911. Resetting early stopping counter.
+2024-12-29 10:38:51,295 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:38:54,832 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.233569. Resetting early stopping counter.
+2024-12-29 10:38:54,925 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:38:58,414 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.224928. Resetting early stopping counter.
+2024-12-29 10:38:58,506 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:39:02,034 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.208408. Resetting early stopping counter.
+2024-12-29 10:39:02,125 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:39:05,554 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.193292. Resetting early stopping counter.
+2024-12-29 10:39:05,648 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:39:09,090 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.181616. Resetting early stopping counter.
+2024-12-29 10:39:09,181 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:39:12,719 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.164583. Resetting early stopping counter.
+2024-12-29 10:39:12,810 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:39:16,277 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:39:19,717 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.159701. Resetting early stopping counter.
+2024-12-29 10:39:19,861 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:39:23,343 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.147664. Resetting early stopping counter.
+2024-12-29 10:39:23,434 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:39:26,887 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.140021. Resetting early stopping counter.
+2024-12-29 10:39:26,978 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:39:30,508 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:39:33,966 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.126990. Resetting early stopping counter.
+2024-12-29 10:39:34,059 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:39:37,592 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:39:41,095 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.117744. Resetting early stopping counter.
+2024-12-29 10:39:41,186 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:39:44,704 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:39:48,148 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 10:39:51,596 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.107062. Resetting early stopping counter.
+2024-12-29 10:39:51,688 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:39:55,250 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:39:58,701 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.102208. Resetting early stopping counter.
+2024-12-29 10:39:58,795 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:40:02,285 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:40:05,722 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 10:40:09,129 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.101645. Resetting early stopping counter.
+2024-12-29 10:40:09,220 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:40:12,737 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:40:16,150 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.093567. Resetting early stopping counter.
+2024-12-29 10:40:16,240 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:40:19,737 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.091410. Resetting early stopping counter.
+2024-12-29 10:40:19,830 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:40:23,254 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:40:23,255 - experiment_logger_0021_diastolic_aneurysm - INFO - Epoch 50/500 - Total: 0.095385, Physics: 0.021098, Boundary: 0.013003, Data: 0.021484, Inlet: 0.045400
+2024-12-29 10:40:23,255 - experiment_logger_0021_diastolic_aneurysm - INFO - Lambda Physics: 0.9606 Lambda Boundary: 0.9475 Lambda Data: 0.9463 Lambda Inlet: 0.9341
+2024-12-29 10:40:26,766 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 10:40:30,247 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.090797. Resetting early stopping counter.
+2024-12-29 10:40:30,340 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:40:33,798 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.087351. Resetting early stopping counter.
+2024-12-29 10:40:33,890 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:40:37,402 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.083971. Resetting early stopping counter.
+2024-12-29 10:40:37,493 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:40:40,963 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:40:44,462 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 10:40:47,882 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 3/5.
+2024-12-29 10:40:51,305 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.081895. Resetting early stopping counter.
+2024-12-29 10:40:51,399 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:40:54,951 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:40:58,418 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.081656. Resetting early stopping counter.
+2024-12-29 10:40:58,508 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:41:02,026 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:41:05,511 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.078584. Resetting early stopping counter.
+2024-12-29 10:41:05,603 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:41:09,152 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:41:12,634 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 10:41:16,108 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.076168. Resetting early stopping counter.
+2024-12-29 10:41:16,200 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:41:19,618 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.074242. Resetting early stopping counter.
+2024-12-29 10:41:19,713 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:41:23,176 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:41:26,578 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 10:41:29,990 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.073397. Resetting early stopping counter.
+2024-12-29 10:41:30,079 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:41:33,565 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:41:37,035 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 10:41:40,503 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.073230. Resetting early stopping counter.
+2024-12-29 10:41:40,597 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:41:44,059 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:41:47,500 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.072722. Resetting early stopping counter.
+2024-12-29 10:41:47,594 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:41:51,099 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.071203. Resetting early stopping counter.
+2024-12-29 10:41:51,194 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:41:54,672 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:41:58,162 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.070750. Resetting early stopping counter.
+2024-12-29 10:41:58,253 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:42:01,706 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.069394. Resetting early stopping counter.
+2024-12-29 10:42:01,800 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:42:05,328 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:42:08,770 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 10:42:12,221 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 3/5.
+2024-12-29 10:42:15,685 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.068517. Resetting early stopping counter.
+2024-12-29 10:42:15,777 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:42:19,248 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.067589. Resetting early stopping counter.
+2024-12-29 10:42:19,341 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:42:22,814 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:42:26,213 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 10:42:29,641 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 3/5.
+2024-12-29 10:42:33,146 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.066557. Resetting early stopping counter.
+2024-12-29 10:42:33,238 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:42:36,751 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.066406. Resetting early stopping counter.
+2024-12-29 10:42:36,844 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:42:40,347 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.066298. Resetting early stopping counter.
+2024-12-29 10:42:40,443 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:42:43,891 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:42:47,367 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 10:42:50,880 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.065942. Resetting early stopping counter.
+2024-12-29 10:42:50,972 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:42:54,455 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:42:57,929 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 10:43:01,402 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.065251. Resetting early stopping counter.
+2024-12-29 10:43:01,547 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:43:04,970 - experiment_logger_0021_diastolic_aneurysm - INFO - Loss improved to 0.064373. Resetting early stopping counter.
+2024-12-29 10:43:05,062 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0021_diastolic_aneurysm\best_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:43:08,535 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:43:12,019 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 10:43:15,519 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 3/5.
+2024-12-29 10:43:19,018 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 4/5.
+2024-12-29 10:43:19,018 - experiment_logger_0021_diastolic_aneurysm - INFO - Epoch 100/500 - Total: 0.065211, Physics: 0.005671, Boundary: 0.010956, Data: 0.015690, Inlet: 0.041139
+2024-12-29 10:43:19,019 - experiment_logger_0021_diastolic_aneurysm - INFO - Lambda Physics: 0.9413 Lambda Boundary: 0.8941 Lambda Data: 0.8957 Lambda Inlet: 0.8750
+2024-12-29 10:43:22,462 - experiment_logger_0021_diastolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 5/5.
+2024-12-29 10:43:22,462 - experiment_logger_0021_diastolic_aneurysm - INFO - Early stopping triggered.
+2024-12-29 10:43:22,463 - experiment_logger_0021_diastolic_aneurysm - INFO - Early stopping at epoch 101
+2024-12-29 10:43:22,463 - experiment_logger_0021_diastolic_aneurysm - INFO - Training completed.
+2024-12-29 10:43:22,807 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved metrics summary to '../../reports/metrics\0021_diastolic_aneurysm\metrics_summary_0021_diastolic_aneurysm.csv'.
+2024-12-29 10:43:24,708 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved Pressure distribution plots to '../../figures\0021_diastolic_aneurysm\pressure_distribution_0021_diastolic_aneurysm.png'.
+2024-12-29 10:43:26,672 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved WSS Magnitude distribution plots to '../../figures\0021_diastolic_aneurysm\wss_magnitude_distribution_0021_diastolic_aneurysm.png'.
+2024-12-29 10:43:26,676 - experiment_logger_0021_diastolic_aneurysm - WARNING - No data found for y=0.5, z=0.5 with tol=0.001. Increasing tolerance.
+2024-12-29 10:43:26,677 - experiment_logger_0021_diastolic_aneurysm - INFO - Selected y=0.5 and z=0.5 with tolerance=0.002.
+2024-12-29 10:43:27,569 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved WSS line profiles to '../../figures\0021_diastolic_aneurysm\wss_line_profiles_0021_diastolic_aneurysm.png'.
+2024-12-29 10:43:28,138 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved WSS Magnitude histogram plot to '../../figures\0021_diastolic_aneurysm\wss_magnitude_histogram_0021_diastolic_aneurysm.png'.
+2024-12-29 10:43:28,886 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved loss curves plot to '../../figures\0021_diastolic_aneurysm\0021_diastolic_aneurysm\loss_curves_0021_diastolic_aneurysm.png'.
+2024-12-29 10:43:29,004 - experiment_logger_0021_diastolic_aneurysm - INFO - Saved final model checkpoint to '../../models\0021_diastolic_aneurysm\final_model_0021_diastolic_aneurysm.pt'.
+2024-12-29 10:43:29,005 - experiment_logger_0021_diastolic_aneurysm - INFO - Completed experiment for dataset '0021_diastolic_aneurysm'.

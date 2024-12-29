@@ -1,0 +1,540 @@
+2024-12-29 04:03:02,492 - experiment_logger_0022_systolic_aneurysm - INFO - Experiment run initialized with Run ID: 0022_systolic_aneurysm
+2024-12-29 04:03:02,493 - experiment_logger_0022_systolic_aneurysm - INFO - Using device: cuda:0
+2024-12-29 04:03:02,493 - experiment_logger_0022_systolic_aneurysm - INFO - Random seed set to 142
+2024-12-29 04:03:02,494 - experiment_logger_0022_systolic_aneurysm - INFO - Fitting scalers on the data.
+2024-12-29 04:03:02,496 - experiment_logger_0022_systolic_aneurysm - INFO - Fitted scaler for 'features'.
+2024-12-29 04:03:02,497 - experiment_logger_0022_systolic_aneurysm - INFO - Fitted scaler for 'time'.
+2024-12-29 04:03:02,509 - experiment_logger_0022_systolic_aneurysm - INFO - Fitted scaler for 'pressure'.
+2024-12-29 04:03:02,510 - experiment_logger_0022_systolic_aneurysm - INFO - Fitted scaler for 'velocity_u'.
+2024-12-29 04:03:02,511 - experiment_logger_0022_systolic_aneurysm - INFO - Fitted scaler for 'velocity_v'.
+2024-12-29 04:03:02,513 - experiment_logger_0022_systolic_aneurysm - INFO - Fitted scaler for 'velocity_w'.
+2024-12-29 04:03:02,514 - experiment_logger_0022_systolic_aneurysm - INFO - Fitted scaler for 'wall_shear_x'.
+2024-12-29 04:03:02,515 - experiment_logger_0022_systolic_aneurysm - INFO - Fitted scaler for 'wall_shear_y'.
+2024-12-29 04:03:02,517 - experiment_logger_0022_systolic_aneurysm - INFO - Fitted scaler for 'wall_shear_z'.
+2024-12-29 04:03:02,527 - experiment_logger_0022_systolic_aneurysm - INFO - Dataset and DataLoader created with 12430 samples.
+2024-12-29 04:03:02,577 - experiment_logger_0022_systolic_aneurysm - INFO - Initialized 7 separate PINN models for p, u, v, w, tau_x, tau_y, tau_z.
+2024-12-29 04:03:02,579 - experiment_logger_0022_systolic_aneurysm - INFO - Optimizer and scheduler initialized for all separate PINNs.
+2024-12-29 04:03:02,579 - experiment_logger_0022_systolic_aneurysm - INFO - Starting training loop for multi-model PINNs.
+2024-12-29 04:03:06,999 - experiment_logger_0022_systolic_aneurysm - INFO - Initial loss set to 296.670280.
+2024-12-29 04:03:07,041 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:03:07,042 - experiment_logger_0022_systolic_aneurysm - INFO - Epoch 1/500 - Total: 296.670280, Physics: 285.597513, Boundary: 2.281330, Data: 6.322822, Inlet: 2.468616
+2024-12-29 04:03:07,043 - experiment_logger_0022_systolic_aneurysm - INFO - Lambda Physics: 1.0000 Lambda Boundary: 1.0000 Lambda Data: 1.0000 Lambda Inlet: 1.0000
+2024-12-29 04:03:11,241 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 198.621928. Resetting early stopping counter.
+2024-12-29 04:03:11,330 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:03:15,527 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 32.101720. Resetting early stopping counter.
+2024-12-29 04:03:15,631 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:03:19,874 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 12.020081. Resetting early stopping counter.
+2024-12-29 04:03:19,966 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:03:24,218 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 6.186392. Resetting early stopping counter.
+2024-12-29 04:03:24,306 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:03:28,561 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 3.821079. Resetting early stopping counter.
+2024-12-29 04:03:28,660 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:03:32,790 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 2.522349. Resetting early stopping counter.
+2024-12-29 04:03:32,931 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:03:37,055 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 1.706727. Resetting early stopping counter.
+2024-12-29 04:03:37,145 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:03:41,404 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 1.171385. Resetting early stopping counter.
+2024-12-29 04:03:41,494 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:03:45,672 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.848231. Resetting early stopping counter.
+2024-12-29 04:03:45,762 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:03:49,889 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.663911. Resetting early stopping counter.
+2024-12-29 04:03:50,046 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:03:54,182 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.553188. Resetting early stopping counter.
+2024-12-29 04:03:54,274 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:03:58,567 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.454495. Resetting early stopping counter.
+2024-12-29 04:03:58,664 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:04:02,879 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.406994. Resetting early stopping counter.
+2024-12-29 04:04:03,020 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:04:07,238 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.319481. Resetting early stopping counter.
+2024-12-29 04:04:07,329 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:04:11,564 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.285199. Resetting early stopping counter.
+2024-12-29 04:04:11,656 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:04:15,838 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.244189. Resetting early stopping counter.
+2024-12-29 04:04:15,938 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:04:20,133 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.223175. Resetting early stopping counter.
+2024-12-29 04:04:20,227 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:04:24,398 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.201818. Resetting early stopping counter.
+2024-12-29 04:04:24,486 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:04:28,718 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.185711. Resetting early stopping counter.
+2024-12-29 04:04:28,808 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:04:32,928 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.166098. Resetting early stopping counter.
+2024-12-29 04:04:33,021 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:04:37,290 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.152190. Resetting early stopping counter.
+2024-12-29 04:04:37,388 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:04:41,521 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:04:45,690 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.140421. Resetting early stopping counter.
+2024-12-29 04:04:45,781 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:04:49,886 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.136861. Resetting early stopping counter.
+2024-12-29 04:04:49,977 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:04:54,146 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.133059. Resetting early stopping counter.
+2024-12-29 04:04:54,238 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:04:58,458 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.127871. Resetting early stopping counter.
+2024-12-29 04:04:58,551 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:05:02,727 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.127559. Resetting early stopping counter.
+2024-12-29 04:05:02,831 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:05:07,014 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.118021. Resetting early stopping counter.
+2024-12-29 04:05:07,159 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:05:11,341 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.114761. Resetting early stopping counter.
+2024-12-29 04:05:11,433 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:05:15,692 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.104868. Resetting early stopping counter.
+2024-12-29 04:05:15,780 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:05:19,964 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:05:24,097 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.101585. Resetting early stopping counter.
+2024-12-29 04:05:24,188 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:05:28,505 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.097847. Resetting early stopping counter.
+2024-12-29 04:05:28,598 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:05:32,821 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.096949. Resetting early stopping counter.
+2024-12-29 04:05:32,911 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:05:37,077 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:05:41,256 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.091199. Resetting early stopping counter.
+2024-12-29 04:05:41,351 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:05:45,568 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.090879. Resetting early stopping counter.
+2024-12-29 04:05:45,680 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:05:49,907 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.088647. Resetting early stopping counter.
+2024-12-29 04:05:49,996 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:05:54,193 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:05:58,388 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.088300. Resetting early stopping counter.
+2024-12-29 04:05:58,478 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:06:02,720 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.083694. Resetting early stopping counter.
+2024-12-29 04:06:02,812 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:06:07,066 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:06:11,217 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 04:06:15,382 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.079248. Resetting early stopping counter.
+2024-12-29 04:06:15,475 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:06:19,587 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:06:23,773 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 04:06:27,940 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.077999. Resetting early stopping counter.
+2024-12-29 04:06:28,033 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:06:32,164 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.077786. Resetting early stopping counter.
+2024-12-29 04:06:32,304 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:06:36,424 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.077737. Resetting early stopping counter.
+2024-12-29 04:06:36,516 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:06:36,516 - experiment_logger_0022_systolic_aneurysm - INFO - Epoch 50/500 - Total: 0.077737, Physics: 0.011006, Boundary: 0.011400, Data: 0.017877, Inlet: 0.042680
+2024-12-29 04:06:36,517 - experiment_logger_0022_systolic_aneurysm - INFO - Lambda Physics: 0.9614 Lambda Boundary: 0.9405 Lambda Data: 0.9424 Lambda Inlet: 0.9263
+2024-12-29 04:06:40,758 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:06:44,923 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.076662. Resetting early stopping counter.
+2024-12-29 04:06:45,012 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:06:49,162 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:06:53,209 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.076532. Resetting early stopping counter.
+2024-12-29 04:06:53,302 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:06:57,536 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.073979. Resetting early stopping counter.
+2024-12-29 04:06:57,627 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:07:01,846 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.073184. Resetting early stopping counter.
+2024-12-29 04:07:01,935 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:07:06,164 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:07:10,265 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 04:07:14,451 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.070985. Resetting early stopping counter.
+2024-12-29 04:07:14,541 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:07:18,771 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.070735. Resetting early stopping counter.
+2024-12-29 04:07:18,862 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:07:23,129 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:07:27,432 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.069721. Resetting early stopping counter.
+2024-12-29 04:07:27,552 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:07:32,030 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.069254. Resetting early stopping counter.
+2024-12-29 04:07:32,120 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:07:36,522 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.068295. Resetting early stopping counter.
+2024-12-29 04:07:36,624 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:07:40,987 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:07:45,525 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 04:07:50,414 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.067211. Resetting early stopping counter.
+2024-12-29 04:07:50,517 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:07:55,001 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:07:59,427 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.066178. Resetting early stopping counter.
+2024-12-29 04:07:59,519 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:08:03,807 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:08:08,355 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.065867. Resetting early stopping counter.
+2024-12-29 04:08:08,469 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:08:12,832 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:08:17,135 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 04:08:21,284 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.064589. Resetting early stopping counter.
+2024-12-29 04:08:21,376 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:08:25,624 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:08:29,911 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 04:08:34,287 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 3/5.
+2024-12-29 04:08:38,668 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 4/5.
+2024-12-29 04:08:43,289 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.064273. Resetting early stopping counter.
+2024-12-29 04:08:43,397 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:08:47,610 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:08:52,352 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.062751. Resetting early stopping counter.
+2024-12-29 04:08:52,471 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:08:57,305 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:09:01,977 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 04:09:06,417 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 3/5.
+2024-12-29 04:09:10,850 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 4/5.
+2024-12-29 04:09:14,999 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 5/5.
+2024-12-29 04:09:15,000 - experiment_logger_0022_systolic_aneurysm - INFO - Early stopping triggered.
+2024-12-29 04:09:15,000 - experiment_logger_0022_systolic_aneurysm - INFO - Early stopping at epoch 86
+2024-12-29 04:09:15,001 - experiment_logger_0022_systolic_aneurysm - INFO - Training completed.
+2024-12-29 04:09:15,458 - experiment_logger_0022_systolic_aneurysm - INFO - Saved metrics summary to '../../reports/metrics\0022_systolic_aneurysm\metrics_summary_0022_systolic_aneurysm.csv'.
+2024-12-29 04:09:17,578 - experiment_logger_0022_systolic_aneurysm - INFO - Saved Pressure distribution plots to '../../figures\0022_systolic_aneurysm\pressure_distribution_0022_systolic_aneurysm.png'.
+2024-12-29 04:09:19,700 - experiment_logger_0022_systolic_aneurysm - INFO - Saved WSS Magnitude distribution plots to '../../figures\0022_systolic_aneurysm\wss_magnitude_distribution_0022_systolic_aneurysm.png'.
+2024-12-29 04:09:19,704 - experiment_logger_0022_systolic_aneurysm - WARNING - No data found for y=0.5, z=0.5 with tol=0.001. Increasing tolerance.
+2024-12-29 04:09:19,705 - experiment_logger_0022_systolic_aneurysm - WARNING - No data found for y=0.5, z=0.5 with tol=0.002. Increasing tolerance.
+2024-12-29 04:09:19,705 - experiment_logger_0022_systolic_aneurysm - WARNING - No data found for y=0.5, z=0.5 with tol=0.003. Increasing tolerance.
+2024-12-29 04:09:19,706 - experiment_logger_0022_systolic_aneurysm - WARNING - No data found for y=0.5, z=0.5 with tol=0.004. Increasing tolerance.
+2024-12-29 04:09:19,707 - experiment_logger_0022_systolic_aneurysm - INFO - Selected y=0.5 and z=0.5 with tolerance=0.005.
+2024-12-29 04:09:20,578 - experiment_logger_0022_systolic_aneurysm - INFO - Saved WSS line profiles to '../../figures\0022_systolic_aneurysm\wss_line_profiles_0022_systolic_aneurysm.png'.
+2024-12-29 04:09:21,146 - experiment_logger_0022_systolic_aneurysm - INFO - Saved WSS Magnitude histogram plot to '../../figures\0022_systolic_aneurysm\wss_magnitude_histogram_0022_systolic_aneurysm.png'.
+2024-12-29 04:09:21,852 - experiment_logger_0022_systolic_aneurysm - INFO - Saved loss curves plot to '../../figures\0022_systolic_aneurysm\0022_systolic_aneurysm\loss_curves_0022_systolic_aneurysm.png'.
+2024-12-29 04:09:21,999 - experiment_logger_0022_systolic_aneurysm - INFO - Saved final model checkpoint to '../../models\0022_systolic_aneurysm\final_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:09:22,000 - experiment_logger_0022_systolic_aneurysm - INFO - Completed experiment for dataset '0022_systolic_aneurysm'.
+2024-12-29 04:25:38,701 - experiment_logger_0022_systolic_aneurysm - INFO - Experiment run initialized with Run ID: 0022_systolic_aneurysm
+2024-12-29 04:25:38,702 - experiment_logger_0022_systolic_aneurysm - INFO - Using device: cuda:0
+2024-12-29 04:25:38,702 - experiment_logger_0022_systolic_aneurysm - INFO - Random seed set to 142
+2024-12-29 04:25:38,702 - experiment_logger_0022_systolic_aneurysm - INFO - Fitting scalers on the data.
+2024-12-29 04:25:38,704 - experiment_logger_0022_systolic_aneurysm - INFO - Fitted scaler for 'features'.
+2024-12-29 04:25:38,705 - experiment_logger_0022_systolic_aneurysm - INFO - Fitted scaler for 'time'.
+2024-12-29 04:25:38,706 - experiment_logger_0022_systolic_aneurysm - INFO - Fitted scaler for 'pressure'.
+2024-12-29 04:25:38,707 - experiment_logger_0022_systolic_aneurysm - INFO - Fitted scaler for 'velocity_u'.
+2024-12-29 04:25:38,709 - experiment_logger_0022_systolic_aneurysm - INFO - Fitted scaler for 'velocity_v'.
+2024-12-29 04:25:38,710 - experiment_logger_0022_systolic_aneurysm - INFO - Fitted scaler for 'velocity_w'.
+2024-12-29 04:25:38,711 - experiment_logger_0022_systolic_aneurysm - INFO - Fitted scaler for 'wall_shear_x'.
+2024-12-29 04:25:38,712 - experiment_logger_0022_systolic_aneurysm - INFO - Fitted scaler for 'wall_shear_y'.
+2024-12-29 04:25:38,714 - experiment_logger_0022_systolic_aneurysm - INFO - Fitted scaler for 'wall_shear_z'.
+2024-12-29 04:25:38,723 - experiment_logger_0022_systolic_aneurysm - INFO - Dataset and DataLoader created with 12430 samples.
+2024-12-29 04:25:38,771 - experiment_logger_0022_systolic_aneurysm - INFO - Initialized 7 separate PINN models for p, u, v, w, tau_x, tau_y, tau_z.
+2024-12-29 04:25:38,772 - experiment_logger_0022_systolic_aneurysm - INFO - Optimizer and scheduler initialized for all separate PINNs.
+2024-12-29 04:25:38,773 - experiment_logger_0022_systolic_aneurysm - INFO - Starting training loop for multi-model PINNs.
+2024-12-29 04:25:43,329 - experiment_logger_0022_systolic_aneurysm - INFO - Initial loss set to 296.670280.
+2024-12-29 04:25:43,368 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:25:43,368 - experiment_logger_0022_systolic_aneurysm - INFO - Epoch 1/500 - Total: 296.670280, Physics: 285.597513, Boundary: 2.281330, Data: 6.322822, Inlet: 2.468616
+2024-12-29 04:25:43,369 - experiment_logger_0022_systolic_aneurysm - INFO - Lambda Physics: 1.0000 Lambda Boundary: 1.0000 Lambda Data: 1.0000 Lambda Inlet: 1.0000
+2024-12-29 04:25:47,711 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 198.621928. Resetting early stopping counter.
+2024-12-29 04:25:47,800 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:25:52,243 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 32.101720. Resetting early stopping counter.
+2024-12-29 04:25:52,332 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:25:56,725 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 12.020081. Resetting early stopping counter.
+2024-12-29 04:25:56,815 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:26:01,236 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 6.186392. Resetting early stopping counter.
+2024-12-29 04:26:01,328 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:26:05,634 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 3.821079. Resetting early stopping counter.
+2024-12-29 04:26:05,725 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:26:10,123 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 2.522349. Resetting early stopping counter.
+2024-12-29 04:26:10,213 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:26:14,572 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 1.706727. Resetting early stopping counter.
+2024-12-29 04:26:14,661 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:26:19,072 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 1.171385. Resetting early stopping counter.
+2024-12-29 04:26:19,161 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:26:23,549 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.848231. Resetting early stopping counter.
+2024-12-29 04:26:23,640 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:26:28,079 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.663911. Resetting early stopping counter.
+2024-12-29 04:26:28,167 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:26:32,527 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.553188. Resetting early stopping counter.
+2024-12-29 04:26:32,669 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:26:37,062 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.454495. Resetting early stopping counter.
+2024-12-29 04:26:37,154 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:26:41,560 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.406994. Resetting early stopping counter.
+2024-12-29 04:26:41,649 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:26:46,068 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.319481. Resetting early stopping counter.
+2024-12-29 04:26:46,157 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:26:50,522 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.285199. Resetting early stopping counter.
+2024-12-29 04:26:50,670 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:26:54,965 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.244189. Resetting early stopping counter.
+2024-12-29 04:26:55,056 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:26:59,463 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.223175. Resetting early stopping counter.
+2024-12-29 04:26:59,553 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:27:03,922 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.201818. Resetting early stopping counter.
+2024-12-29 04:27:04,080 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:27:08,405 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.185711. Resetting early stopping counter.
+2024-12-29 04:27:08,496 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:27:12,901 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.166098. Resetting early stopping counter.
+2024-12-29 04:27:12,998 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:27:17,411 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.152190. Resetting early stopping counter.
+2024-12-29 04:27:17,502 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:27:21,926 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:27:26,347 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.140421. Resetting early stopping counter.
+2024-12-29 04:27:26,439 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:27:30,844 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.136861. Resetting early stopping counter.
+2024-12-29 04:27:30,934 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:27:35,339 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.133059. Resetting early stopping counter.
+2024-12-29 04:27:35,431 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:27:39,854 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.127871. Resetting early stopping counter.
+2024-12-29 04:27:40,001 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:27:44,347 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.127559. Resetting early stopping counter.
+2024-12-29 04:27:44,437 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:27:48,825 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.118021. Resetting early stopping counter.
+2024-12-29 04:27:48,916 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:27:53,298 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.114761. Resetting early stopping counter.
+2024-12-29 04:27:53,388 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:27:57,768 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.104868. Resetting early stopping counter.
+2024-12-29 04:27:57,911 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:28:02,237 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:28:06,646 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.101585. Resetting early stopping counter.
+2024-12-29 04:28:06,736 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:28:11,106 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.097847. Resetting early stopping counter.
+2024-12-29 04:28:11,197 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:28:15,558 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.096949. Resetting early stopping counter.
+2024-12-29 04:28:15,705 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:28:20,035 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:28:24,437 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.091199. Resetting early stopping counter.
+2024-12-29 04:28:24,528 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:28:28,935 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.090879. Resetting early stopping counter.
+2024-12-29 04:28:29,025 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:28:33,405 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.088647. Resetting early stopping counter.
+2024-12-29 04:28:33,553 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:28:37,904 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:28:42,257 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.088300. Resetting early stopping counter.
+2024-12-29 04:28:42,365 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:28:46,795 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.083694. Resetting early stopping counter.
+2024-12-29 04:28:46,887 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:28:51,238 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:28:55,603 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 04:28:59,915 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.079248. Resetting early stopping counter.
+2024-12-29 04:29:00,004 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:29:04,280 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:29:08,603 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 04:29:12,925 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.077999. Resetting early stopping counter.
+2024-12-29 04:29:13,016 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:29:17,377 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.077786. Resetting early stopping counter.
+2024-12-29 04:29:17,518 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:29:21,894 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.077737. Resetting early stopping counter.
+2024-12-29 04:29:21,984 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:29:21,984 - experiment_logger_0022_systolic_aneurysm - INFO - Epoch 50/500 - Total: 0.077737, Physics: 0.011006, Boundary: 0.011400, Data: 0.017877, Inlet: 0.042680
+2024-12-29 04:29:21,985 - experiment_logger_0022_systolic_aneurysm - INFO - Lambda Physics: 0.9614 Lambda Boundary: 0.9405 Lambda Data: 0.9424 Lambda Inlet: 0.9263
+2024-12-29 04:29:26,407 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:29:30,747 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.076662. Resetting early stopping counter.
+2024-12-29 04:29:30,836 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:29:35,222 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:29:39,582 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.076532. Resetting early stopping counter.
+2024-12-29 04:29:39,671 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:29:44,096 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.073979. Resetting early stopping counter.
+2024-12-29 04:29:44,193 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:29:48,623 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.073184. Resetting early stopping counter.
+2024-12-29 04:29:48,715 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:29:53,139 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:29:57,423 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 04:30:01,778 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.070985. Resetting early stopping counter.
+2024-12-29 04:30:01,866 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:30:06,210 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.070735. Resetting early stopping counter.
+2024-12-29 04:30:06,302 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:30:10,751 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:30:15,131 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.069721. Resetting early stopping counter.
+2024-12-29 04:30:15,223 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:30:19,608 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.069254. Resetting early stopping counter.
+2024-12-29 04:30:19,698 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:30:24,166 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.068295. Resetting early stopping counter.
+2024-12-29 04:30:24,259 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:30:28,718 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:30:33,067 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 04:30:37,407 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.067211. Resetting early stopping counter.
+2024-12-29 04:30:37,496 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:30:41,897 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:30:46,222 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.066178. Resetting early stopping counter.
+2024-12-29 04:30:46,311 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:30:50,592 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:30:54,945 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.065867. Resetting early stopping counter.
+2024-12-29 04:30:55,036 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:30:59,418 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:31:03,702 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 04:31:08,031 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.064589. Resetting early stopping counter.
+2024-12-29 04:31:08,121 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:31:12,530 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:31:16,818 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 04:31:21,151 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 3/5.
+2024-12-29 04:31:25,555 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 4/5.
+2024-12-29 04:31:29,875 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.064273. Resetting early stopping counter.
+2024-12-29 04:31:29,966 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:31:34,329 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:31:38,614 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.062751. Resetting early stopping counter.
+2024-12-29 04:31:38,755 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:31:43,045 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 04:31:47,367 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 04:31:51,665 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 3/5.
+2024-12-29 04:31:56,013 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 4/5.
+2024-12-29 04:32:00,375 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 5/5.
+2024-12-29 04:32:00,376 - experiment_logger_0022_systolic_aneurysm - INFO - Early stopping triggered.
+2024-12-29 04:32:00,376 - experiment_logger_0022_systolic_aneurysm - INFO - Early stopping at epoch 86
+2024-12-29 04:32:00,376 - experiment_logger_0022_systolic_aneurysm - INFO - Training completed.
+2024-12-29 04:32:00,775 - experiment_logger_0022_systolic_aneurysm - INFO - Saved metrics summary to '../../reports/metrics\0022_systolic_aneurysm\metrics_summary_0022_systolic_aneurysm.csv'.
+2024-12-29 04:32:02,770 - experiment_logger_0022_systolic_aneurysm - INFO - Saved Pressure distribution plots to '../../figures\0022_systolic_aneurysm\pressure_distribution_0022_systolic_aneurysm.png'.
+2024-12-29 04:32:04,806 - experiment_logger_0022_systolic_aneurysm - INFO - Saved WSS Magnitude distribution plots to '../../figures\0022_systolic_aneurysm\wss_magnitude_distribution_0022_systolic_aneurysm.png'.
+2024-12-29 04:32:04,810 - experiment_logger_0022_systolic_aneurysm - WARNING - No data found for y=0.5, z=0.5 with tol=0.001. Increasing tolerance.
+2024-12-29 04:32:04,812 - experiment_logger_0022_systolic_aneurysm - WARNING - No data found for y=0.5, z=0.5 with tol=0.002. Increasing tolerance.
+2024-12-29 04:32:04,814 - experiment_logger_0022_systolic_aneurysm - WARNING - No data found for y=0.5, z=0.5 with tol=0.003. Increasing tolerance.
+2024-12-29 04:32:04,815 - experiment_logger_0022_systolic_aneurysm - WARNING - No data found for y=0.5, z=0.5 with tol=0.004. Increasing tolerance.
+2024-12-29 04:32:04,817 - experiment_logger_0022_systolic_aneurysm - INFO - Selected y=0.5 and z=0.5 with tolerance=0.005.
+2024-12-29 04:32:05,681 - experiment_logger_0022_systolic_aneurysm - INFO - Saved WSS line profiles to '../../figures\0022_systolic_aneurysm\wss_line_profiles_0022_systolic_aneurysm.png'.
+2024-12-29 04:32:06,211 - experiment_logger_0022_systolic_aneurysm - INFO - Saved WSS Magnitude histogram plot to '../../figures\0022_systolic_aneurysm\wss_magnitude_histogram_0022_systolic_aneurysm.png'.
+2024-12-29 04:32:06,863 - experiment_logger_0022_systolic_aneurysm - INFO - Saved loss curves plot to '../../figures\0022_systolic_aneurysm\0022_systolic_aneurysm\loss_curves_0022_systolic_aneurysm.png'.
+2024-12-29 04:32:06,983 - experiment_logger_0022_systolic_aneurysm - INFO - Saved final model checkpoint to '../../models\0022_systolic_aneurysm\final_model_0022_systolic_aneurysm.pt'.
+2024-12-29 04:32:06,984 - experiment_logger_0022_systolic_aneurysm - INFO - Completed experiment for dataset '0022_systolic_aneurysm'.
+2024-12-29 10:17:56,899 - experiment_logger_0022_systolic_aneurysm - INFO - Experiment run initialized with Run ID: 0022_systolic_aneurysm
+2024-12-29 10:17:56,899 - experiment_logger_0022_systolic_aneurysm - INFO - Using device: cuda:0
+2024-12-29 10:17:56,900 - experiment_logger_0022_systolic_aneurysm - INFO - Random seed set to 142
+2024-12-29 10:17:56,900 - experiment_logger_0022_systolic_aneurysm - INFO - Fitting scalers on the data.
+2024-12-29 10:17:56,902 - experiment_logger_0022_systolic_aneurysm - INFO - Fitted scaler for 'features'.
+2024-12-29 10:17:56,903 - experiment_logger_0022_systolic_aneurysm - INFO - Fitted scaler for 'time'.
+2024-12-29 10:17:56,904 - experiment_logger_0022_systolic_aneurysm - INFO - Fitted scaler for 'pressure'.
+2024-12-29 10:17:56,906 - experiment_logger_0022_systolic_aneurysm - INFO - Fitted scaler for 'velocity_u'.
+2024-12-29 10:17:56,907 - experiment_logger_0022_systolic_aneurysm - INFO - Fitted scaler for 'velocity_v'.
+2024-12-29 10:17:56,908 - experiment_logger_0022_systolic_aneurysm - INFO - Fitted scaler for 'velocity_w'.
+2024-12-29 10:17:56,909 - experiment_logger_0022_systolic_aneurysm - INFO - Fitted scaler for 'wall_shear_x'.
+2024-12-29 10:17:56,911 - experiment_logger_0022_systolic_aneurysm - INFO - Fitted scaler for 'wall_shear_y'.
+2024-12-29 10:17:56,912 - experiment_logger_0022_systolic_aneurysm - INFO - Fitted scaler for 'wall_shear_z'.
+2024-12-29 10:17:56,922 - experiment_logger_0022_systolic_aneurysm - INFO - Dataset and DataLoader created with 12430 samples.
+2024-12-29 10:17:56,968 - experiment_logger_0022_systolic_aneurysm - INFO - Initialized 7 separate PINN models for p, u, v, w, tau_x, tau_y, tau_z.
+2024-12-29 10:17:56,970 - experiment_logger_0022_systolic_aneurysm - INFO - Optimizer and scheduler initialized for all separate PINNs.
+2024-12-29 10:17:56,970 - experiment_logger_0022_systolic_aneurysm - INFO - Starting training loop for multi-model PINNs.
+2024-12-29 10:18:01,678 - experiment_logger_0022_systolic_aneurysm - INFO - Initial loss set to 296.670280.
+2024-12-29 10:18:01,718 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:18:01,719 - experiment_logger_0022_systolic_aneurysm - INFO - Epoch 1/500 - Total: 296.670280, Physics: 285.597513, Boundary: 2.281330, Data: 6.322822, Inlet: 2.468616
+2024-12-29 10:18:01,720 - experiment_logger_0022_systolic_aneurysm - INFO - Lambda Physics: 1.0000 Lambda Boundary: 1.0000 Lambda Data: 1.0000 Lambda Inlet: 1.0000
+2024-12-29 10:18:06,040 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 198.621928. Resetting early stopping counter.
+2024-12-29 10:18:06,141 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:18:10,538 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 32.101720. Resetting early stopping counter.
+2024-12-29 10:18:10,637 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:18:14,954 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 12.020081. Resetting early stopping counter.
+2024-12-29 10:18:15,047 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:18:19,288 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 6.186392. Resetting early stopping counter.
+2024-12-29 10:18:19,457 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:18:23,724 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 3.821079. Resetting early stopping counter.
+2024-12-29 10:18:23,815 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:18:28,228 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 2.522349. Resetting early stopping counter.
+2024-12-29 10:18:28,323 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:18:32,664 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 1.706727. Resetting early stopping counter.
+2024-12-29 10:18:32,757 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:18:37,009 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 1.171385. Resetting early stopping counter.
+2024-12-29 10:18:37,116 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:18:41,392 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.848231. Resetting early stopping counter.
+2024-12-29 10:18:41,482 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:18:45,756 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.663911. Resetting early stopping counter.
+2024-12-29 10:18:45,854 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:18:50,077 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.553188. Resetting early stopping counter.
+2024-12-29 10:18:50,173 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:18:54,403 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.454495. Resetting early stopping counter.
+2024-12-29 10:18:54,495 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:18:58,819 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.406994. Resetting early stopping counter.
+2024-12-29 10:18:58,911 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:19:03,235 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.319481. Resetting early stopping counter.
+2024-12-29 10:19:03,327 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:19:07,586 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.285199. Resetting early stopping counter.
+2024-12-29 10:19:07,726 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:19:11,854 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.244189. Resetting early stopping counter.
+2024-12-29 10:19:11,949 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:19:16,088 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.223175. Resetting early stopping counter.
+2024-12-29 10:19:16,177 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:19:20,290 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.201818. Resetting early stopping counter.
+2024-12-29 10:19:20,431 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:19:24,547 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.185711. Resetting early stopping counter.
+2024-12-29 10:19:24,692 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:19:28,816 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.166098. Resetting early stopping counter.
+2024-12-29 10:19:28,915 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:19:33,101 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.152190. Resetting early stopping counter.
+2024-12-29 10:19:33,192 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:19:37,387 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:19:41,583 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.140421. Resetting early stopping counter.
+2024-12-29 10:19:41,672 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:19:45,869 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.136861. Resetting early stopping counter.
+2024-12-29 10:19:45,965 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:19:50,161 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.133059. Resetting early stopping counter.
+2024-12-29 10:19:50,259 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:19:54,461 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.127871. Resetting early stopping counter.
+2024-12-29 10:19:54,549 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:19:58,704 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.127559. Resetting early stopping counter.
+2024-12-29 10:19:58,804 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:20:03,030 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.118021. Resetting early stopping counter.
+2024-12-29 10:20:03,124 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:20:07,336 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.114761. Resetting early stopping counter.
+2024-12-29 10:20:07,426 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:20:11,655 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.104868. Resetting early stopping counter.
+2024-12-29 10:20:11,745 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:20:16,080 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:20:20,176 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.101585. Resetting early stopping counter.
+2024-12-29 10:20:20,266 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:20:24,437 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.097847. Resetting early stopping counter.
+2024-12-29 10:20:24,528 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:20:28,739 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.096949. Resetting early stopping counter.
+2024-12-29 10:20:28,830 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:20:33,066 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:20:37,139 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.091199. Resetting early stopping counter.
+2024-12-29 10:20:37,231 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:20:41,440 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.090879. Resetting early stopping counter.
+2024-12-29 10:20:41,533 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:20:45,745 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.088647. Resetting early stopping counter.
+2024-12-29 10:20:45,836 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:20:50,014 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:20:54,115 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.088300. Resetting early stopping counter.
+2024-12-29 10:20:54,204 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:20:58,402 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.083694. Resetting early stopping counter.
+2024-12-29 10:20:58,496 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:21:02,751 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:21:06,926 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 10:21:11,175 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.079248. Resetting early stopping counter.
+2024-12-29 10:21:11,267 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:21:15,414 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:21:19,552 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 10:21:23,657 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.077999. Resetting early stopping counter.
+2024-12-29 10:21:23,748 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:21:27,990 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.077786. Resetting early stopping counter.
+2024-12-29 10:21:28,079 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:21:32,327 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.077737. Resetting early stopping counter.
+2024-12-29 10:21:32,420 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:21:32,421 - experiment_logger_0022_systolic_aneurysm - INFO - Epoch 50/500 - Total: 0.077737, Physics: 0.011006, Boundary: 0.011400, Data: 0.017877, Inlet: 0.042680
+2024-12-29 10:21:32,421 - experiment_logger_0022_systolic_aneurysm - INFO - Lambda Physics: 0.9614 Lambda Boundary: 0.9405 Lambda Data: 0.9424 Lambda Inlet: 0.9263
+2024-12-29 10:21:36,596 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:21:40,670 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.076662. Resetting early stopping counter.
+2024-12-29 10:21:40,759 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:21:44,935 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:21:48,992 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.076532. Resetting early stopping counter.
+2024-12-29 10:21:49,083 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:21:53,251 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.073979. Resetting early stopping counter.
+2024-12-29 10:21:53,339 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:21:57,498 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.073184. Resetting early stopping counter.
+2024-12-29 10:21:57,589 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:22:01,790 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:22:05,966 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 10:22:10,164 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.070985. Resetting early stopping counter.
+2024-12-29 10:22:10,255 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:22:14,371 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.070735. Resetting early stopping counter.
+2024-12-29 10:22:14,513 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:22:18,621 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:22:22,762 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.069721. Resetting early stopping counter.
+2024-12-29 10:22:22,849 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:22:27,003 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.069254. Resetting early stopping counter.
+2024-12-29 10:22:27,096 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:22:31,414 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.068295. Resetting early stopping counter.
+2024-12-29 10:22:31,505 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:22:35,729 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:22:39,853 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 10:22:43,969 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.067211. Resetting early stopping counter.
+2024-12-29 10:22:44,060 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:22:48,245 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:22:52,302 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.066178. Resetting early stopping counter.
+2024-12-29 10:22:52,393 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:22:56,633 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:23:00,777 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.065867. Resetting early stopping counter.
+2024-12-29 10:23:00,868 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:23:05,030 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:23:09,139 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 10:23:13,244 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.064589. Resetting early stopping counter.
+2024-12-29 10:23:13,336 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:23:17,466 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:23:21,572 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 10:23:25,696 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 3/5.
+2024-12-29 10:23:29,794 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 4/5.
+2024-12-29 10:23:33,999 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.064273. Resetting early stopping counter.
+2024-12-29 10:23:34,098 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:23:38,343 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:23:42,495 - experiment_logger_0022_systolic_aneurysm - INFO - Loss improved to 0.062751. Resetting early stopping counter.
+2024-12-29 10:23:42,640 - experiment_logger_0022_systolic_aneurysm - INFO - Saved best model checkpoint to '../../models\0022_systolic_aneurysm\best_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:23:46,801 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 10:23:50,979 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 10:23:55,078 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 3/5.
+2024-12-29 10:23:59,224 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 4/5.
+2024-12-29 10:24:03,439 - experiment_logger_0022_systolic_aneurysm - INFO - No improvement in loss. Early stopping counter: 5/5.
+2024-12-29 10:24:03,440 - experiment_logger_0022_systolic_aneurysm - INFO - Early stopping triggered.
+2024-12-29 10:24:03,440 - experiment_logger_0022_systolic_aneurysm - INFO - Early stopping at epoch 86
+2024-12-29 10:24:03,440 - experiment_logger_0022_systolic_aneurysm - INFO - Training completed.
+2024-12-29 10:24:03,855 - experiment_logger_0022_systolic_aneurysm - INFO - Saved metrics summary to '../../reports/metrics\0022_systolic_aneurysm\metrics_summary_0022_systolic_aneurysm.csv'.
+2024-12-29 10:24:05,794 - experiment_logger_0022_systolic_aneurysm - INFO - Saved Pressure distribution plots to '../../figures\0022_systolic_aneurysm\pressure_distribution_0022_systolic_aneurysm.png'.
+2024-12-29 10:24:07,756 - experiment_logger_0022_systolic_aneurysm - INFO - Saved WSS Magnitude distribution plots to '../../figures\0022_systolic_aneurysm\wss_magnitude_distribution_0022_systolic_aneurysm.png'.
+2024-12-29 10:24:07,761 - experiment_logger_0022_systolic_aneurysm - WARNING - No data found for y=0.5, z=0.5 with tol=0.001. Increasing tolerance.
+2024-12-29 10:24:07,762 - experiment_logger_0022_systolic_aneurysm - WARNING - No data found for y=0.5, z=0.5 with tol=0.002. Increasing tolerance.
+2024-12-29 10:24:07,764 - experiment_logger_0022_systolic_aneurysm - WARNING - No data found for y=0.5, z=0.5 with tol=0.003. Increasing tolerance.
+2024-12-29 10:24:07,765 - experiment_logger_0022_systolic_aneurysm - WARNING - No data found for y=0.5, z=0.5 with tol=0.004. Increasing tolerance.
+2024-12-29 10:24:07,766 - experiment_logger_0022_systolic_aneurysm - INFO - Selected y=0.5 and z=0.5 with tolerance=0.005.
+2024-12-29 10:24:08,629 - experiment_logger_0022_systolic_aneurysm - INFO - Saved WSS line profiles to '../../figures\0022_systolic_aneurysm\wss_line_profiles_0022_systolic_aneurysm.png'.
+2024-12-29 10:24:09,182 - experiment_logger_0022_systolic_aneurysm - INFO - Saved WSS Magnitude histogram plot to '../../figures\0022_systolic_aneurysm\wss_magnitude_histogram_0022_systolic_aneurysm.png'.
+2024-12-29 10:24:09,814 - experiment_logger_0022_systolic_aneurysm - INFO - Saved loss curves plot to '../../figures\0022_systolic_aneurysm\0022_systolic_aneurysm\loss_curves_0022_systolic_aneurysm.png'.
+2024-12-29 10:24:09,962 - experiment_logger_0022_systolic_aneurysm - INFO - Saved final model checkpoint to '../../models\0022_systolic_aneurysm\final_model_0022_systolic_aneurysm.pt'.
+2024-12-29 10:24:09,962 - experiment_logger_0022_systolic_aneurysm - INFO - Completed experiment for dataset '0022_systolic_aneurysm'.

@@ -1,0 +1,108 @@
+2024-12-29 06:42:40,444 - experiment_logger_0142_systolic - INFO - Experiment run initialized with Run ID: 0142_systolic
+2024-12-29 06:42:40,444 - experiment_logger_0142_systolic - INFO - Using device: cuda:0
+2024-12-29 06:42:40,445 - experiment_logger_0142_systolic - INFO - Random seed set to 142
+2024-12-29 06:42:40,445 - experiment_logger_0142_systolic - INFO - Fitting scalers on the data.
+2024-12-29 06:42:40,449 - experiment_logger_0142_systolic - INFO - Fitted scaler for 'features'.
+2024-12-29 06:42:40,450 - experiment_logger_0142_systolic - INFO - Fitted scaler for 'time'.
+2024-12-29 06:42:40,454 - experiment_logger_0142_systolic - INFO - Fitted scaler for 'pressure'.
+2024-12-29 06:42:40,454 - experiment_logger_0142_systolic - INFO - Fitted scaler for 'velocity_u'.
+2024-12-29 06:42:40,456 - experiment_logger_0142_systolic - INFO - Fitted scaler for 'velocity_v'.
+2024-12-29 06:42:40,458 - experiment_logger_0142_systolic - INFO - Fitted scaler for 'velocity_w'.
+2024-12-29 06:42:40,458 - experiment_logger_0142_systolic - INFO - Fitted scaler for 'wall_shear_x'.
+2024-12-29 06:42:40,460 - experiment_logger_0142_systolic - INFO - Fitted scaler for 'wall_shear_y'.
+2024-12-29 06:42:40,463 - experiment_logger_0142_systolic - INFO - Fitted scaler for 'wall_shear_z'.
+2024-12-29 06:42:40,486 - experiment_logger_0142_systolic - INFO - Dataset and DataLoader created with 97143 samples.
+2024-12-29 06:42:40,523 - experiment_logger_0142_systolic - INFO - Initialized 7 separate PINN models for p, u, v, w, tau_x, tau_y, tau_z.
+2024-12-29 06:42:40,524 - experiment_logger_0142_systolic - INFO - Optimizer and scheduler initialized for all separate PINNs.
+2024-12-29 06:42:40,526 - experiment_logger_0142_systolic - INFO - Starting training loop for multi-model PINNs.
+2024-12-29 06:43:14,264 - experiment_logger_0142_systolic - INFO - Initial loss set to 2547.001179.
+2024-12-29 06:43:14,307 - experiment_logger_0142_systolic - INFO - Saved best model checkpoint to '../../models\0142_systolic\best_model_0142_systolic.pt'.
+2024-12-29 06:43:14,308 - experiment_logger_0142_systolic - INFO - Epoch 1/500 - Total: 2547.001179, Physics: 2539.286065, Boundary: 1.284585, Data: 4.878369, Inlet: 1.552144
+2024-12-29 06:43:14,308 - experiment_logger_0142_systolic - INFO - Lambda Physics: 1.0000 Lambda Boundary: 1.0000 Lambda Data: 1.0000 Lambda Inlet: 1.0000
+2024-12-29 06:43:47,940 - experiment_logger_0142_systolic - INFO - Loss improved to 2258.111709. Resetting early stopping counter.
+2024-12-29 06:43:47,981 - experiment_logger_0142_systolic - INFO - Saved best model checkpoint to '../../models\0142_systolic\best_model_0142_systolic.pt'.
+2024-12-29 06:44:21,469 - experiment_logger_0142_systolic - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 06:44:55,083 - experiment_logger_0142_systolic - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 06:45:28,594 - experiment_logger_0142_systolic - INFO - No improvement in loss. Early stopping counter: 3/5.
+2024-12-29 06:46:02,128 - experiment_logger_0142_systolic - INFO - No improvement in loss. Early stopping counter: 4/5.
+2024-12-29 06:46:35,410 - experiment_logger_0142_systolic - INFO - No improvement in loss. Early stopping counter: 5/5.
+2024-12-29 06:46:35,411 - experiment_logger_0142_systolic - INFO - Early stopping triggered.
+2024-12-29 06:46:35,411 - experiment_logger_0142_systolic - INFO - Early stopping at epoch 7
+2024-12-29 06:46:35,412 - experiment_logger_0142_systolic - INFO - Training completed.
+2024-12-29 06:46:38,846 - experiment_logger_0142_systolic - INFO - Saved metrics summary to '../../reports/metrics\0142_systolic\metrics_summary_0142_systolic.csv'.
+2024-12-29 06:46:46,990 - experiment_logger_0142_systolic - INFO - Saved Pressure distribution plots to '../../figures\0142_systolic\pressure_distribution_0142_systolic.png'.
+2024-12-29 06:46:54,474 - experiment_logger_0142_systolic - INFO - Saved WSS Magnitude distribution plots to '../../figures\0142_systolic\wss_magnitude_distribution_0142_systolic.png'.
+2024-12-29 06:46:54,490 - experiment_logger_0142_systolic - WARNING - No data found for y=0.5, z=0.5 with tol=0.001. Increasing tolerance.
+2024-12-29 06:46:54,492 - experiment_logger_0142_systolic - WARNING - No data found for y=0.5, z=0.5 with tol=0.002. Increasing tolerance.
+2024-12-29 06:46:54,493 - experiment_logger_0142_systolic - WARNING - No data found for y=0.5, z=0.5 with tol=0.003. Increasing tolerance.
+2024-12-29 06:46:54,495 - experiment_logger_0142_systolic - WARNING - No data found for y=0.5, z=0.5 with tol=0.004. Increasing tolerance.
+2024-12-29 06:46:54,497 - experiment_logger_0142_systolic - WARNING - No data found for y=0.5, z=0.5 with tol=0.005. Increasing tolerance.
+2024-12-29 06:46:54,498 - experiment_logger_0142_systolic - WARNING - No data found for y=0.5, z=0.5 with tol=0.006. Increasing tolerance.
+2024-12-29 06:46:54,500 - experiment_logger_0142_systolic - WARNING - No data found for y=0.5, z=0.5 with tol=0.007. Increasing tolerance.
+2024-12-29 06:46:54,502 - experiment_logger_0142_systolic - WARNING - No data found for y=0.5, z=0.5 with tol=0.008. Increasing tolerance.
+2024-12-29 06:46:54,505 - experiment_logger_0142_systolic - WARNING - No data found for y=0.5, z=0.5 with tol=0.009000000000000001. Increasing tolerance.
+2024-12-29 06:46:54,506 - experiment_logger_0142_systolic - WARNING - No data found for y=0.5, z=0.5 with tol=0.010000000000000002. Increasing tolerance.
+2024-12-29 06:46:54,508 - experiment_logger_0142_systolic - WARNING - No data found for y=0.5, z=0.5 with tol=0.011000000000000003. Increasing tolerance.
+2024-12-29 06:46:54,510 - experiment_logger_0142_systolic - WARNING - No data found for y=0.5, z=0.5 with tol=0.012000000000000004. Increasing tolerance.
+2024-12-29 06:46:54,512 - experiment_logger_0142_systolic - WARNING - No data found for y=0.5, z=0.5 with tol=0.013000000000000005. Increasing tolerance.
+2024-12-29 06:46:54,513 - experiment_logger_0142_systolic - WARNING - No data found for y=0.5, z=0.5 with tol=0.014000000000000005. Increasing tolerance.
+2024-12-29 06:46:54,515 - experiment_logger_0142_systolic - INFO - Selected y=0.5 and z=0.5 with tolerance=0.015000000000000006.
+2024-12-29 06:46:55,493 - experiment_logger_0142_systolic - INFO - Saved WSS line profiles to '../../figures\0142_systolic\wss_line_profiles_0142_systolic.png'.
+2024-12-29 06:46:56,310 - experiment_logger_0142_systolic - INFO - Saved WSS Magnitude histogram plot to '../../figures\0142_systolic\wss_magnitude_histogram_0142_systolic.png'.
+2024-12-29 06:46:56,886 - experiment_logger_0142_systolic - INFO - Saved loss curves plot to '../../figures\0142_systolic\0142_systolic\loss_curves_0142_systolic.png'.
+2024-12-29 06:46:56,927 - experiment_logger_0142_systolic - INFO - Saved final model checkpoint to '../../models\0142_systolic\final_model_0142_systolic.pt'.
+2024-12-29 06:46:56,928 - experiment_logger_0142_systolic - INFO - Completed experiment for dataset '0142_systolic'.
+2024-12-29 12:29:00,370 - experiment_logger_0142_systolic - INFO - Experiment run initialized with Run ID: 0142_systolic
+2024-12-29 12:29:00,370 - experiment_logger_0142_systolic - INFO - Using device: cuda:0
+2024-12-29 12:29:00,371 - experiment_logger_0142_systolic - INFO - Random seed set to 142
+2024-12-29 12:29:00,371 - experiment_logger_0142_systolic - INFO - Fitting scalers on the data.
+2024-12-29 12:29:00,374 - experiment_logger_0142_systolic - INFO - Fitted scaler for 'features'.
+2024-12-29 12:29:00,375 - experiment_logger_0142_systolic - INFO - Fitted scaler for 'time'.
+2024-12-29 12:29:00,377 - experiment_logger_0142_systolic - INFO - Fitted scaler for 'pressure'.
+2024-12-29 12:29:00,378 - experiment_logger_0142_systolic - INFO - Fitted scaler for 'velocity_u'.
+2024-12-29 12:29:00,380 - experiment_logger_0142_systolic - INFO - Fitted scaler for 'velocity_v'.
+2024-12-29 12:29:00,381 - experiment_logger_0142_systolic - INFO - Fitted scaler for 'velocity_w'.
+2024-12-29 12:29:00,382 - experiment_logger_0142_systolic - INFO - Fitted scaler for 'wall_shear_x'.
+2024-12-29 12:29:00,383 - experiment_logger_0142_systolic - INFO - Fitted scaler for 'wall_shear_y'.
+2024-12-29 12:29:00,385 - experiment_logger_0142_systolic - INFO - Fitted scaler for 'wall_shear_z'.
+2024-12-29 12:29:00,417 - experiment_logger_0142_systolic - INFO - Dataset and DataLoader created with 97143 samples.
+2024-12-29 12:29:00,454 - experiment_logger_0142_systolic - INFO - Initialized 7 separate PINN models for p, u, v, w, tau_x, tau_y, tau_z.
+2024-12-29 12:29:00,455 - experiment_logger_0142_systolic - INFO - Optimizer and scheduler initialized for all separate PINNs.
+2024-12-29 12:29:00,455 - experiment_logger_0142_systolic - INFO - Starting training loop for multi-model PINNs.
+2024-12-29 12:29:32,581 - experiment_logger_0142_systolic - INFO - Initial loss set to 2547.001179.
+2024-12-29 12:29:32,624 - experiment_logger_0142_systolic - INFO - Saved best model checkpoint to '../../models\0142_systolic\best_model_0142_systolic.pt'.
+2024-12-29 12:29:32,624 - experiment_logger_0142_systolic - INFO - Epoch 1/500 - Total: 2547.001179, Physics: 2539.286065, Boundary: 1.284585, Data: 4.878369, Inlet: 1.552144
+2024-12-29 12:29:32,625 - experiment_logger_0142_systolic - INFO - Lambda Physics: 1.0000 Lambda Boundary: 1.0000 Lambda Data: 1.0000 Lambda Inlet: 1.0000
+2024-12-29 12:30:04,783 - experiment_logger_0142_systolic - INFO - Loss improved to 2258.111709. Resetting early stopping counter.
+2024-12-29 12:30:04,824 - experiment_logger_0142_systolic - INFO - Saved best model checkpoint to '../../models\0142_systolic\best_model_0142_systolic.pt'.
+2024-12-29 12:30:36,956 - experiment_logger_0142_systolic - INFO - No improvement in loss. Early stopping counter: 1/5.
+2024-12-29 12:31:08,883 - experiment_logger_0142_systolic - INFO - No improvement in loss. Early stopping counter: 2/5.
+2024-12-29 12:31:40,604 - experiment_logger_0142_systolic - INFO - No improvement in loss. Early stopping counter: 3/5.
+2024-12-29 12:32:12,543 - experiment_logger_0142_systolic - INFO - No improvement in loss. Early stopping counter: 4/5.
+2024-12-29 12:32:44,572 - experiment_logger_0142_systolic - INFO - No improvement in loss. Early stopping counter: 5/5.
+2024-12-29 12:32:44,573 - experiment_logger_0142_systolic - INFO - Early stopping triggered.
+2024-12-29 12:32:44,573 - experiment_logger_0142_systolic - INFO - Early stopping at epoch 7
+2024-12-29 12:32:44,574 - experiment_logger_0142_systolic - INFO - Training completed.
+2024-12-29 12:32:48,009 - experiment_logger_0142_systolic - INFO - Saved metrics summary to '../../reports/metrics\0142_systolic\metrics_summary_0142_systolic.csv'.
+2024-12-29 12:32:56,047 - experiment_logger_0142_systolic - INFO - Saved Pressure distribution plots to '../../figures\0142_systolic\pressure_distribution_0142_systolic.png'.
+2024-12-29 12:33:03,391 - experiment_logger_0142_systolic - INFO - Saved WSS Magnitude distribution plots to '../../figures\0142_systolic\wss_magnitude_distribution_0142_systolic.png'.
+2024-12-29 12:33:03,406 - experiment_logger_0142_systolic - WARNING - No data found for y=0.5, z=0.5 with tol=0.001. Increasing tolerance.
+2024-12-29 12:33:03,408 - experiment_logger_0142_systolic - WARNING - No data found for y=0.5, z=0.5 with tol=0.002. Increasing tolerance.
+2024-12-29 12:33:03,410 - experiment_logger_0142_systolic - WARNING - No data found for y=0.5, z=0.5 with tol=0.003. Increasing tolerance.
+2024-12-29 12:33:03,411 - experiment_logger_0142_systolic - WARNING - No data found for y=0.5, z=0.5 with tol=0.004. Increasing tolerance.
+2024-12-29 12:33:03,412 - experiment_logger_0142_systolic - WARNING - No data found for y=0.5, z=0.5 with tol=0.005. Increasing tolerance.
+2024-12-29 12:33:03,414 - experiment_logger_0142_systolic - WARNING - No data found for y=0.5, z=0.5 with tol=0.006. Increasing tolerance.
+2024-12-29 12:33:03,416 - experiment_logger_0142_systolic - WARNING - No data found for y=0.5, z=0.5 with tol=0.007. Increasing tolerance.
+2024-12-29 12:33:03,417 - experiment_logger_0142_systolic - WARNING - No data found for y=0.5, z=0.5 with tol=0.008. Increasing tolerance.
+2024-12-29 12:33:03,419 - experiment_logger_0142_systolic - WARNING - No data found for y=0.5, z=0.5 with tol=0.009000000000000001. Increasing tolerance.
+2024-12-29 12:33:03,420 - experiment_logger_0142_systolic - WARNING - No data found for y=0.5, z=0.5 with tol=0.010000000000000002. Increasing tolerance.
+2024-12-29 12:33:03,421 - experiment_logger_0142_systolic - WARNING - No data found for y=0.5, z=0.5 with tol=0.011000000000000003. Increasing tolerance.
+2024-12-29 12:33:03,424 - experiment_logger_0142_systolic - WARNING - No data found for y=0.5, z=0.5 with tol=0.012000000000000004. Increasing tolerance.
+2024-12-29 12:33:03,425 - experiment_logger_0142_systolic - WARNING - No data found for y=0.5, z=0.5 with tol=0.013000000000000005. Increasing tolerance.
+2024-12-29 12:33:03,427 - experiment_logger_0142_systolic - WARNING - No data found for y=0.5, z=0.5 with tol=0.014000000000000005. Increasing tolerance.
+2024-12-29 12:33:03,428 - experiment_logger_0142_systolic - INFO - Selected y=0.5 and z=0.5 with tolerance=0.015000000000000006.
+2024-12-29 12:33:04,374 - experiment_logger_0142_systolic - INFO - Saved WSS line profiles to '../../figures\0142_systolic\wss_line_profiles_0142_systolic.png'.
+2024-12-29 12:33:05,274 - experiment_logger_0142_systolic - INFO - Saved WSS Magnitude histogram plot to '../../figures\0142_systolic\wss_magnitude_histogram_0142_systolic.png'.
+2024-12-29 12:33:05,855 - experiment_logger_0142_systolic - INFO - Saved loss curves plot to '../../figures\0142_systolic\0142_systolic\loss_curves_0142_systolic.png'.
+2024-12-29 12:33:05,903 - experiment_logger_0142_systolic - INFO - Saved final model checkpoint to '../../models\0142_systolic\final_model_0142_systolic.pt'.
+2024-12-29 12:33:05,903 - experiment_logger_0142_systolic - INFO - Completed experiment for dataset '0142_systolic'.
