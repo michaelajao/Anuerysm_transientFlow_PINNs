@@ -45,7 +45,7 @@ import matplotlib.pyplot as plt
 from tqdm.auto import tqdm
 
 # For mixed precision training
-from torch.cuda.amp import autocast, GradScaler
+from torch.cuda.amp import autocast, GradScaler  # Corrected import to torch.cuda.amp
 
 # For evaluation metrics
 from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
@@ -55,14 +55,14 @@ from scipy.interpolate import griddata
 from mpl_toolkits.mplot3d import Axes3D
 
 # =========================================
-# 1. Set the Default Plotting Style
+# 2. Set the Default Plotting Style
 # =========================================
 
 # Use Seaborn's "paper" style for clean and professional aesthetics
 plt.style.use("seaborn-v0_8-paper")
 
 # =========================================
-# 2. Update rcParams for Publication-Quality Plots
+# 3. Update rcParams for Publication-Quality Plots
 # =========================================
 
 plt.rcParams.update(
@@ -142,7 +142,7 @@ plt.rcParams.update(
 )
 
 # =========================================
-# 2. Model Definitions
+# 4. Model Definitions
 # =========================================
 
 class Swish(nn.Module):
@@ -309,7 +309,7 @@ def initialize_models(config: 'Config', logger: logging.Logger) -> Dict[str, nn.
     }
 
 # =========================================
-# 3. Configuration and Parameters
+# 5. Configuration and Parameters
 # =========================================
 
 @dataclass
@@ -320,11 +320,11 @@ class Config:
     Holds all hyperparameters, file paths, and architectural details required for the experiment.
     """
     # Directory Paths
-    model_dir: str = "../../models"                         # Directory to save trained models
-    plot_dir: str = "../../figures"                          # Directory to save generated plots
-    metrics_dir: str = "../../reports/metrics"               # Directory to save logs and metrics
-    data_dir: str = "../../data"                              # Directory containing raw data
-    processed_data_dir: str = "../../data/processed"         # Directory containing processed data
+    model_dir: str = "../../models/pinn_experiment"             # Directory to save trained models
+    plot_dir: str = "../../reports/figures/pinn_experiment"     # Directory to save generated plots
+    metrics_dir: str = "../../metrics/pinn_experiment"          # Directory to save logs and metrics
+    data_dir: str = "../../data"                                 # Directory containing raw data
+    processed_data_dir: str = "../../data/processed"            # Directory containing processed data
 
     # Experiment Parameters
     categories: list = field(default_factory=lambda: ["aneurysm", "healthy"])  # Data categories
@@ -390,8 +390,9 @@ class Config:
         """
         self.pin_memory = self.device.startswith("cuda")
 
+
 # =========================================
-# 4. Logging Setup
+# 6. Logging Setup
 # =========================================
 
 def setup_logging(run_id: str, metrics_dir: str, config: Config) -> logging.Logger:
@@ -411,8 +412,14 @@ def setup_logging(run_id: str, metrics_dir: str, config: Config) -> logging.Logg
 
     # Prevent adding multiple handlers if setup_logging is called multiple times
     if not logger.handlers:
+        # Define log file path
+        log_file_path = os.path.join(metrics_dir, run_id, f"experiment_{run_id}.log")
+        
+        # Create the directory if it doesn't exist
+        os.makedirs(os.path.dirname(log_file_path), exist_ok=True)
+
         # File handler for logging to a file
-        file_handler = logging.FileHandler(os.path.join(metrics_dir, f"experiment_{run_id}.log"), mode="a")
+        file_handler = logging.FileHandler(log_file_path, mode="a")
         file_handler.setLevel(logging.INFO)
         file_formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
         file_handler.setFormatter(file_formatter)
@@ -431,8 +438,9 @@ def setup_logging(run_id: str, metrics_dir: str, config: Config) -> logging.Logg
 
     return logger
 
+
 # =========================================
-# 5. Data Loading and Preprocessing
+# 7. Data Loading and Preprocessing
 # =========================================
 
 class CFDDataset(Dataset):
@@ -590,7 +598,7 @@ def load_data(config: Config, logger: logging.Logger) -> Dict[str, pd.DataFrame]
     return datasets
 
 # =========================================
-# 6. Optimizer and Scheduler Setup
+# 8. Optimizer and Scheduler Setup
 # =========================================
 
 def setup_optimizer_scheduler(models: Dict[str, nn.Module], config: Config, logger: logging.Logger) -> Tuple[optim.Optimizer, optim.lr_scheduler._LRScheduler]:
@@ -626,7 +634,7 @@ def setup_optimizer_scheduler(models: Dict[str, nn.Module], config: Config, logg
     return optimizer, scheduler
 
 # =========================================
-# 7. Early Stopping Mechanism
+# 9. Early Stopping Mechanism
 # =========================================
 
 class EarlyStopping:
@@ -700,7 +708,8 @@ class EarlyStopping:
             run_id (str): Unique identifier for the experiment run.
             model_dir (str): Directory to save model checkpoints.
         """
-        best_model_path = os.path.join(model_dir, f"best_model_{run_id}.pt")
+        best_model_path = os.path.join(model_dir, run_id, f"best_model_{run_id}.pt")
+        os.makedirs(os.path.dirname(best_model_path), exist_ok=True)
         checkpoint = {}
         for key, model in models.items():
             checkpoint[f"{key}_state_dict"] = model.state_dict()
@@ -713,7 +722,7 @@ class EarlyStopping:
             self.logger.info(f"Saved best model checkpoint to '{best_model_path}'.")
 
 # =========================================
-# 8. Loss Functions
+# 10. Loss Functions
 # =========================================
 
 def compute_physics_loss(
@@ -904,7 +913,660 @@ def compute_inlet_loss(u_pred: torch.Tensor, v_pred: torch.Tensor, w_pred: torch
     return loss_inlet
 
 # =========================================
-# 9. Training Loop
+# 11. Evaluation Metrics
+# =========================================
+
+def evaluate_pinn(
+    models: Dict[str, nn.Module],
+    dataloader: DataLoader,
+    dataset: CFDDataset,
+    config: Config,
+    logger: logging.Logger,
+    run_id: str,
+) -> Tuple[Dict[str, float], Dict[str, float], Dict[str, float], float]:
+    """
+    Evaluates the trained PINN models on the entire dataset and computes evaluation metrics.
+
+    Metrics Computed:
+    - R² Score
+    - Normalized Root Mean Squared Error (NRMSE)
+    - Mean Absolute Error (MAE)
+
+    Args:
+        models (Dict[str, nn.Module]): Dictionary of trained PINN models.
+        dataloader (DataLoader): DataLoader for evaluation data.
+        dataset (CFDDataset): Dataset instance for inverse transformations.
+        config (Config): Configuration object.
+        logger (logging.Logger): Logger for logging information.
+        run_id (str): Unique identifier for the experiment run.
+
+    Returns:
+        Tuple[Dict[str, float], Dict[str, float], Dict[str, float], float]:
+            Dictionaries containing R² scores, NRMSE scores, MAE scores, and total MAE.
+    """
+    for m in models.values():
+        m.eval()
+
+    r2_scores = {}
+    nrmse_scores = {}
+    mae_scores = {}
+    variables = [
+        "pressure",
+        "velocity_u",
+        "velocity_v",
+        "velocity_w",
+        "wall_shear_x",
+        "wall_shear_y",
+        "wall_shear_z",
+    ]
+
+    predictions = {var: [] for var in variables}
+    truths = {var: [] for var in variables}
+
+    # Convenient references to models
+    model_p = models["p"]
+    model_u = models["u"]
+    model_v = models["v"]
+    model_w = models["w"]
+    model_tau_x = models["tau_x"]
+    model_tau_y = models["tau_y"]
+    model_tau_z = models["tau_z"]
+
+    with torch.no_grad():
+        for batch in tqdm(dataloader, desc="Evaluating", leave=False):
+            (
+                x_batch,
+                y_batch,
+                z_batch,
+                t_batch,
+                p_true,
+                u_true,
+                v_true,
+                w_true,
+                tau_x_true,
+                tau_y_true,
+                tau_z_true,
+                _
+            ) = batch
+
+            x_batch = x_batch.to(config.device)
+            y_batch = y_batch.to(config.device)
+            z_batch = z_batch.to(config.device)
+            t_batch = t_batch.to(config.device)
+
+            # Forward passes
+            p_pred = model_p(x_batch, y_batch, z_batch, t_batch)
+            u_pred = model_u(x_batch, y_batch, z_batch, t_batch)
+            v_pred = model_v(x_batch, y_batch, z_batch, t_batch)
+            w_pred = model_w(x_batch, y_batch, z_batch, t_batch)
+            tau_x_pred = model_tau_x(x_batch, y_batch, z_batch, t_batch)
+            tau_y_pred = model_tau_y(x_batch, y_batch, z_batch, t_batch)
+            tau_z_pred = model_tau_z(x_batch, y_batch, z_batch, t_batch)
+
+            # Collect predictions & ground truth
+            predictions["pressure"].append(p_pred.cpu().numpy())
+            truths["pressure"].append(p_true.numpy())
+
+            predictions["velocity_u"].append(u_pred.cpu().numpy())
+            truths["velocity_u"].append(u_true.numpy())
+
+            predictions["velocity_v"].append(v_pred.cpu().numpy())
+            truths["velocity_v"].append(v_true.numpy())
+
+            predictions["velocity_w"].append(w_pred.cpu().numpy())
+            truths["velocity_w"].append(w_true.numpy())
+
+            predictions["wall_shear_x"].append(tau_x_pred.cpu().numpy())
+            truths["wall_shear_x"].append(tau_x_true.numpy())
+
+            predictions["wall_shear_y"].append(tau_y_pred.cpu().numpy())
+            truths["wall_shear_y"].append(tau_y_true.numpy())
+
+            predictions["wall_shear_z"].append(tau_z_pred.cpu().numpy())
+            truths["wall_shear_z"].append(tau_z_true.numpy())
+
+            # Cleanup to free GPU memory
+            del (x_batch, y_batch, z_batch, t_batch,
+                 p_true, u_true, v_true, w_true,
+                 tau_x_true, tau_y_true, tau_z_true,
+                 p_pred, u_pred, v_pred, w_pred,
+                 tau_x_pred, tau_y_pred, tau_z_pred)
+            torch.cuda.empty_cache()
+
+    # Convert lists to arrays and inverse transform to original scale
+    for var in variables:
+        predictions[var] = np.concatenate(predictions[var], axis=0)
+        truths[var] = np.concatenate(truths[var], axis=0)
+        predictions[var] = dataset.scalers[var].inverse_transform(predictions[var].reshape(-1, 1)).flatten()
+        truths[var] = dataset.scalers[var].inverse_transform(truths[var].reshape(-1, 1)).flatten()
+
+    # Compute evaluation metrics with epsilon to prevent divide-by-zero
+    epsilon = 1e-8
+    for var in variables:
+        r2 = r2_score(truths[var], predictions[var])
+        denominator = (truths[var].max() - truths[var].min()) + epsilon
+        nrmse = np.sqrt(mean_squared_error(truths[var], predictions[var])) / denominator
+        mae = mean_absolute_error(truths[var], predictions[var])
+        r2_scores[var] = r2
+        nrmse_scores[var] = nrmse
+        mae_scores[var] = mae
+
+    # Calculate total MAE across all variables
+    total_mae = np.mean(list(mae_scores.values()))
+    metrics_summary = {
+        "Run_ID": run_id,
+        "Total_MAE": total_mae,
+    }
+    for var in variables:
+        metrics_summary[f"{var}_R2"] = r2_scores[var]
+        metrics_summary[f"{var}_NRMSE"] = nrmse_scores[var]
+        metrics_summary[f"{var}_MAE"] = mae_scores[var]
+
+    # Save metrics summary to CSV
+    df_metrics = pd.DataFrame([metrics_summary])
+    metrics_summary_path = os.path.join(config.metrics_dir, run_id, f"metrics_summary_{run_id}.csv")
+    os.makedirs(os.path.dirname(metrics_summary_path), exist_ok=True)
+    df_metrics.to_csv(metrics_summary_path, index=False)
+    logger.info(f"Saved metrics summary to '{metrics_summary_path}'.")
+
+    return r2_scores, nrmse_scores, mae_scores, total_mae
+
+# =========================================
+# 10. Visualization Functions
+# =========================================
+
+def plot_loss_curves(loss_history: Dict[str, list], config: Config, logger: logging.Logger, run_id: str, dataset_name: str):
+    """
+    Plots the training loss curves for different loss components.
+
+    Args:
+        loss_history (Dict[str, list]): Dictionary containing loss history.
+        config (Config): Configuration object.
+        logger (logging.Logger): Logger for logging information.
+        run_id (str): Unique identifier for the experiment run.
+        dataset_name (str): Name of the dataset.
+    """
+    epochs = range(1, len(loss_history["total"]) + 1)
+    plt.figure(figsize=(12, 8))
+    plt.plot(epochs, loss_history["total"], label="Total Loss")
+    plt.plot(epochs, loss_history["physics"], label="Physics Loss")
+    plt.plot(epochs, loss_history["boundary"], label="Boundary Loss")
+    plt.plot(epochs, loss_history["data"], label="Data Loss")
+    plt.plot(epochs, loss_history["inlet"], label="Inlet Loss")
+    plt.xlabel("Epoch", fontsize=14)
+    plt.ylabel("Loss", fontsize=14)
+    plt.yscale("log")
+    plt.title(f"Training Loss Curves - {run_id}", fontsize=16)
+    plt.legend(fontsize=12)
+    plt.grid(True, which="both", linestyle="--", linewidth=0.5)
+
+    plt.tight_layout(rect=[0, 0.03, 1, 0.95])
+    run_plot_dir = os.path.join(config.plot_dir, run_id)
+    os.makedirs(run_plot_dir, exist_ok=True)
+    plot_filename = f"loss_curves_{run_id}.png"
+    plot_path = os.path.join(run_plot_dir, plot_filename)
+    plt.savefig(plot_path, dpi=config.plot_resolution, bbox_inches='tight')
+    plt.close()
+    logger.info(f"Saved loss curves plot to '{plot_path}'.")
+
+
+def plot_pressure_and_wss_magnitude_distribution(
+    dataset: CFDDataset,
+    models: Dict[str, nn.Module],
+    config: Config,
+    logger: logging.Logger,
+    run_id: str,
+):
+    """
+    Generates and saves plots comparing the distribution of Pressure and WSS Magnitude
+    between CFD data and PINN predictions in both XY and XZ planes.
+
+    Args:
+        dataset (CFDDataset): Dataset instance containing CFD data.
+        models (Dict[str, nn.Module]): Dictionary of trained PINN models.
+        config (Config): Configuration object.
+        logger (logging.Logger): Logger for logging information.
+        run_id (str): Unique identifier for the experiment run.
+    """
+    for m in models.values():
+        m.eval()
+
+    # Convenient references to models
+    model_p = models["p"]
+    model_u = models["u"]
+    model_v = models["v"]
+    model_w = models["w"]
+    model_tau_x = models["tau_x"]
+    model_tau_y = models["tau_y"]
+    model_tau_z = models["tau_z"]
+
+    variables = [
+        "pressure",
+        "velocity_u",
+        "velocity_v",
+        "velocity_w",
+        "wall_shear_x",
+        "wall_shear_y",
+        "wall_shear_z",
+    ]
+
+    predictions = {var: [] for var in variables}
+    truths = {var: [] for var in variables}
+
+    x_sample = dataset.x.numpy()
+    y_sample = dataset.y.numpy()
+    z_sample = dataset.z.numpy()
+    t_sample = dataset.t.numpy()
+
+    batch_size = 1024
+    num_samples = len(x_sample)
+
+    with torch.no_grad():
+        for i in range(0, num_samples, batch_size):
+            end = i + batch_size
+            batch_x = torch.tensor(x_sample[i:end], dtype=torch.float32, device=config.device)
+            batch_y = torch.tensor(y_sample[i:end], dtype=torch.float32, device=config.device)
+            batch_z = torch.tensor(z_sample[i:end], dtype=torch.float32, device=config.device)
+            batch_t = torch.tensor(t_sample[i:end], dtype=torch.float32, device=config.device)
+
+            p_pred = model_p(batch_x, batch_y, batch_z, batch_t)
+            u_pred = model_u(batch_x, batch_y, batch_z, batch_t)
+            v_pred = model_v(batch_x, batch_y, batch_z, batch_t)
+            w_pred = model_w(batch_x, batch_y, batch_z, batch_t)
+            tau_x_pred = model_tau_x(batch_x, batch_y, batch_z, batch_t)
+            tau_y_pred = model_tau_y(batch_x, batch_y, batch_z, batch_t)
+            tau_z_pred = model_tau_z(batch_x, batch_y, batch_z, batch_t)
+
+            predictions["pressure"].append(p_pred.cpu().numpy())
+            truths["pressure"].append(dataset.p[i:end].numpy())
+
+            predictions["velocity_u"].append(u_pred.cpu().numpy())
+            truths["velocity_u"].append(dataset.u[i:end].numpy())
+
+            predictions["velocity_v"].append(v_pred.cpu().numpy())
+            truths["velocity_v"].append(dataset.v[i:end].numpy())
+
+            predictions["velocity_w"].append(w_pred.cpu().numpy())
+            truths["velocity_w"].append(dataset.w[i:end].numpy())
+
+            predictions["wall_shear_x"].append(tau_x_pred.cpu().numpy())
+            truths["wall_shear_x"].append(dataset.tau_x[i:end].numpy())
+
+            predictions["wall_shear_y"].append(tau_y_pred.cpu().numpy())
+            truths["wall_shear_y"].append(dataset.tau_y[i:end].numpy())
+
+            predictions["wall_shear_z"].append(tau_z_pred.cpu().numpy())
+            truths["wall_shear_z"].append(dataset.tau_z[i:end].numpy())
+
+            # Cleanup to free GPU memory
+            del batch_x, batch_y, batch_z, batch_t
+            del p_pred, u_pred, v_pred, w_pred, tau_x_pred, tau_y_pred, tau_z_pred
+            torch.cuda.empty_cache()
+
+    # Convert lists to arrays and inverse transform to original scale
+    for var in variables:
+        predictions[var] = np.concatenate(predictions[var], axis=0)
+        truths[var] = np.concatenate(truths[var], axis=0)
+        predictions[var] = dataset.scalers[var].inverse_transform(predictions[var].reshape(-1, 1)).flatten()
+        truths[var] = dataset.scalers[var].inverse_transform(truths[var].reshape(-1, 1)).flatten()
+
+    # Compute WSS Magnitude for Predictions and True Data
+    wss_magnitude_pred = np.sqrt(
+        predictions["wall_shear_x"]**2 +
+        predictions["wall_shear_y"]**2 +
+        predictions["wall_shear_z"]**2
+    )
+    wss_magnitude_true = np.sqrt(
+        truths["wall_shear_x"]**2 +
+        truths["wall_shear_y"]**2 +
+        truths["wall_shear_z"]**2
+    )
+
+    run_plot_dir = os.path.join(config.plot_dir, run_id)
+    os.makedirs(run_plot_dir, exist_ok=True)
+
+    # =========================================
+    # Pressure Distribution Plots with Shared Colorbars
+    # =========================================
+
+    fig_p, axs_p = plt.subplots(2, 2, figsize=(16, 12), constrained_layout=False)
+
+    # Define overall min and max for pressure to ensure consistent color mapping
+    pressure_min = min(truths["pressure"].min(), predictions["pressure"].min())
+    pressure_max = max(truths["pressure"].max(), predictions["pressure"].max())
+
+    # Plot CFD Pressure (XY Plane)
+    sc1 = axs_p[0, 0].scatter(x_sample, y_sample, c=truths["pressure"], cmap="viridis", vmin=pressure_min, vmax=pressure_max, s=5, alpha=0.8)
+    axs_p[0, 0].set_title("CFD Pressure (XY Plane)", fontsize=16)
+    axs_p[0, 0].set_xlabel("X [m]", fontsize=14)
+    axs_p[0, 0].set_ylabel("Y [m]", fontsize=14)
+
+    # Plot PINN Pressure (XY Plane)
+    sc2 = axs_p[0, 1].scatter(x_sample, y_sample, c=predictions["pressure"], cmap="viridis", vmin=pressure_min, vmax=pressure_max, s=5, alpha=0.8)
+    axs_p[0, 1].set_title("PINN Pressure (XY Plane)", fontsize=16)
+    axs_p[0, 1].set_xlabel("X [m]", fontsize=14)
+    axs_p[0, 1].set_ylabel("Y [m]", fontsize=14)
+
+    # Plot CFD Pressure (XZ Plane)
+    sc3 = axs_p[1, 0].scatter(x_sample, z_sample, c=truths["pressure"], cmap="viridis", vmin=pressure_min, vmax=pressure_max, s=5, alpha=0.8)
+    axs_p[1, 0].set_title("CFD Pressure (XZ Plane)", fontsize=16)
+    axs_p[1, 0].set_xlabel("X [m]", fontsize=14)
+    axs_p[1, 0].set_ylabel("Z [m]", fontsize=14)
+
+    # Plot PINN Pressure (XZ Plane)
+    sc4 = axs_p[1, 1].scatter(x_sample, z_sample, c=predictions["pressure"], cmap="viridis", vmin=pressure_min, vmax=pressure_max, s=5, alpha=0.8)
+    axs_p[1, 1].set_title("PINN Pressure (XZ Plane)", fontsize=16)
+    axs_p[1, 1].set_xlabel("X [m]", fontsize=14)
+    axs_p[1, 1].set_ylabel("Z [m]", fontsize=14)
+
+    # Add a single colorbar for all pressure plots
+    cbar_p = fig_p.colorbar(sc1, ax=axs_p, orientation='vertical', fraction=0.02, pad=0.04)
+    cbar_p.set_label("Pressure [Pa]", fontsize=14)
+
+    plt.suptitle(f"Pressure Distribution - {run_id}", fontsize=20)
+    plt.tight_layout(rect=[0, 0.03, 1, 0.95])
+    pressure_plot_path = os.path.join(run_plot_dir, f"pressure_distribution_{run_id}.png")
+    plt.savefig(pressure_plot_path, dpi=config.plot_resolution, bbox_inches='tight')
+    plt.close(fig_p)
+    logger.info(f"Saved Pressure distribution plots to '{pressure_plot_path}'.")
+
+    # =========================================
+    # WSS Magnitude Distribution Plots with Shared Colorbars
+    # =========================================
+
+    fig_wss, axs_wss = plt.subplots(2, 2, figsize=(16, 12), constrained_layout=False)
+
+    # Define overall min and max for WSS magnitude to ensure consistent color mapping
+    magnitude_min = min(wss_magnitude_true.min(), wss_magnitude_pred.min())
+    magnitude_max = max(wss_magnitude_true.max(), wss_magnitude_pred.max())
+
+    # Plot CFD WSS Magnitude (XY Plane)
+    sc1_wss = axs_wss[0, 0].scatter(x_sample, y_sample, c=wss_magnitude_true, cmap="inferno", vmin=magnitude_min, vmax=magnitude_max, s=5, alpha=0.8)
+    axs_wss[0, 0].set_title("CFD WSS Magnitude (XY Plane)", fontsize=16)
+    axs_wss[0, 0].set_xlabel("X [m]", fontsize=14)
+    axs_wss[0, 0].set_ylabel("Y [m]", fontsize=14)
+
+    # Plot PINN WSS Magnitude (XY Plane)
+    sc2_wss = axs_wss[0, 1].scatter(x_sample, y_sample, c=wss_magnitude_pred, cmap="inferno", vmin=magnitude_min, vmax=magnitude_max, s=5, alpha=0.8)
+    axs_wss[0, 1].set_title("PINN WSS Magnitude (XY Plane)", fontsize=16)
+    axs_wss[0, 1].set_xlabel("X [m]", fontsize=14)
+    axs_wss[0, 1].set_ylabel("Y [m]", fontsize=14)
+
+    # Plot CFD WSS Magnitude (XZ Plane)
+    sc3_wss = axs_wss[1, 0].scatter(x_sample, z_sample, c=wss_magnitude_true, cmap="inferno", vmin=magnitude_min, vmax=magnitude_max, s=5, alpha=0.8)
+    axs_wss[1, 0].set_title("CFD WSS Magnitude (XZ Plane)", fontsize=16)
+    axs_wss[1, 0].set_xlabel("X [m]", fontsize=14)
+    axs_wss[1, 0].set_ylabel("Z [m]", fontsize=14)
+
+    # Plot PINN WSS Magnitude (XZ Plane)
+    sc4_wss = axs_wss[1, 1].scatter(x_sample, z_sample, c=wss_magnitude_pred, cmap="inferno", vmin=magnitude_min, vmax=magnitude_max, s=5, alpha=0.8)
+    axs_wss[1, 1].set_title("PINN WSS Magnitude (XZ Plane)", fontsize=16)
+    axs_wss[1, 1].set_xlabel("X [m]", fontsize=14)
+    axs_wss[1, 1].set_ylabel("Z [m]", fontsize=14)
+
+    # Add a single colorbar for all WSS magnitude plots
+    cbar_wss = fig_wss.colorbar(sc1_wss, ax=axs_wss, orientation='vertical', fraction=0.02, pad=0.04)
+    cbar_wss.set_label("WSS Magnitude [Pa]", fontsize=14)
+
+    plt.suptitle(f"WSS Magnitude Distribution - {run_id}", fontsize=20)
+    plt.tight_layout(rect=[0, 0.03, 1, 0.95])
+    wss_magnitude_plot_path = os.path.join(run_plot_dir, f"wss_magnitude_distribution_{run_id}.png")
+    plt.savefig(wss_magnitude_plot_path, dpi=config.plot_resolution, bbox_inches='tight')
+    plt.close(fig_wss)
+    logger.info(f"Saved WSS Magnitude distribution plots to '{wss_magnitude_plot_path}'.")
+
+    # =========================================
+    # Histogram Variation of WSS from PINNs and CFD
+    # =========================================
+
+    fig_hist, ax_hist = plt.subplots(figsize=(10, 6))
+    ax_hist.hist(wss_magnitude_true, bins=50, alpha=0.5, label='CFD', color='blue', density=True)
+    ax_hist.hist(wss_magnitude_pred, bins=50, alpha=0.5, label='PINN', color='red', density=True)
+    ax_hist.set_xlabel("WSS Magnitude [Pa]", fontsize=14)
+    ax_hist.set_ylabel("Density", fontsize=14)
+    ax_hist.set_title(f"WSS Magnitude Distribution Histogram - {run_id}", fontsize=16)
+    ax_hist.legend(fontsize=12)
+    ax_hist.grid(True, linestyle='--', linewidth=0.5)
+
+    plt.tight_layout()
+    histogram_plot_path = os.path.join(run_plot_dir, f"wss_magnitude_histogram_{run_id}.png")
+    plt.savefig(histogram_plot_path, dpi=config.plot_resolution, bbox_inches='tight')
+    plt.close(fig_hist)
+    logger.info(f"Saved WSS Magnitude histogram plot to '{histogram_plot_path}'.")
+
+
+def plot_wss_line_profiles(
+    dataset: CFDDataset,
+    models: Dict[str, nn.Module],
+    config: Config,
+    logger: logging.Logger,
+    run_id: str,
+    fixed_y: float = 0.5,
+    fixed_z: float = 0.5
+):
+    """
+    Plots 1D profiles of WSS components and their magnitude along a specified line.
+
+    This provides a quantitative comparison between CFD data and PINN predictions along a slice.
+
+    Args:
+        dataset (CFDDataset): Dataset instance containing CFD data.
+        models (Dict[str, nn.Module]): Dictionary of trained PINN models.
+        config (Config): Configuration object.
+        logger (logging.Logger): Logger for logging information.
+        run_id (str): Unique identifier for the experiment run.
+        fixed_y (float, optional): Y-coordinate to fix for the line profile. Defaults to 0.5.
+        fixed_z (float, optional): Z-coordinate to fix for the line profile. Defaults to 0.5.
+    """
+    for m in models.values():
+        m.eval()
+
+    # Convenient references to WSS models
+    model_tau_x = models["tau_x"]
+    model_tau_y = models["tau_y"]
+    model_tau_z = models["tau_z"]
+
+    # Extract a subset of data along y=fixed_y and z=fixed_z with increased tolerance
+    df = dataset.data
+    tol = 1e-3  # Increased tolerance for floating point comparison
+    df_line = df[
+        (np.abs(df[dataset.scaler_columns["features"][1]] - fixed_y) < tol) &
+        (np.abs(df[dataset.scaler_columns["features"][2]] - fixed_z) < tol)
+    ].copy()
+
+    if df_line.empty:
+        logger.warning(f"No data found for y={fixed_y}, z={fixed_z}. WSS line profile won't be plotted.")
+        return
+
+    # Normalize coordinates for network input
+    features_scaled = dataset.scalers["features"].transform(df_line[dataset.scaler_columns["features"]])
+    time_scaled = dataset.scalers["time"].transform(df_line[[dataset.scaler_columns["time"]]]).flatten()
+
+    # Prepare tensors for prediction
+    x_tensor = torch.tensor(features_scaled[:, 0], dtype=torch.float32, device=config.device).unsqueeze(1)
+    y_tensor = torch.tensor(features_scaled[:, 1], dtype=torch.float32, device=config.device).unsqueeze(1)
+    z_tensor = torch.tensor(features_scaled[:, 2], dtype=torch.float32, device=config.device).unsqueeze(1)
+    t_tensor = torch.tensor(time_scaled, dtype=torch.float32, device=config.device).unsqueeze(1)
+
+    with torch.no_grad():
+        tau_x_pred = model_tau_x(x_tensor, y_tensor, z_tensor, t_tensor).cpu().numpy().flatten()
+        tau_y_pred = model_tau_y(x_tensor, y_tensor, z_tensor, t_tensor).cpu().numpy().flatten()
+        tau_z_pred = model_tau_z(x_tensor, y_tensor, z_tensor, t_tensor).cpu().numpy().flatten()
+
+    # Inverse transform predictions to original scale
+    tau_x_pred = dataset.scalers["wall_shear_x"].inverse_transform(tau_x_pred.reshape(-1, 1)).flatten()
+    tau_y_pred = dataset.scalers["wall_shear_y"].inverse_transform(tau_y_pred.reshape(-1, 1)).flatten()
+    tau_z_pred = dataset.scalers["wall_shear_z"].inverse_transform(tau_z_pred.reshape(-1, 1)).flatten()
+
+    # True values from CFD data
+    tau_x_true = df_line[dataset.scaler_columns["wall_shear_x"]].values
+    tau_y_true = df_line[dataset.scaler_columns["wall_shear_y"]].values
+    tau_z_true = df_line[dataset.scaler_columns["wall_shear_z"]].values
+
+    # Original X coordinates for plotting
+    X_original = df_line[dataset.scaler_columns["features"][0]].values
+
+    # Compute WSS magnitudes
+    wss_pred_magnitude = np.sqrt(tau_x_pred**2 + tau_y_pred**2 + tau_z_pred**2)
+    wss_true_magnitude = np.sqrt(tau_x_true**2 + tau_y_true**2 + tau_z_true**2)
+
+    # Sort data by X for smooth plotting
+    sorted_indices = np.argsort(X_original)
+    X_original_sorted = X_original[sorted_indices]
+    tau_x_pred_sorted = tau_x_pred[sorted_indices]
+    tau_y_pred_sorted = tau_y_pred[sorted_indices]
+    tau_z_pred_sorted = tau_z_pred[sorted_indices]
+    tau_x_true_sorted = tau_x_true[sorted_indices]
+    tau_y_true_sorted = tau_y_true[sorted_indices]
+    tau_z_true_sorted = tau_z_true[sorted_indices]
+    wss_pred_magnitude_sorted = wss_pred_magnitude[sorted_indices]
+    wss_true_magnitude_sorted = wss_true_magnitude[sorted_indices]
+
+    # Plot WSS Components and Magnitude
+    fig, axs = plt.subplots(2, 2, figsize=(12, 8))
+    axs[0, 0].plot(X_original_sorted, tau_x_true_sorted, 'k-', label='CFD')
+    axs[0, 0].plot(X_original_sorted, tau_x_pred_sorted, 'r--', label='PINN')
+    axs[0, 0].set_xlabel("X [m]")
+    axs[0, 0].set_ylabel("Tau_x [Pa]")
+    axs[0, 0].set_title(f"Tau_x along line (y={fixed_y}, z={fixed_z})")
+    axs[0, 0].legend()
+
+    axs[0, 1].plot(X_original_sorted, tau_y_true_sorted, 'k-', label='CFD')
+    axs[0, 1].plot(X_original_sorted, tau_y_pred_sorted, 'r--', label='PINN')
+    axs[0, 1].set_xlabel("X [m]")
+    axs[0, 1].set_ylabel("Tau_y [Pa]")
+    axs[0, 1].set_title(f"Tau_y along line (y={fixed_y}, z={fixed_z})")
+    axs[0, 1].legend()
+
+    axs[1, 0].plot(X_original_sorted, tau_z_true_sorted, 'k-', label='CFD')
+    axs[1, 0].plot(X_original_sorted, tau_z_pred_sorted, 'r--', label='PINN')
+    axs[1, 0].set_xlabel("X [m]")
+    axs[1, 0].set_ylabel("Tau_z [Pa]")
+    axs[1, 0].set_title(f"Tau_z along line (y={fixed_y}, z={fixed_z})")
+    axs[1, 0].legend()
+
+    axs[1, 1].plot(X_original_sorted, wss_true_magnitude_sorted, 'k-', label='CFD')
+    axs[1, 1].plot(X_original_sorted, wss_pred_magnitude_sorted, 'r--', label='PINN')
+    axs[1, 1].set_xlabel("X [m]")
+    axs[1, 1].set_ylabel("WSS Magnitude [Pa]")
+    axs[1, 1].set_title(f"WSS Magnitude along line (y={fixed_y}, z={fixed_z})")
+    axs[1, 1].legend()
+
+    plt.tight_layout()
+    run_plot_dir = os.path.join(config.plot_dir, run_id)
+    os.makedirs(run_plot_dir, exist_ok=True)
+    line_profile_plot_path = os.path.join(run_plot_dir, f"wss_line_profiles_{run_id}.png")
+    plt.savefig(line_profile_plot_path, dpi=config.plot_resolution, bbox_inches='tight')
+    plt.close()
+    logger.info(f"Saved WSS line profiles to '{line_profile_plot_path}'.")
+
+
+def plot_wss_histogram(
+    dataset: CFDDataset,
+    models: Dict[str, nn.Module],
+    config: Config,
+    logger: logging.Logger,
+    run_id: str,
+):
+    """
+    Plots a histogram comparing the distribution of WSS magnitudes between CFD data and PINN predictions.
+
+    Args:
+        dataset (CFDDataset): Dataset instance containing CFD data.
+        models (Dict[str, nn.Module]): Dictionary of trained PINN models.
+        config (Config): Configuration object.
+        logger (logging.Logger): Logger for logging information.
+        run_id (str): Unique identifier for the experiment run.
+    """
+    for m in models.values():
+        m.eval()
+
+    # Convenient references to WSS models
+    model_tau_x = models["tau_x"]
+    model_tau_y = models["tau_y"]
+    model_tau_z = models["tau_z"]
+
+    variables = [
+        "wall_shear_x",
+        "wall_shear_y",
+        "wall_shear_z",
+    ]
+
+    predictions = {var: [] for var in variables}
+    truths = {var: [] for var in variables}
+
+    x_sample = dataset.x.numpy()
+    y_sample = dataset.y.numpy()
+    z_sample = dataset.z.numpy()
+    t_sample = dataset.t.numpy()
+
+    batch_size = 1024
+    num_samples = len(x_sample)
+
+    with torch.no_grad():
+        for i in range(0, num_samples, batch_size):
+            end = i + batch_size
+            batch_x = torch.tensor(x_sample[i:end], dtype=torch.float32, device=config.device)
+            batch_y = torch.tensor(y_sample[i:end], dtype=torch.float32, device=config.device)
+            batch_z = torch.tensor(z_sample[i:end], dtype=torch.float32, device=config.device)
+            batch_t = torch.tensor(t_sample[i:end], dtype=torch.float32, device=config.device)
+
+            tau_x_pred = model_tau_x(batch_x, batch_y, batch_z, batch_t)
+            tau_y_pred = model_tau_y(batch_x, batch_y, batch_z, batch_t)
+            tau_z_pred = model_tau_z(batch_x, batch_y, batch_z, batch_t)
+
+            predictions["wall_shear_x"].append(tau_x_pred.cpu().numpy())
+            predictions["wall_shear_y"].append(tau_y_pred.cpu().numpy())
+            predictions["wall_shear_z"].append(tau_z_pred.cpu().numpy())
+
+            truths["wall_shear_x"].append(dataset.tau_x[i:end].numpy())
+            truths["wall_shear_y"].append(dataset.tau_y[i:end].numpy())
+            truths["wall_shear_z"].append(dataset.tau_z[i:end].numpy())
+
+            # Cleanup to free GPU memory
+            del batch_x, batch_y, batch_z, batch_t
+            del tau_x_pred, tau_y_pred, tau_z_pred
+            torch.cuda.empty_cache()
+
+    # Convert lists to arrays and inverse transform to original scale
+    for var in variables:
+        predictions[var] = np.concatenate(predictions[var], axis=0)
+        truths[var] = np.concatenate(truths[var], axis=0)
+        predictions[var] = dataset.scalers[var].inverse_transform(predictions[var].reshape(-1, 1)).flatten()
+        truths[var] = dataset.scalers[var].inverse_transform(truths[var].reshape(-1, 1)).flatten()
+
+    # Compute WSS Magnitudes
+    wss_pred_magnitude = np.sqrt(
+        predictions["wall_shear_x"]**2 +
+        predictions["wall_shear_y"]**2 +
+        predictions["wall_shear_z"]**2
+    )
+    wss_true_magnitude = np.sqrt(
+        truths["wall_shear_x"]**2 +
+        truths["wall_shear_y"]**2 +
+        truths["wall_shear_z"]**2
+    )
+
+    # Plot histogram
+    fig_hist, ax_hist = plt.subplots(figsize=(10, 6))
+    ax_hist.hist(wss_true_magnitude, bins=50, alpha=0.5, label='CFD', color='blue', density=True)
+    ax_hist.hist(wss_pred_magnitude, bins=50, alpha=0.5, label='PINN', color='red', density=True)
+    ax_hist.set_xlabel("WSS Magnitude [Pa]", fontsize=14)
+    ax_hist.set_ylabel("Density", fontsize=14)
+    ax_hist.set_title(f"WSS Magnitude Distribution Histogram - {run_id}", fontsize=16)
+    ax_hist.legend(fontsize=12)
+    ax_hist.grid(True, linestyle='--', linewidth=0.5)
+
+    plt.tight_layout()
+    run_plot_dir = os.path.join(config.plot_dir, run_id)
+    histogram_plot_path = os.path.join(run_plot_dir, f"wss_magnitude_histogram_{run_id}.png")
+    plt.savefig(histogram_plot_path, dpi=config.plot_resolution, bbox_inches='tight')
+    plt.close(fig_hist)
+    logger.info(f"Saved WSS Magnitude histogram plot to '{histogram_plot_path}'.")
+
+
+# =========================================
+# 10. Training Loop
 # =========================================
 
 def train_pinn(
@@ -1130,722 +1792,6 @@ def train_pinn(
     return loss_history
 
 # =========================================
-# 10. Evaluation Metrics
-# =========================================
-
-def evaluate_pinn(
-    models: Dict[str, nn.Module],
-    dataloader: DataLoader,
-    dataset: CFDDataset,
-    config: Config,
-    logger: logging.Logger,
-    run_id: str,
-) -> Tuple[Dict[str, float], Dict[str, float], Dict[str, float], float]:
-    """
-    Evaluates the trained PINN models on the entire dataset and computes evaluation metrics.
-
-    Metrics Computed:
-    - R² Score
-    - Normalized Root Mean Squared Error (NRMSE)
-    - Mean Absolute Error (MAE)
-
-    Args:
-        models (Dict[str, nn.Module]): Dictionary of trained PINN models.
-        dataloader (DataLoader): DataLoader for evaluation data.
-        dataset (CFDDataset): Dataset instance for inverse transformations.
-        config (Config): Configuration object.
-        logger (logging.Logger): Logger for logging information.
-        run_id (str): Unique identifier for the experiment run.
-
-    Returns:
-        Tuple[Dict[str, float], Dict[str, float], Dict[str, float], float]:
-            Dictionaries containing R² scores, NRMSE scores, MAE scores, and total MAE.
-    """
-    for m in models.values():
-        m.eval()
-
-    r2_scores = {}
-    nrmse_scores = {}
-    mae_scores = {}
-    variables = [
-        "pressure",
-        "velocity_u",
-        "velocity_v",
-        "velocity_w",
-        "wall_shear_x",
-        "wall_shear_y",
-        "wall_shear_z",
-    ]
-
-    predictions = {var: [] for var in variables}
-    truths = {var: [] for var in variables}
-
-    # Convenient references to models
-    model_p = models["p"]
-    model_u = models["u"]
-    model_v = models["v"]
-    model_w = models["w"]
-    model_tau_x = models["tau_x"]
-    model_tau_y = models["tau_y"]
-    model_tau_z = models["tau_z"]
-
-    with torch.no_grad():
-        for batch in tqdm(dataloader, desc="Evaluating", leave=False):
-            (
-                x_batch,
-                y_batch,
-                z_batch,
-                t_batch,
-                p_true,
-                u_true,
-                v_true,
-                w_true,
-                tau_x_true,
-                tau_y_true,
-                tau_z_true,
-                _
-            ) = batch
-
-            x_batch = x_batch.to(config.device)
-            y_batch = y_batch.to(config.device)
-            z_batch = z_batch.to(config.device)
-            t_batch = t_batch.to(config.device)
-
-            # Forward passes
-            p_pred = model_p(x_batch, y_batch, z_batch, t_batch)
-            u_pred = model_u(x_batch, y_batch, z_batch, t_batch)
-            v_pred = model_v(x_batch, y_batch, z_batch, t_batch)
-            w_pred = model_w(x_batch, y_batch, z_batch, t_batch)
-            tau_x_pred = model_tau_x(x_batch, y_batch, z_batch, t_batch)
-            tau_y_pred = model_tau_y(x_batch, y_batch, z_batch, t_batch)
-            tau_z_pred = model_tau_z(x_batch, y_batch, z_batch, t_batch)
-
-            # Collect predictions & ground truth
-            predictions["pressure"].append(p_pred.cpu().numpy())
-            truths["pressure"].append(p_true.numpy())
-
-            predictions["velocity_u"].append(u_pred.cpu().numpy())
-            truths["velocity_u"].append(u_true.numpy())
-
-            predictions["velocity_v"].append(v_pred.cpu().numpy())
-            truths["velocity_v"].append(v_true.numpy())
-
-            predictions["velocity_w"].append(w_pred.cpu().numpy())
-            truths["velocity_w"].append(w_true.numpy())
-
-            predictions["wall_shear_x"].append(tau_x_pred.cpu().numpy())
-            truths["wall_shear_x"].append(tau_x_true.numpy())
-
-            predictions["wall_shear_y"].append(tau_y_pred.cpu().numpy())
-            truths["wall_shear_y"].append(tau_y_true.numpy())
-
-            predictions["wall_shear_z"].append(tau_z_pred.cpu().numpy())
-            truths["wall_shear_z"].append(tau_z_true.numpy())
-
-            # Cleanup to free GPU memory
-            del (x_batch, y_batch, z_batch, t_batch,
-                 p_true, u_true, v_true, w_true,
-                 tau_x_true, tau_y_true, tau_z_true,
-                 p_pred, u_pred, v_pred, w_pred,
-                 tau_x_pred, tau_y_pred, tau_z_pred)
-            torch.cuda.empty_cache()
-
-    # Convert lists to arrays and inverse transform to original scale
-    for var in variables:
-        predictions[var] = np.concatenate(predictions[var], axis=0)
-        truths[var] = np.concatenate(truths[var], axis=0)
-        predictions[var] = dataset.scalers[var].inverse_transform(predictions[var].reshape(-1, 1)).flatten()
-        truths[var] = dataset.scalers[var].inverse_transform(truths[var].reshape(-1, 1)).flatten()
-
-    # Compute evaluation metrics
-    for var in variables:
-        r2 = r2_score(truths[var], predictions[var])
-        nrmse = np.sqrt(mean_squared_error(truths[var], predictions[var])) / (truths[var].max() - truths[var].min())
-        mae = mean_absolute_error(truths[var], predictions[var])
-        r2_scores[var] = r2
-        nrmse_scores[var] = nrmse
-        mae_scores[var] = mae
-
-    # Calculate total MAE across all variables
-    total_mae = np.mean(list(mae_scores.values()))
-    metrics_summary = {
-        "Run_ID": run_id,
-        "Total_MAE": total_mae,
-    }
-    for var in variables:
-        metrics_summary[f"{var}_R2"] = r2_scores[var]
-        metrics_summary[f"{var}_NRMSE"] = nrmse_scores[var]
-        metrics_summary[f"{var}_MAE"] = mae_scores[var]
-
-    # Save metrics summary to CSV
-    df_metrics = pd.DataFrame([metrics_summary])
-    metrics_summary_path = os.path.join(config.metrics_dir, run_id, f"metrics_summary_{run_id}.csv")
-    os.makedirs(os.path.dirname(metrics_summary_path), exist_ok=True)
-    df_metrics.to_csv(metrics_summary_path, index=False)
-    logger.info(f"Saved metrics summary to '{metrics_summary_path}'.")
-
-    return r2_scores, nrmse_scores, mae_scores, total_mae
-
-# =========================================
-# 11. Visualization Functions
-# =========================================
-
-def plot_loss_curves(loss_history: Dict[str, list], config: Config, logger: logging.Logger, run_id: str, dataset_name: str):
-    """
-    Plots the training loss curves for different loss components.
-
-    Args:
-        loss_history (Dict[str, list]): Dictionary containing loss history.
-        config (Config): Configuration object.
-        logger (logging.Logger): Logger for logging information.
-        run_id (str): Unique identifier for the experiment run.
-        dataset_name (str): Name of the dataset.
-    """
-    epochs = range(1, len(loss_history["total"]) + 1)
-    plt.figure(figsize=(12, 8))
-    plt.plot(epochs, loss_history["total"], label="Total Loss")
-    plt.plot(epochs, loss_history["physics"], label="Physics Loss")
-    plt.plot(epochs, loss_history["boundary"], label="Boundary Loss")
-    plt.plot(epochs, loss_history["data"], label="Data Loss")
-    plt.plot(epochs, loss_history["inlet"], label="Inlet Loss")
-    plt.xlabel("Epoch", fontsize=14)
-    plt.ylabel("Loss", fontsize=14)
-    plt.yscale("log")
-    plt.title(f"Training Loss Curves - {run_id}", fontsize=16)
-    plt.legend(fontsize=12)
-    plt.grid(True, which="both", linestyle="--", linewidth=0.5)
-
-    plt.tight_layout(rect=[0, 0.03, 1, 0.95])
-    run_plot_dir = os.path.join(config.plot_dir, dataset_name, run_id)
-    os.makedirs(run_plot_dir, exist_ok=True)
-    plot_filename = f"loss_curves_{run_id}.png"
-    plot_path = os.path.join(run_plot_dir, plot_filename)
-    plt.savefig(plot_path, dpi=config.plot_resolution, bbox_inches='tight')
-    plt.close()
-    logger.info(f"Saved loss curves plot to '{plot_path}'.")
-
-
-def plot_pressure_and_wss_magnitude_surface(
-    dataset: CFDDataset,
-    models: Dict[str, nn.Module],
-    config: Config,
-    logger: logging.Logger,
-    run_id: str,
-):
-    """
-    Generates and saves surface plots comparing the distribution of Pressure and WSS Magnitude
-    between CFD data and PINN predictions in both XY and XZ planes.
-
-    Args:
-        dataset (CFDDataset): Dataset instance containing CFD data.
-        models (Dict[str, nn.Module]): Dictionary of trained PINN models.
-        config (Config): Configuration object.
-        logger (logging.Logger): Logger for logging information.
-        run_id (str): Unique identifier for the experiment run.
-    """
-    for m in models.values():
-        m.eval()
-
-    # Convenient references to models
-    model_p = models["p"]
-    model_tau_x = models["tau_x"]
-    model_tau_y = models["tau_y"]
-    model_tau_z = models["tau_z"]
-
-    variables = [
-        "pressure",
-        "wall_shear_x",
-        "wall_shear_y",
-        "wall_shear_z",
-    ]
-
-    # Prepare data for interpolation
-    x = dataset.x.numpy().flatten()
-    y = dataset.y.numpy().flatten()
-    z = dataset.z.numpy().flatten()
-    t = dataset.t.numpy().flatten()
-
-    # Define grid resolution
-    grid_res = 100  # Adjust based on data density
-
-    # Define grid for XY plane at a fixed z (e.g., z=0.5)
-    z_fixed = 0.5
-    tol_z = 1e-3  # Tolerance for selecting data near z_fixed
-    mask_xy = np.abs(z - z_fixed) < tol_z
-    x_xy = x[mask_xy]
-    y_xy = y[mask_xy]
-    p_true_xy = dataset.data[dataset.scaler_columns["pressure"]].values[mask_xy]
-    # Similarly for other variables if needed
-
-    # Define grid for XZ plane at a fixed y (e.g., y=0.5)
-    y_fixed = 0.5
-    tol_y = 1e-3
-    mask_xz = np.abs(y - y_fixed) < tol_y
-    x_xz = x[mask_xz]
-    z_xz = z[mask_xz]
-    p_true_xz = dataset.data[dataset.scaler_columns["pressure"]].values[mask_xz]
-    # Similarly for other variables if needed
-
-    # Create grid for interpolation
-    xi_xy = np.linspace(x_xy.min(), x_xy.max(), grid_res)
-    yi_xy = np.linspace(y_xy.min(), y_xy.max(), grid_res)
-    XI_xy, YI_xy = np.meshgrid(xi_xy, yi_xy)
-
-    xi_xz = np.linspace(x_xz.min(), x_xz.max(), grid_res)
-    zi_xz = np.linspace(z_xz.min(), z_xz.max(), grid_res)
-    XI_xz, ZI_xz = np.meshgrid(xi_xz, zi_xz)
-
-    # Interpolate CFD pressure onto the grid
-    PI_true_xy = griddata((x_xy, y_xy), p_true_xy, (XI_xy, YI_xy), method='cubic')
-    PI_true_xz = griddata((x_xz, z_xz), p_true_xz, (XI_xz, ZI_xz), method='cubic')
-
-    # Similarly, obtain PINN predictions
-    with torch.no_grad():
-        # For XY plane
-        p_pred_xy = model_p(
-            torch.tensor(x_xy, dtype=torch.float32).unsqueeze(1).to(config.device),
-            torch.tensor(y_xy, dtype=torch.float32).unsqueeze(1).to(config.device),
-            torch.tensor(z[mask_xy], dtype=torch.float32).unsqueeze(1).to(config.device),
-            torch.tensor(t[mask_xy], dtype=torch.float32).unsqueeze(1).to(config.device)
-        ).cpu().numpy().flatten()
-        PI_pred_xy = griddata((x_xy, y_xy), p_pred_xy, (XI_xy, YI_xy), method='cubic')
-
-        # For XZ plane
-        p_pred_xz = model_p(
-            torch.tensor(x_xz, dtype=torch.float32).unsqueeze(1).to(config.device),
-            torch.tensor(y[mask_xz], dtype=torch.float32).unsqueeze(1).to(config.device),
-            torch.tensor(z_xz, dtype=torch.float32).unsqueeze(1).to(config.device),
-            torch.tensor(t[mask_xz], dtype=torch.float32).unsqueeze(1).to(config.device)
-        ).cpu().numpy().flatten()
-        PI_pred_xz = griddata((x_xz, z_xz), p_pred_xz, (XI_xz, ZI_xz), method='cubic')
-
-    # Plot Pressure in XY Plane
-    fig_p_xy = plt.figure(figsize=(12, 6))
-    ax_p_true_xy = fig_p_xy.add_subplot(1, 2, 1, projection='3d')
-    surf_p_true_xy = ax_p_true_xy.plot_surface(XI_xy, YI_xy, PI_true_xy, cmap='viridis', edgecolor='none')
-    ax_p_true_xy.set_title('CFD Pressure (XY Plane)')
-    ax_p_true_xy.set_xlabel('X [m]')
-    ax_p_true_xy.set_ylabel('Y [m]')
-    ax_p_true_xy.set_zlabel('Pressure [Pa]')
-    fig_p_xy.colorbar(surf_p_true_xy, ax=ax_p_true_xy, shrink=0.5, aspect=10, label='Pressure [Pa]')
-
-    ax_p_pred_xy = fig_p_xy.add_subplot(1, 2, 2, projection='3d')
-    surf_p_pred_xy = ax_p_pred_xy.plot_surface(XI_xy, YI_xy, PI_pred_xy, cmap='viridis', edgecolor='none')
-    ax_p_pred_xy.set_title('PINN Pressure (XY Plane)')
-    ax_p_pred_xy.set_xlabel('X [m]')
-    ax_p_pred_xy.set_ylabel('Y [m]')
-    ax_p_pred_xy.set_zlabel('Pressure [Pa]')
-    fig_p_xy.colorbar(surf_p_pred_xy, ax=ax_p_pred_xy, shrink=0.5, aspect=10, label='Pressure [Pa]')
-
-    plt.tight_layout()
-    run_plot_dir = os.path.join(config.plot_dir, dataset.run_id)
-    os.makedirs(run_plot_dir, exist_ok=True)
-    pressure_surface_plot_path_xy = os.path.join(run_plot_dir, f"pressure_surface_xy_{run_id}.png")
-    plt.savefig(pressure_surface_plot_path_xy, dpi=config.plot_resolution, bbox_inches='tight')
-    plt.close(fig_p_xy)
-    logger.info(f"Saved Pressure surface plots for XY plane to '{pressure_surface_plot_path_xy}'.")
-
-    # Plot Pressure in XZ Plane
-    fig_p_xz = plt.figure(figsize=(12, 6))
-    ax_p_true_xz = fig_p_xz.add_subplot(1, 2, 1, projection='3d')
-    surf_p_true_xz = ax_p_true_xz.plot_surface(XI_xz, ZI_xz, PI_true_xz, cmap='viridis', edgecolor='none')
-    ax_p_true_xz.set_title('CFD Pressure (XZ Plane)')
-    ax_p_true_xz.set_xlabel('X [m]')
-    ax_p_true_xz.set_ylabel('Z [m]')
-    ax_p_true_xz.set_zlabel('Pressure [Pa]')
-    fig_p_xz.colorbar(surf_p_true_xz, ax=ax_p_true_xz, shrink=0.5, aspect=10, label='Pressure [Pa]')
-
-    ax_p_pred_xz = fig_p_xz.add_subplot(1, 2, 2, projection='3d')
-    surf_p_pred_xz = ax_p_pred_xz.plot_surface(XI_xz, ZI_xz, PI_pred_xz, cmap='viridis', edgecolor='none')
-    ax_p_pred_xz.set_title('PINN Pressure (XZ Plane)')
-    ax_p_pred_xz.set_xlabel('X [m]')
-    ax_p_pred_xz.set_ylabel('Z [m]')
-    ax_p_pred_xz.set_zlabel('Pressure [Pa]')
-    fig_p_xz.colorbar(surf_p_pred_xz, ax=ax_p_pred_xz, shrink=0.5, aspect=10, label='Pressure [Pa]')
-
-    plt.tight_layout()
-    pressure_surface_plot_path_xz = os.path.join(run_plot_dir, f"pressure_surface_xz_{run_id}.png")
-    plt.savefig(pressure_surface_plot_path_xz, dpi=config.plot_resolution, bbox_inches='tight')
-    plt.close(fig_p_xz)
-    logger.info(f"Saved Pressure surface plots for XZ plane to '{pressure_surface_plot_path_xz}'.")
-
-    # Repeat similar steps for WSS Magnitude
-    # Compute WSS Magnitude for CFD and PINN
-    # Note: Assuming that all wall shear components use the same scaler
-    wss_true = np.sqrt(
-        dataset.data[dataset.scaler_columns["wall_shear_x"]].values**2 +
-        dataset.data[dataset.scaler_columns["wall_shear_y"]].values**2 +
-        dataset.data[dataset.scaler_columns["wall_shear_z"]].values**2
-    )
-    with torch.no_grad():
-        tau_x_pred_full = model_tau_x(
-            torch.tensor(x, dtype=torch.float32).unsqueeze(1).to(config.device),
-            torch.tensor(y, dtype=torch.float32).unsqueeze(1).to(config.device),
-            torch.tensor(z, dtype=torch.float32).unsqueeze(1).to(config.device),
-            torch.tensor(t, dtype=torch.float32).unsqueeze(1).to(config.device)
-        ).cpu().numpy().flatten()
-        tau_y_pred_full = model_tau_y(
-            torch.tensor(x, dtype=torch.float32).unsqueeze(1).to(config.device),
-            torch.tensor(y, dtype=torch.float32).unsqueeze(1).to(config.device),
-            torch.tensor(z, dtype=torch.float32).unsqueeze(1).to(config.device),
-            torch.tensor(t, dtype=torch.float32).unsqueeze(1).to(config.device)
-        ).cpu().numpy().flatten()
-        tau_z_pred_full = model_tau_z(
-            torch.tensor(x, dtype=torch.float32).unsqueeze(1).to(config.device),
-            torch.tensor(y, dtype=torch.float32).unsqueeze(1).to(config.device),
-            torch.tensor(z, dtype=torch.float32).unsqueeze(1).to(config.device),
-            torch.tensor(t, dtype=torch.float32).unsqueeze(1).to(config.device)
-        ).cpu().numpy().flatten()
-    wss_pred = np.sqrt(
-        tau_x_pred_full**2 +
-        tau_y_pred_full**2 +
-        tau_z_pred_full**2
-    )
-    # Inverse transform predictions to original scale
-    # Assuming the same scaler applies to all wall shear components
-    # If different scalers are used, adjust accordingly
-    wss_pred = dataset.scalers["wall_shear_x"].inverse_transform(wss_pred.reshape(-1, 1)).flatten()
-
-    # Interpolate WSS Magnitude onto the grid
-    WSS_true_xy = griddata((x_xy, y_xy), wss_true[mask_xy], (XI_xy, YI_xy), method='cubic')
-    WSS_pred_xy = griddata((x_xy, y_xy), wss_pred[mask_xy], (XI_xy, YI_xy), method='cubic')
-
-    WSS_true_xz = griddata((x_xz, z_xz), wss_true[mask_xz], (XI_xz, ZI_xz), method='cubic')
-    WSS_pred_xz = griddata((x_xz, z_xz), wss_pred[mask_xz], (XI_xz, ZI_xz), method='cubic')
-
-    # Plot WSS Magnitude in XY Plane
-    fig_wss_xy = plt.figure(figsize=(12, 6))
-    ax_wss_true_xy = fig_wss_xy.add_subplot(1, 2, 1, projection='3d')
-    surf_wss_true_xy = ax_wss_true_xy.plot_surface(XI_xy, YI_xy, WSS_true_xy, cmap='inferno', edgecolor='none')
-    ax_wss_true_xy.set_title('CFD WSS Magnitude (XY Plane)')
-    ax_wss_true_xy.set_xlabel('X [m]')
-    ax_wss_true_xy.set_ylabel('Y [m]')
-    ax_wss_true_xy.set_zlabel('WSS Magnitude [Pa]')
-    fig_wss_xy.colorbar(surf_wss_true_xy, ax=ax_wss_true_xy, shrink=0.5, aspect=10, label='WSS [Pa]')
-
-    ax_wss_pred_xy = fig_wss_xy.add_subplot(1, 2, 2, projection='3d')
-    surf_wss_pred_xy = ax_wss_pred_xy.plot_surface(XI_xy, YI_xy, WSS_pred_xy, cmap='inferno', edgecolor='none')
-    ax_wss_pred_xy.set_title('PINN WSS Magnitude (XY Plane)')
-    ax_wss_pred_xy.set_xlabel('X [m]')
-    ax_wss_pred_xy.set_ylabel('Y [m]')
-    ax_wss_pred_xy.set_zlabel('WSS Magnitude [Pa]')
-    fig_wss_xy.colorbar(surf_wss_pred_xy, ax=ax_wss_pred_xy, shrink=0.5, aspect=10, label='WSS [Pa]')
-
-    plt.tight_layout()
-    wss_surface_plot_path_xy = os.path.join(run_plot_dir, f"wss_surface_xy_{run_id}.png")
-    plt.savefig(wss_surface_plot_path_xy, dpi=config.plot_resolution, bbox_inches='tight')
-    plt.close(fig_wss_xy)
-    logger.info(f"Saved WSS surface plots for XY plane to '{wss_surface_plot_path_xy}'.")
-
-    # Plot WSS Magnitude in XZ Plane
-    fig_wss_xz = plt.figure(figsize=(12, 6))
-    ax_wss_true_xz = fig_wss_xz.add_subplot(1, 2, 1, projection='3d')
-    surf_wss_true_xz = ax_wss_true_xz.plot_surface(XI_xz, ZI_xz, WSS_true_xz, cmap='inferno', edgecolor='none')
-    ax_wss_true_xz.set_title('CFD WSS Magnitude (XZ Plane)')
-    ax_wss_true_xz.set_xlabel('X [m]')
-    ax_wss_true_xz.set_ylabel('Z [m]')
-    ax_wss_true_xz.set_zlabel('WSS Magnitude [Pa]')
-    fig_wss_xz.colorbar(surf_wss_true_xz, ax=ax_wss_true_xz, shrink=0.5, aspect=10, label='WSS [Pa]')
-
-    ax_wss_pred_xz = fig_wss_xz.add_subplot(1, 2, 2, projection='3d')
-    surf_wss_pred_xz = ax_wss_pred_xz.plot_surface(XI_xz, ZI_xz, WSS_pred_xz, cmap='inferno', edgecolor='none')
-    ax_wss_pred_xz.set_title('PINN WSS Magnitude (XZ Plane)')
-    ax_wss_pred_xz.set_xlabel('X [m]')
-    ax_wss_pred_xz.set_ylabel('Z [m]')
-    ax_wss_pred_xz.set_zlabel('WSS Magnitude [Pa]')
-    fig_wss_xz.colorbar(surf_wss_pred_xz, ax=ax_wss_pred_xz, shrink=0.5, aspect=10, label='WSS [Pa]')
-
-    plt.tight_layout()
-    wss_surface_plot_path_xz = os.path.join(run_plot_dir, f"wss_surface_xz_{run_id}.png")
-    plt.savefig(wss_surface_plot_path_xz, dpi=config.plot_resolution, bbox_inches='tight')
-    plt.close(fig_wss_xz)
-    logger.info(f"Saved WSS surface plots for XZ plane to '{wss_surface_plot_path_xz}'.")
-
-def plot_wss_line_profiles_dynamic(
-    dataset: CFDDataset,
-    models: Dict[str, nn.Module],
-    config: Config,
-    logger: logging.Logger,
-    run_id: str,
-    desired_y: float = 0.5,
-    desired_z: float = 0.5,
-    tol_initial: float = 1e-3,
-    tol_increment: float = 1e-3,
-    max_tol: float = 1e-1
-):
-    """
-    Plots 1D profiles of WSS components and their magnitude along a dynamically selected line.
-
-    This function dynamically selects the best y and z coordinates with the most data points
-    to ensure the WSS line profiles are plotted successfully.
-
-    Args:
-        dataset (CFDDataset): Dataset instance containing CFD data.
-        models (Dict[str, nn.Module]): Dictionary of trained PINN models.
-        config (Config): Configuration object.
-        logger (logging.Logger): Logger for logging information.
-        run_id (str): Unique identifier for the experiment run.
-        desired_y (float, optional): Desired Y-coordinate to fix for the line profile. Defaults to 0.5.
-        desired_z (float, optional): Desired Z-coordinate to fix for the line profile. Defaults to 0.5.
-        tol_initial (float, optional): Initial tolerance for matching coordinates. Defaults to 1e-3.
-        tol_increment (float, optional): Incremental increase in tolerance if no data is found. Defaults to 1e-3.
-        max_tol (float, optional): Maximum tolerance before selecting the most populated line. Defaults to 1e-1.
-    """
-    for m in models.values():
-        m.eval()
-
-    # Convenient references to WSS models
-    model_tau_x = models["tau_x"]
-    model_tau_y = models["tau_y"]
-    model_tau_z = models["tau_z"]
-
-    # Extract y and z coordinates
-    y_values = dataset.data[dataset.scaler_columns["features"][1]].unique()
-    z_values = dataset.data[dataset.scaler_columns["features"][2]].unique()
-
-    # Sort y and z values for consistency
-    y_values_sorted = np.sort(y_values)
-    z_values_sorted = np.sort(z_values)
-
-    # Function to find indices within tolerance
-    def find_within_tol(df, column, value, tol):
-        return np.abs(df[column] - value) < tol
-
-    # Attempt to find data points matching desired_y and desired_z within tolerance
-    tol = tol_initial
-    df = dataset.data
-    while tol <= max_tol:
-        y_match = find_within_tol(df, dataset.scaler_columns["features"][1], desired_y, tol)
-        z_match = find_within_tol(df, dataset.scaler_columns["features"][2], desired_z, tol)
-        df_line = df[y_match & z_match].copy()
-        if not df_line.empty:
-            logger.info(f"Selected y={desired_y} and z={desired_z} with tolerance={tol}.")
-            break
-        else:
-            logger.warning(f"No data found for y={desired_y}, z={desired_z} with tol={tol}. Increasing tolerance.")
-            tol += tol_increment
-    else:
-        # If still no data, select y and z with the most data points
-        logger.warning(f"No data found within tolerance up to {max_tol}. Selecting most populated y and z.")
-        # Select y with the highest count
-        y_counts = df[dataset.scaler_columns["features"][1]].value_counts()
-        selected_y = y_counts.idxmax()
-        # Select z with the highest count
-        z_counts = df[dataset.scaler_columns["features"][2]].value_counts()
-        selected_z = z_counts.idxmax()
-        df_line = df[
-            (np.abs(df[dataset.scaler_columns["features"][1]] - selected_y) < tol_increment) &
-            (np.abs(df[dataset.scaler_columns["features"][2]] - selected_z) < tol_increment)
-        ].copy()
-        if df_line.empty:
-            logger.error("Unable to find any data points to plot WSS line profiles.")
-            return
-        logger.info(f"Selected y={selected_y} and z={selected_z} based on highest data counts.")
-
-    # If data was found with desired_y and desired_z within tolerance
-    if not df_line.empty and 'selected_y' not in locals():
-        selected_y = desired_y
-        selected_z = desired_z
-
-    # Normalize coordinates for network input
-    features_scaled = dataset.scalers["features"].transform(df_line[dataset.scaler_columns["features"]])
-    time_scaled = dataset.scalers["time"].transform(df_line[[dataset.scaler_columns["time"]]]).flatten()
-
-    # Prepare tensors for prediction
-    x_tensor = torch.tensor(features_scaled[:, 0], dtype=torch.float32, device=config.device).unsqueeze(1)
-    y_tensor = torch.tensor(features_scaled[:, 1], dtype=torch.float32, device=config.device).unsqueeze(1)
-    z_tensor = torch.tensor(features_scaled[:, 2], dtype=torch.float32, device=config.device).unsqueeze(1)
-    t_tensor = torch.tensor(time_scaled, dtype=torch.float32, device=config.device).unsqueeze(1)
-
-    with torch.no_grad():
-        tau_x_pred = model_tau_x(x_tensor, y_tensor, z_tensor, t_tensor).cpu().numpy().flatten()
-        tau_y_pred = model_tau_y(x_tensor, y_tensor, z_tensor, t_tensor).cpu().numpy().flatten()
-        tau_z_pred = model_tau_z(x_tensor, y_tensor, z_tensor, t_tensor).cpu().numpy().flatten()
-
-    # Inverse transform predictions to original scale
-    tau_x_pred = dataset.scalers["wall_shear_x"].inverse_transform(tau_x_pred.reshape(-1, 1)).flatten()
-    tau_y_pred = dataset.scalers["wall_shear_y"].inverse_transform(tau_y_pred.reshape(-1, 1)).flatten()
-    tau_z_pred = dataset.scalers["wall_shear_z"].inverse_transform(tau_z_pred.reshape(-1, 1)).flatten()
-
-    # True values from CFD data
-    tau_x_true = df_line[dataset.scaler_columns["wall_shear_x"]].values
-    tau_y_true = df_line[dataset.scaler_columns["wall_shear_y"]].values
-    tau_z_true = df_line[dataset.scaler_columns["wall_shear_z"]].values
-
-    # Original X coordinates for plotting
-    X_original = df_line[dataset.scaler_columns["features"][0]].values
-
-    # Compute WSS magnitudes
-    wss_pred_magnitude = np.sqrt(
-        tau_x_pred**2 +
-        tau_y_pred**2 +
-        tau_z_pred**2
-    )
-    wss_true_magnitude = np.sqrt(
-        tau_x_true**2 +
-        tau_y_true**2 +
-        tau_z_true**2
-    )
-
-    # Sort data by X for smooth plotting
-    sorted_indices = np.argsort(X_original)
-    X_original_sorted = X_original[sorted_indices]
-    tau_x_pred_sorted = tau_x_pred[sorted_indices]
-    tau_y_pred_sorted = tau_y_pred[sorted_indices]
-    tau_z_pred_sorted = tau_z_pred[sorted_indices]
-    tau_x_true_sorted = tau_x_true[sorted_indices]
-    tau_y_true_sorted = tau_y_true[sorted_indices]
-    tau_z_true_sorted = tau_z_true[sorted_indices]
-    wss_pred_magnitude_sorted = wss_pred_magnitude[sorted_indices]
-    wss_true_magnitude_sorted = wss_true_magnitude[sorted_indices]
-
-    # Plot WSS Components and Magnitude
-    fig, axs = plt.subplots(2, 2, figsize=(14, 10))
-    axs[0, 0].plot(X_original_sorted, tau_x_true_sorted, 'k-', label='CFD')
-    axs[0, 0].plot(X_original_sorted, tau_x_pred_sorted, 'r--', label='PINN')
-    axs[0, 0].set_xlabel("X [m]", fontsize=14)
-    axs[0, 0].set_ylabel("Tau_x [Pa]", fontsize=14)
-    axs[0, 0].set_title(f"Tau_x along line (y={selected_y}, z={selected_z})", fontsize=16)
-    axs[0, 0].legend(fontsize=12)
-    axs[0, 0].grid(True, linestyle='--', linewidth=0.5)
-
-    axs[0, 1].plot(X_original_sorted, tau_y_true_sorted, 'k-', label='CFD')
-    axs[0, 1].plot(X_original_sorted, tau_y_pred_sorted, 'r--', label='PINN')
-    axs[0, 1].set_xlabel("X [m]", fontsize=14)
-    axs[0, 1].set_ylabel("Tau_y [Pa]", fontsize=14)
-    axs[0, 1].set_title(f"Tau_y along line (y={selected_y}, z={selected_z})", fontsize=16)
-    axs[0, 1].legend(fontsize=12)
-    axs[0, 1].grid(True, linestyle='--', linewidth=0.5)
-
-    axs[1, 0].plot(X_original_sorted, tau_z_true_sorted, 'k-', label='CFD')
-    axs[1, 0].plot(X_original_sorted, tau_z_pred_sorted, 'r--', label='PINN')
-    axs[1, 0].set_xlabel("X [m]", fontsize=14)
-    axs[1, 0].set_ylabel("Tau_z [Pa]", fontsize=14)
-    axs[1, 0].set_title(f"Tau_z along line (y={selected_y}, z={selected_z})", fontsize=16)
-    axs[1, 0].legend(fontsize=12)
-    axs[1, 0].grid(True, linestyle='--', linewidth=0.5)
-
-    axs[1, 1].plot(X_original_sorted, wss_true_magnitude_sorted, 'k-', label='CFD')
-    axs[1, 1].plot(X_original_sorted, wss_pred_magnitude_sorted, 'r--', label='PINN')
-    axs[1, 1].set_xlabel("X [m]", fontsize=14)
-    axs[1, 1].set_ylabel("WSS Magnitude [Pa]", fontsize=14)
-    axs[1, 1].set_title(f"WSS Magnitude along line (y={selected_y}, z={selected_z})", fontsize=16)
-    axs[1, 1].legend(fontsize=12)
-    axs[1, 1].grid(True, linestyle='--', linewidth=0.5)
-
-    plt.tight_layout()
-    run_plot_dir = os.path.join(config.plot_dir, dataset.run_id)
-    os.makedirs(run_plot_dir, exist_ok=True)
-    line_profile_plot_path = os.path.join(run_plot_dir, f"wss_line_profiles_{run_id}.png")
-    plt.savefig(line_profile_plot_path, dpi=config.plot_resolution, bbox_inches='tight')
-    plt.close()
-    logger.info(f"Saved WSS line profiles to '{line_profile_plot_path}'.")
-
-
-def plot_wss_histogram(
-    dataset: CFDDataset,
-    models: Dict[str, nn.Module],
-    config: Config,
-    logger: logging.Logger,
-    run_id: str,
-):
-    """
-    Plots a histogram comparing the distribution of WSS magnitudes between CFD data and PINN predictions.
-
-    Args:
-        dataset (CFDDataset): Dataset instance containing CFD data.
-        models (Dict[str, nn.Module]): Dictionary of trained PINN models.
-        config (Config): Configuration object.
-        logger (logging.Logger): Logger for logging information.
-        run_id (str): Unique identifier for the experiment run.
-    """
-    for m in models.values():
-        m.eval()
-
-    # Convenient references to WSS models
-    model_tau_x = models["tau_x"]
-    model_tau_y = models["tau_y"]
-    model_tau_z = models["tau_z"]
-
-    variables = [
-        "wall_shear_x",
-        "wall_shear_y",
-        "wall_shear_z",
-    ]
-
-    predictions = {var: [] for var in variables}
-    truths = {var: [] for var in variables}
-
-    x_sample = dataset.x.numpy()
-    y_sample = dataset.y.numpy()
-    z_sample = dataset.z.numpy()
-    t_sample = dataset.t.numpy()
-
-    batch_size = 1024
-    num_samples = len(x_sample)
-
-    with torch.no_grad():
-        for i in range(0, num_samples, batch_size):
-            end = i + batch_size
-            batch_x = torch.tensor(x_sample[i:end], dtype=torch.float32, device=config.device)
-            batch_y = torch.tensor(y_sample[i:end], dtype=torch.float32, device=config.device)
-            batch_z = torch.tensor(z_sample[i:end], dtype=torch.float32, device=config.device)
-            batch_t = torch.tensor(t_sample[i:end], dtype=torch.float32, device=config.device)
-
-            tau_x_pred = model_tau_x(batch_x, batch_y, batch_z, batch_t)
-            tau_y_pred = model_tau_y(batch_x, batch_y, batch_z, batch_t)
-            tau_z_pred = model_tau_z(batch_x, batch_y, batch_z, batch_t)
-
-            predictions["wall_shear_x"].append(tau_x_pred.cpu().numpy())
-            predictions["wall_shear_y"].append(tau_y_pred.cpu().numpy())
-            predictions["wall_shear_z"].append(tau_z_pred.cpu().numpy())
-
-            truths["wall_shear_x"].append(dataset.tau_x[i:end].numpy())
-            truths["wall_shear_y"].append(dataset.tau_y[i:end].numpy())
-            truths["wall_shear_z"].append(dataset.tau_z[i:end].numpy())
-
-            # Cleanup to free GPU memory
-            del batch_x, batch_y, batch_z, batch_t
-            del tau_x_pred, tau_y_pred, tau_z_pred
-            torch.cuda.empty_cache()
-
-    # Convert lists to arrays and inverse transform to original scale
-    for var in variables:
-        predictions[var] = np.concatenate(predictions[var], axis=0)
-        truths[var] = np.concatenate(truths[var], axis=0)
-        predictions[var] = dataset.scalers[var].inverse_transform(predictions[var].reshape(-1, 1)).flatten()
-        truths[var] = dataset.scalers[var].inverse_transform(truths[var].reshape(-1, 1)).flatten()
-
-    # Compute WSS Magnitudes
-    wss_pred_magnitude = np.sqrt(
-        predictions["wall_shear_x"]**2 +
-        predictions["wall_shear_y"]**2 +
-        predictions["wall_shear_z"]**2
-    )
-    wss_true_magnitude = np.sqrt(
-        truths["wall_shear_x"]**2 +
-        truths["wall_shear_y"]**2 +
-        truths["wall_shear_z"]**2
-    )
-
-    # Plot histogram
-    fig_hist, ax_hist = plt.subplots(figsize=(8, 6))
-    ax_hist.hist(wss_true_magnitude, bins=50, alpha=0.5, label='CFD', color='blue', density=True)
-    ax_hist.hist(wss_pred_magnitude, bins=50, alpha=0.5, label='PINN', color='red', density=True)
-    ax_hist.set_xlabel("WSS Magnitude [Pa]", fontsize=14)
-    ax_hist.set_ylabel("Density", fontsize=14)
-    ax_hist.set_title(f"WSS Magnitude Distribution Histogram - {run_id}", fontsize=16)
-    ax_hist.legend(fontsize=12)
-    ax_hist.grid(True, linestyle='--', linewidth=0.5)
-
-    plt.tight_layout()
-    run_plot_dir = os.path.join(config.plot_dir, run_id)
-    histogram_plot_path = os.path.join(run_plot_dir, f"wss_magnitude_histogram_{run_id}.png")
-    plt.savefig(histogram_plot_path, dpi=config.plot_resolution, bbox_inches='tight')
-    plt.close(fig_hist)
-    logger.info(f"Saved WSS Magnitude histogram plot to '{histogram_plot_path}'.")
-
-# =========================================
 # 12. Main Experiment Loop
 # =========================================
 
@@ -1961,23 +1907,22 @@ def main():
         )
 
         # Generate visualizations
-        plot_pressure_and_wss_magnitude_surface(
+        plot_pressure_and_wss_magnitude_distribution(
             dataset,
             models,
             config,
             logger,
             run_id
         )
-        plot_wss_line_profiles_dynamic(
+        plot_wss_line_profiles(
             dataset,
             models,
             config,
             logger,
             run_id,
-            desired_y=0.5,
-            desired_z=0.5
+            fixed_y=0.5,
+            fixed_z=0.5
         )
-
         plot_wss_histogram(
             dataset,
             models,

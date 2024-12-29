@@ -1,0 +1,16 @@
+2024-12-29 03:29:28,510 - INFO - Experiment run initialized with Run ID: temp
+2024-12-29 03:29:28,511 - INFO - Using device: cuda:0
+2024-12-29 03:29:28,511 - INFO - Random seed set to 142
+2024-12-29 03:29:29,033 - INFO - Loaded 12 datasets.
+2024-12-29 03:29:29,034 - INFO - Dataset '0021_systolic_aneurysm' shape: (11005, 18)
+2024-12-29 03:29:29,035 - INFO - Dataset '0022_systolic_aneurysm' shape: (12430, 18)
+2024-12-29 03:29:29,036 - INFO - Dataset '0023_systolic_aneurysm' shape: (12216, 18)
+2024-12-29 03:29:29,036 - INFO - Dataset '0025_systolic_aneurysm' shape: (12395, 18)
+2024-12-29 03:29:29,037 - INFO - Dataset '0021_diastolic_aneurysm' shape: (11005, 18)
+2024-12-29 03:29:29,047 - INFO - Dataset '0022_diastolic_aneurysm' shape: (12430, 18)
+2024-12-29 03:29:29,047 - INFO - Dataset '0023_diastolic_aneurysm' shape: (12216, 18)
+2024-12-29 03:29:29,048 - INFO - Dataset '0025_diastolic_aneurysm' shape: (12395, 18)
+2024-12-29 03:29:29,049 - INFO - Dataset '0024_systolic' shape: (30898, 18)
+2024-12-29 03:29:29,050 - INFO - Dataset '0142_systolic' shape: (97143, 18)
+2024-12-29 03:29:29,050 - INFO - Dataset '0024_diastolic' shape: (30898, 18)
+2024-12-29 03:29:29,051 - INFO - Dataset '0142_diastolic' shape: (97143, 18)
