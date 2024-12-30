@@ -1,0 +1,374 @@
+\documentclass[12pt, a4paper]{article}
+
+% ----- Package Imports -----
+\usepackage[utf8]{inputenc}                % UTF-8 encoding
+\usepackage[T1]{fontenc}                   % Output font encoding
+\usepackage{mathpazo}                      % Palatino font for text and math
+\usepackage{amsmath, amssymb, amsthm}      % Mathematics packages
+\usepackage{graphicx}                      % Graphics inclusion
+\usepackage{float}                         % Improved float handling
+\usepackage{caption}                       % Custom captions
+\usepackage{subcaption}                    % Subfigures
+\usepackage{hyperref}                      % Hyperlinks
+\usepackage[numbers]{natbib}                % Numerical citations
+\usepackage{xcolor}                        % Color definitions
+\usepackage{microtype}                     % Improved typography
+\usepackage{setspace}                      % Line spacing
+\usepackage{fancyhdr}                      % Custom headers and footers
+\usepackage{titlesec}                      % Custom section titles
+\usepackage{booktabs}                      % Enhanced tables
+\usepackage{enumitem}                      % Customized lists
+\usepackage{algorithm}                     % Algorithms
+\usepackage{algpseudocode}                 % Pseudocode
+\usepackage{mathtools}                     % Enhanced math features
+\usepackage{geometry}                      % Page layout
+\usepackage{doi}                           % DOI links in bibliography
+
+% ----- Page Layout -----
+\geometry{
+    a4paper,
+    left=1in,
+    right=1in,
+    top=1in,
+    bottom=1in,
+}
+
+% ----- Typography and Spacing -----
+\microtypesetup{protrusion=true, expansion=true}  % Microtype settings
+\setstretch{1.5}                                 % Line spacing set to 1.5
+
+% ----- Custom Colors -----
+\definecolor{accentred}{RGB}{204, 0, 0}
+\definecolor{accentblue}{RGB}{0, 102, 204}
+\definecolor{accentgreen}{RGB}{0, 153, 0}
+\definecolor{lightgray}{RGB}{240, 240, 240}
+
+% ----- Hyperlink Configuration -----
+\hypersetup{
+    colorlinks=true,
+    linkcolor=accentblue,       % Internal links (sections, etc.)
+    citecolor=accentgreen,      % Citation links
+    urlcolor=accentred,         % External URLs
+    linktoc=all,                % Links include both text and page number in TOC
+    pdfauthor={Your Name},
+    pdftitle={Fluid-Structure Interaction Analysis of Pulsatile Flow in Arterial Aneurysms with Physics-Informed Neural Networks and Computational Fluid Dynamics},
+    pdfsubject={Research Paper},
+}
+
+% ----- Header and Footer Configuration -----
+\pagestyle{fancy}
+\fancyhf{}  % Clear all header and footer fields
+\fancyhead[L]{\nouppercase{\leftmark}}  % Left header: section title
+\fancyhead[R]{\thepage}                 % Right header: page number
+\renewcommand{\headrulewidth}{0.5pt}    % Header rule
+\renewcommand{\footrulewidth}{0pt}      % No footer rule
+
+% ----- Section Title Configuration -----
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{accentblue}}{\thesection}{1em}{}
+
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{accentgreen}}{\thesubsection}{1em}{}
+
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{accentgreen}}{\thesubsubsection}{1em}{}
+
+% ----- Title and Author -----
+\title{
+    \vspace{-2cm} % Adjust vertical spacing as needed
+    \large \textbf{Fluid-Structure Interaction Analysis of Pulsatile Flow in Arterial Aneurysms with Physics-Informed Neural Networks and Computational Fluid Dynamics}\\
+    % \vspace{0.5cm}
+    % \large{with Physics-Informed Neural Networks and Computational Fluid Dynamics}
+}
+
+\author{
+    Michael Ajao-Olarinoye\textsuperscript{1} \\
+    \textsuperscript{1}Center for computational science and Mathematical modelling \\
+    \texttt{olarinoyem@coventry.ac.uk}
+}
+
+\date{}
+
+\begin{document}
+
+\maketitle
+
+% \begin{abstract}
+%     \noindent
+%     This study presents a comprehensive analysis of fluid-structure interactions (FSI) in pulsatile arterial aneurysms using a hybrid approach combining Physics-Informed Neural Networks (PINNs) and Computational Fluid Dynamics (CFD). The integration of PINNs enhances the predictive capabilities of traditional CFD models by incorporating physical laws directly into the learning process, thereby improving accuracy and computational efficiency. The methodology is validated against experimental data, demonstrating significant improvements in capturing complex flow dynamics and aneurysm wall interactions. The results provide deeper insights into the hemodynamic factors contributing to aneurysm growth and rupture, offering potential pathways for improved diagnosis and treatment planning.
+% \end{abstract}
+
+\section{Physics-Informed Neural Networks}
+\label{sec:PINNs}
+
+\subsection{Motivation and Overview}
+While high-fidelity Computational Fluid Dynamics (CFD) simulations in Section~2.4 provide accurate hemodynamic insights and remain a cornerstone for modelling fluid dynamics in complex vascular geometries, they are computationally intensive and often require significant domain expertise. This is especially true when investigating patient-specific geometries or performing multiple parameter studies, where each simulation run can be time-consuming and resource-intensive.
+
+First introduced by \citet{raissi2019physics}, Physics-Informed Neural Networks (PINNs) have emerged as a data-efficient alternative that merges the strengths of deep learning and classical physics-based modelling. In contrast to purely data-driven neural networks, PINNs embed the governing partial differential equations (PDEs)—for instance, continuity and momentum conservation from Section~2.2—and physical boundary conditions directly into the loss function. This approach enforces a fundamental level of physical consistency at every training iteration, meaning that rather than learning solely from black-box data, the network is ``informed'' by the equations that describe fluid motion. Consequently, PINNs often require fewer labelled data points, since the PDE residuals guide the network towards physically plausible solutions in data-scarce regions. Furthermore, the built-in PDE constraints can mitigate common neural network training pitfalls, such as overfitting or predicting unphysical flow fields.
+
+In this work, we harness PINNs in tandem with traditional CFD for two primary objectives:
+\begin{enumerate}
+    \item \emph{Predict Flow Variables in Aortic Models.} PINNs are used to estimate pressure, velocity, and wall shear stress (WSS) within the same aortic geometries introduced in Section~2.1. These models include both healthy and Marfan Syndrome-affected aortas, enabling a direct comparison of hemodynamic features, such as local velocity patterns and shear forces on the vessel walls.
+
+    \item \emph{Validate Against CFD Benchmarks.} By juxtaposing PINN predictions with high-fidelity CFD simulations, we assess how accurately the PINNs capture critical flow phenomena—particularly in aneurysmal segments, where accurate WSS quantification is essential for understanding disease progression in Marfan Syndrome.
+\end{enumerate}
+
+\subsection{Governing Equations for PINNs}
+We consider the unsteady, incompressible Navier--Stokes equations:
+\begin{equation}
+\nabla \cdot \mathbf{u} = 0,
+\quad
+\rho \frac{\partial \mathbf{u}}{\partial t} + \rho (\mathbf{u} \cdot \nabla)\mathbf{u}
+= -\nabla p + \mu \nabla^2 \mathbf{u},
+\end{equation}
+where $\mathbf{u} = (u,v,w)$ is the velocity, $p$ is the pressure, $\rho$ is the density, and $\mu$ is the dynamic viscosity. The WSS components $\tau_x, \tau_y, \tau_z$ are derived from the velocity gradients at the vessel wall. These same equations form part of the PINN loss function, ensuring that the predicted solutions align with the underlying physics governing pulsatile blood flow.
+
+\subsection{PINN Architecture and Training}
+\label{sec:PINN_Architecture_Training}
+
+\subsubsection{Network Configuration}
+
+We train seven separate PINNs: one each for pressure $p$, velocity components $(u, v, w)$, and the three WSS components $(\tau_x, \tau_y, \tau_z)$. Each network is a feed-forward, fully connected architecture with 10 hidden layers of 64 neurons per layer, employing the Swish activation function to promote smooth gradients.
+
+\subsubsection{Input and Output}
+
+\begin{itemize}
+    \item \textbf{Inputs:} 4D coordinates $\{x, y, z, t\}$, corresponding to spatial dimensions and time.
+    \item \textbf{Outputs:} One scalar field per network (\emph{e.g.}, $p$ for the pressure PINN, $\tau_x$ for the $x$-component of WSS).
+\end{itemize}
+
+\subsubsection{Loss Functions}
+\label{sec:Loss_Functions}
+
+The total loss function employed during the training of the PINNs comprises multiple components, each targeting a specific aspect of the model's performance. These loss components are:
+
+\begin{enumerate}
+    \item \textbf{Physics Loss ($\mathcal{L}_{\mathrm{physics}}$):} This loss term enforces the satisfaction of the governing PDEs by minimising the residuals of the Navier--Stokes and continuity equations. Mathematically, it is expressed as:
+    \begin{equation}
+    \mathcal{L}_{\mathrm{physics}} = \frac{1}{N_{\mathrm{phys}}} \sum_{j=1}^{N_{\mathrm{phys}}} \left( R_{u,j}^2 + R_{v,j}^2 + R_{w,j}^2 + R_{\mathrm{cont},j}^2 \right),
+    \end{equation}
+    where $R_{u,j}$, $R_{v,j}$, $R_{w,j}$ are the residuals of the momentum equations in the $x$, $y$, $z$ directions, respectively, and $R_{\mathrm{cont},j}$ is the residual of the continuity equation at the $j$-th collocation point.
+    
+    \item \textbf{Boundary Loss ($\mathcal{L}_{\mathrm{boundary}}$):} This loss term enforces the no-slip boundary conditions by ensuring that the velocity components at the vessel walls are zero. It is defined as:
+    \begin{equation}
+    \mathcal{L}_{\mathrm{boundary}} = \frac{1}{N_{\mathrm{boundary}}} \sum_{k=1}^{N_{\mathrm{boundary}}} \left( u_k^2 + v_k^2 + w_k^2 \right),
+    \end{equation}
+    where $u_k$, $v_k$, $w_k$ are the predicted velocity components at the $k$-th boundary point.
+    
+    \item \textbf{Data Loss ($\mathcal{L}_{\mathrm{data}}$):} This supervised loss term quantifies the discrepancy between the PINN predictions and the CFD-generated ground-truth data. It is expressed as:
+    \begin{equation}
+    \mathcal{L}_{\mathrm{data}} = \frac{1}{N_{\mathrm{data}}} \sum_{i=1}^{N_{\mathrm{data}}} \left( (p_i - p_i^{\mathrm{CFD}})^2 + (u_i - u_i^{\mathrm{CFD}})^2 + (v_i - v_i^{\mathrm{CFD}})^2 + (w_i - w_i^{\mathrm{CFD}})^2 + (\tau_{x,i} - \tau_{x,i}^{\mathrm{CFD}})^2 + (\tau_{y,i} - \tau_{y,i}^{\mathrm{CFD}})^2 + (\tau_{z,i} - \tau_{z,i}^{\mathrm{CFD}})^2 \right),
+    \end{equation}
+    where $p_i$, $u_i$, $v_i$, $w_i$, $\tau_{x,i}$, $\tau_{y,i}$, $\tau_{z,i}$ are the PINN-predicted pressure, velocity components, and WSS components at the $i$-th data point, and $p_i^{\mathrm{CFD}}$, $u_i^{\mathrm{CFD}}$, $v_i^{\mathrm{CFD}}$, $w_i^{\mathrm{CFD}}$, $\tau_{x,i}^{\mathrm{CFD}}$, $\tau_{y,i}^{\mathrm{CFD}}$, $\tau_{z,i}^{\mathrm{CFD}}$ are the corresponding CFD values.
+    
+    \item \textbf{Inlet Loss ($\mathcal{L}_{\mathrm{inlet}}$):} This loss term enforces the prescribed pulsatile inflow velocity profile at the inlet. Assuming a sinusoidal velocity profile, it is formulated as:
+    \begin{equation}
+    \mathcal{L}_{\mathrm{inlet}} = \frac{1}{N_{\mathrm{inlet}}} \sum_{m=1}^{N_{\mathrm{inlet}}} \left( (u_m - u_{\mathrm{inlet}}(t_m))^2 + v_m^2 + w_m^2 \right),
+    \end{equation}
+    where $u_{\mathrm{inlet}}(t_m)$ is the prescribed inlet velocity at time $t_m$, and $u_m$, $v_m$, $w_m$ are the predicted velocity components at the $m$-th inlet point.
+\end{enumerate}
+
+The overall loss function utilised for training is a weighted sum of these components, where the weights are self-adaptive and learnable during training. The total loss is defined as:
+\begin{equation}
+\mathcal{L}_{\mathrm{total}} = \exp(\log \lambda_{\mathrm{physics}})\,\mathcal{L}_{\mathrm{physics}} + \exp(\log \lambda_{\mathrm{boundary}})\,\mathcal{L}_{\mathrm{boundary}} + \exp(\log \lambda_{\mathrm{data}})\,\mathcal{L}_{\mathrm{data}} + \exp(\log \lambda_{\mathrm{inlet}})\,\mathcal{L}_{\mathrm{inlet}},
+\end{equation}
+where $\log \lambda_i$ are learnable parameters corresponding to each loss component. During backpropagation, these parameters adjust to balance the influence of each loss term dynamically, enhancing training stability and performance.
+
+\subsubsection{Self-Adaptive Loss Weighting}
+
+Self-adaptive loss weighting obviates the need to manually tune the multipliers $\lambda_{\mathrm{physics}}$, $\lambda_{\mathrm{boundary}}$, $\lambda_{\mathrm{data}}$, and $\lambda_{\mathrm{inlet}}$, which can be particularly challenging in multi-physics scenarios involving PDE constraints, boundary conditions, and partial data supervision. By parameterising the weights as $\exp(\log \lambda_i)$, the model ensures that the weights remain positive throughout training, and the network can autonomously adjust the relative importance of each loss component based on the training dynamics.
+
+\subsubsection{Optimisation Strategy}
+
+The optimisation strategy encompasses several critical components to ensure effective and stable training of the PINNs:
+
+\begin{itemize}
+    \item \textbf{Optimizer:} We employ the AdamW optimiser \citep{loshchilov2017decoupled} with an initial learning rate of $1 \times 10^{-4}$ and momentum parameters $\beta = (0.9,\,0.999)$. The weight decay is set to $1 \times 10^{-4}$ to prevent overfitting.
+    
+    \item \textbf{Learning Rate Scheduler:} A StepLR scheduler reduces the learning rate by a factor of $\gamma = 0.9$ every 200 epochs, facilitating finer convergence as training progresses.
+    
+    \item \textbf{Mixed Precision Training:} Automatic Mixed Precision (AMP) is utilised to leverage GPU efficiency, enabling faster computations without compromising numerical stability.
+    
+    \item \textbf{Early Stopping:} An early stopping mechanism monitors the validation loss for improvements, halting training after 5 consecutive epochs without a decrease in validation loss to avoid overfitting.
+    
+    \item \textbf{Gradient Clipping:} To prevent exploding gradients, the gradients are clipped to a maximum norm of 1.0, ensuring training stability.
+\end{itemize}
+
+\subsection{Loss Function Implementation}
+\label{sec:Loss_Function_Implementation}
+
+The loss function implementation is central to the effectiveness of the PINNs. Each loss component targets specific physical and data-driven constraints, ensuring that the neural networks produce solutions that are both physically plausible and consistent with high-fidelity CFD data. Below, we detail the mathematical formulation and implementation of each loss component.
+
+\subsubsection{Physics Loss ($\mathcal{L}_{\mathrm{physics}}$)}
+
+The Physics Loss enforces the satisfaction of the Navier--Stokes and continuity equations across collocation points. For each collocation point $\mathbf{x}_j^{\mathrm{phys}} = (x_j, y_j, z_j, t_j)$, the residuals of the governing equations are computed using automatic differentiation. These residuals quantify the deviation of the PINN predictions from the exact PDEs.
+
+Mathematically, the residuals are defined as:
+\begin{align}
+R_{u,j} &= \rho \left( \frac{\partial u_j}{\partial t} + u_j \frac{\partial u_j}{\partial x} + v_j \frac{\partial u_j}{\partial y} + w_j \frac{\partial u_j}{\partial z} \right) + \frac{\partial p_j}{\partial x} - \mu \left( \frac{\partial^2 u_j}{\partial x^2} + \frac{\partial^2 u_j}{\partial y^2} + \frac{\partial^2 u_j}{\partial z^2} \right), \\
+R_{v,j} &= \rho \left( \frac{\partial v_j}{\partial t} + u_j \frac{\partial v_j}{\partial x} + v_j \frac{\partial v_j}{\partial y} + w_j \frac{\partial v_j}{\partial z} \right) + \frac{\partial p_j}{\partial y} - \mu \left( \frac{\partial^2 v_j}{\partial x^2} + \frac{\partial^2 v_j}{\partial y^2} + \frac{\partial^2 v_j}{\partial z^2} \right), \\
+R_{w,j} &= \rho \left( \frac{\partial w_j}{\partial t} + u_j \frac{\partial w_j}{\partial x} + v_j \frac{\partial w_j}{\partial y} + w_j \frac{\partial w_j}{\partial z} \right) + \frac{\partial p_j}{\partial z} - \mu \left( \frac{\partial^2 w_j}{\partial x^2} + \frac{\partial^2 w_j}{\partial y^2} + \frac{\partial^2 w_j}{\partial z^2} \right), \\
+R_{\mathrm{cont},j} &= \frac{\partial u_j}{\partial x} + \frac{\partial v_j}{\partial y} + \frac{\partial w_j}{\partial z}.
+\end{align}
+
+The Physics Loss is then formulated as the Mean Squared Error (MSE) of these residuals across all collocation points:
+\begin{equation}
+\mathcal{L}_{\mathrm{physics}} = \frac{1}{N_{\mathrm{phys}}} \sum_{j=1}^{N_{\mathrm{phys}}} \left( R_{u,j}^2 + R_{v,j}^2 + R_{w,j}^2 + R_{\mathrm{cont},j}^2 \right),
+\end{equation}
+where $N_{\mathrm{phys}}$ is the total number of collocation points.
+
+\subsubsection{Boundary Loss ($\mathcal{L}_{\mathrm{boundary}}$)}
+
+The Boundary Loss enforces the no-slip boundary conditions at the vessel walls, ensuring that the velocity components parallel and perpendicular to the wall are zero. For each boundary point $\mathbf{x}_k^{\mathrm{boundary}} = (x_k, y_k, z_k, t_k)$, the boundary conditions are applied as:
+\begin{align}
+u_k &= 0, \\
+v_k &= 0, \\
+w_k &= 0.
+\end{align}
+
+The Boundary Loss is formulated as the MSE of the predicted velocities at these points:
+\begin{equation}
+\mathcal{L}_{\mathrm{boundary}} = \frac{1}{N_{\mathrm{boundary}}} \sum_{k=1}^{N_{\mathrm{boundary}}} \left( u_k^2 + v_k^2 + w_k^2 \right),
+\end{equation}
+where $N_{\mathrm{boundary}}$ is the number of boundary points.
+
+\subsubsection{Data Loss ($\mathcal{L}_{\mathrm{data}}$)}
+
+The Data Loss quantifies the discrepancy between the PINN predictions and the CFD-generated ground-truth data. This supervised loss ensures that the neural networks align with high-fidelity simulations where data is available.
+
+For each data point $\mathbf{x}_i^{\mathrm{data}} = (x_i, y_i, z_i, t_i)$ with corresponding CFD data $\mathbf{q}_i^{\mathrm{CFD}} = (p_i^{\mathrm{CFD}}, u_i^{\mathrm{CFD}}, v_i^{\mathrm{CFD}}, w_i^{\mathrm{CFD}}, \tau_{x,i}^{\mathrm{CFD}}, \tau_{y,i}^{\mathrm{CFD}}, \tau_{z,i}^{\mathrm{CFD}})$, the Data Loss is defined as:
+\begin{equation}
+\mathcal{L}_{\mathrm{data}} = \frac{1}{N_{\mathrm{data}}} \sum_{i=1}^{N_{\mathrm{data}}} \left[ (p_i - p_i^{\mathrm{CFD}})^2 + (u_i - u_i^{\mathrm{CFD}})^2 + (v_i - v_i^{\mathrm{CFD}})^2 + (w_i - w_i^{\mathrm{CFD}})^2 + (\tau_{x,i} - \tau_{x,i}^{\mathrm{CFD}})^2 + (\tau_{y,i} - \tau_{y,i}^{\mathrm{CFD}})^2 + (\tau_{z,i} - \tau_{z,i}^{\mathrm{CFD}})^2 \right],
+\end{equation}
+where $N_{\mathrm{data}}$ is the number of data points.
+
+\subsubsection{Inlet Loss ($\mathcal{L}_{\mathrm{inlet}}$)}
+
+The Inlet Loss enforces the prescribed pulsatile inflow velocity profile at the inlet of the aortic models. Assuming a sinusoidal velocity profile based on physiological blood flow characteristics, the Inlet Loss is formulated as follows.
+
+For each inlet point $\mathbf{x}_m^{\mathrm{inlet}} = (x_m, y_m, z_m, t_m)$ with prescribed inlet velocity $u_{\mathrm{inlet}}(t_m)$, the Inlet Loss is defined as:
+\begin{equation}
+\mathcal{L}_{\mathrm{inlet}} = \frac{1}{N_{\mathrm{inlet}}} \sum_{m=1}^{N_{\mathrm{inlet}}} \left[ \left( u_m - u_{\mathrm{inlet}}(t_m) \right)^2 + v_m^2 + w_m^2 \right],
+\end{equation}
+where $N_{\mathrm{inlet}}$ is the number of inlet points, and $u_{\mathrm{inlet}}(t_m)$ represents the prescribed pulsatile inlet velocity at time $t_m$. The velocity components $v_m$ and $w_m$ are also penalised to enforce a predominantly unidirectional flow at the inlet.
+
+\subsubsection{Self-Adaptive Loss Weighting}
+
+A key feature of our PINNs is the utilisation of self-adaptive weights to balance the different components of the loss function. Specifically, the total loss $\mathcal{L}_{\mathrm{total}}$ is expressed as:
+\begin{equation}
+\mathcal{L}_{\mathrm{total}} = \exp(\log \lambda_{\mathrm{physics}})\,\mathcal{L}_{\mathrm{physics}} + \exp(\log \lambda_{\mathrm{boundary}})\,\mathcal{L}_{\mathrm{boundary}} + \exp(\log \lambda_{\mathrm{data}})\,\mathcal{L}_{\mathrm{data}} + \exp(\log \lambda_{\mathrm{inlet}})\,\mathcal{L}_{\mathrm{inlet}},
+\label{eq:total_loss}
+\end{equation}
+where $\log \lambda_i$ are learnable parameters that self-adapt to balance each term. This ensures that one loss component does not dominate the training, improving stability and convergence across different flow regimes. By parameterising the weights as $\exp(\log \lambda_i)$, we guarantee that the weights remain positive during training.
+
+\subsubsection{Algorithm: Training Procedure}
+\label{alg:PINN_Training_Procedure}
+
+The training procedure for the PINNs is encapsulated in Algorithm~\ref{alg:pinn_training}. This algorithm outlines the step-by-step workflow, including data preparation, forward and backward passes, loss computations, self-adaptive weighting, optimisation, validation, and early stopping mechanisms.
+
+\begin{algorithm}[H]
+\caption{Training Procedure for Transient Physics-Informed Neural Networks (PINNs)}
+\label{alg:pinn_training}
+\begin{algorithmic}[1]
+
+\Require
+\begin{itemize}
+    \item \textbf{PINN Models:} $\{\mathcal{N}_p, \mathcal{N}_u, \mathcal{N}_v, \mathcal{N}_w, \mathcal{N}_{\tau_x}, \mathcal{N}_{\tau_y}, \mathcal{N}_{\tau_z}\}$ with parameters $\theta_p, \theta_u, \theta_v, \theta_w, \theta_{\tau_x}, \theta_{\tau_y}, \theta_{\tau_z}$.
+    \item \textbf{Training Data:} $\mathcal{D}_{\text{train}} = \{\mathbf{x}_i^{\text{data}}, \mathbf{q}_i^{\text{CFD}}\}$ containing $(p,u,v,w,\tau_x,\tau_y,\tau_z)$ from CFD for supervised loss.
+    \item \textbf{Collocation Points:} $\mathcal{D}_{\text{phys}} = \{\mathbf{x}_j^{\text{phys}}\}$ for enforcing PDE constraints.
+    \item \textbf{Hyperparameters:} total epochs $T$, batch size $B$, learning rate $\eta$, patience $P$, etc.
+\end{itemize}
+
+\Ensure
+\begin{itemize}
+    \item \textbf{Trained PINN Parameters:} $\theta_p^*, \theta_u^*, \theta_v^*, \theta_w^*, \theta_{\tau_x}^*, \theta_{\tau_y}^*, \theta_{\tau_z}^*$.
+    \item \textbf{Loss History:} Recorded losses for analysis.
+\end{itemize}
+
+\Statex
+
+\State Initialise the optimiser (e.g.\ AdamW) with all PINN parameters.
+\State Initialise learning rate scheduler (e.g.\ StepLR).
+\State Initialise early stopping mechanism with patience $P$.
+\State Initialise GradScaler for mixed precision training.
+
+\For{epoch $t = 1$ to $T$}
+    \State Shuffle $\mathcal{D}_{\text{train}}$ and $\mathcal{D}_{\text{phys}}$.
+    \State Partition $\mathcal{D}_{\text{train}}$ into mini-batches $\mathcal{B}_{\text{data}}$, and $\mathcal{D}_{\text{phys}}$ into mini-batches $\mathcal{B}_{\text{phys}}$.
+    \For{each mini-batch $\mathcal{B}_{\text{data}}^k$ and $\mathcal{B}_{\text{phys}}^k$}
+        \State \textbf{Forward Pass:}
+        \State Compute $\{p_{\text{pred}}, u_{\text{pred}}, v_{\text{pred}}, w_{\text{pred}}, \tau_{x,\text{pred}}, \tau_{y,\text{pred}}, \tau_{z,\text{pred}}\}$ for $\mathcal{B}_{\text{data}}^k$ via each respective PINN.
+        
+        \State \textbf{Compute Residuals:}
+        \State Calculate physics residuals $R_{u,j}$, $R_{v,j}$, $R_{w,j}$, $R_{\mathrm{cont},j}$ at collocation points in $\mathcal{B}_{\text{phys}}^k$ using automatic differentiation.
+        
+        \State \textbf{Loss Computations:}
+        \State $\mathcal{L}_{\mathrm{physics}} \leftarrow \text{MSE}(R_{u,j}, 0) + \text{MSE}(R_{v,j}, 0) + \text{MSE}(R_{w,j}, 0) + \text{MSE}(R_{\mathrm{cont},j}, 0)$
+        \State $\mathcal{L}_{\mathrm{boundary}} \leftarrow \text{MSE}(u_k, 0) + \text{MSE}(v_k, 0) + \text{MSE}(w_k, 0)$
+        \State $\mathcal{L}_{\mathrm{data}} \leftarrow \text{MSE}(p_i, p_i^{\mathrm{CFD}}) + \text{MSE}(u_i, u_i^{\mathrm{CFD}}) + \text{MSE}(v_i, v_i^{\mathrm{CFD}}) + \text{MSE}(w_i, w_i^{\mathrm{CFD}}) + \text{MSE}(\tau_{x,i}, \tau_{x,i}^{\mathrm{CFD}}) + \text{MSE}(\tau_{y,i}, \tau_{y,i}^{\mathrm{CFD}}) + \text{MSE}(\tau_{z,i}, \tau_{z,i}^{\mathrm{CFD}})$
+        \State $\mathcal{L}_{\mathrm{inlet}} \leftarrow \text{MSE}(u_m, u_{\mathrm{inlet}}(t_m)) + \text{MSE}(v_m, 0) + \text{MSE}(w_m, 0)$
+        
+        \State \textbf{Self-Adaptive Weighting:}
+        \State $\lambda_{\mathrm{physics}} \leftarrow \exp(\log \lambda_{\mathrm{physics}})$
+        \State $\lambda_{\mathrm{boundary}} \leftarrow \exp(\log \lambda_{\mathrm{boundary}})$
+        \State $\lambda_{\mathrm{data}} \leftarrow \exp(\log \lambda_{\mathrm{data}})$
+        \State $\lambda_{\mathrm{inlet}} \leftarrow \exp(\log \lambda_{\mathrm{inlet}})$
+        
+        \State \textbf{Total Loss:}
+        \State $\mathcal{L}_{\mathrm{total}} \leftarrow \lambda_{\mathrm{physics}}\,\mathcal{L}_{\mathrm{physics}} + \lambda_{\mathrm{boundary}}\,\mathcal{L}_{\mathrm{boundary}} + \lambda_{\mathrm{data}}\,\mathcal{L}_{\mathrm{data}} + \lambda_{\mathrm{inlet}}\,\mathcal{L}_{\mathrm{inlet}}$
+        
+        \State \textbf{Backward Pass and Optimisation:}
+        \State $\mathrm{optimizer.zero\_grad()}$
+        \State $\mathrm{scaler.scale}(\mathcal{L}_{\mathrm{total}}).backward()$
+        \State \textbf{Gradient Clipping:} Apply gradient clipping to cap gradients at norm 1.0.
+        \State $\mathrm{scaler.step}(\mathrm{optimizer})$
+        \State $\mathrm{scaler.update()}$
+        
+    \EndFor
+    
+    \State \textbf{Validation Phase:}
+    \State Compute validation loss $\mathcal{L}_{\mathrm{val}}$ on the validation set.
+    
+    \State \textbf{Early Stopping Check:}
+    \If{$\mathcal{L}_{\mathrm{val}}$ has improved}{
+        \State Save current best model parameters $\theta_p^*, \theta_u^*, \theta_v^*, \theta_w^*, \theta_{\tau_x}^*, \theta_{\tau_y}^*, \theta_{\tau_z}^*$.
+        \State Reset early stopping counter.
+    }
+    \Else{
+        \State Increment early stopping counter.
+        \If{counter $\geq P$}{
+            \State \textbf{Terminate Training Early}
+            \State \textbf{break}
+        }
+    }
+    
+    \State \textbf{Learning Rate Adjustment:} Update the learning rate using the scheduler.
+    \State \textbf{Logging:} Record epoch losses, adaptive weights, and other relevant metrics.
+\EndFor
+
+\State \textbf{Output:} Trained parameters $\theta_p^*, \theta_u^*, \theta_v^*, \theta_w^*, \theta_{\tau_x}^*, \theta_{\tau_y}^*, \theta_{\tau_z}^*$ and loss history.
+
+\end{algorithmic}
+\end{algorithm}
+
+\paragraph{Explanation of Algorithm~\ref{alg:pinn_training}.}
+\begin{itemize}
+    \item \textbf{Initialisation:} Seven PINN models are instantiated for the flow variables of interest. An optimiser (e.g.\ AdamW) and learning rate scheduler (e.g.\ StepLR) are configured, alongside an early stopping mechanism and a GradScaler for mixed-precision training on GPU.
+    \item \textbf{Epoch Loop:} For each epoch, the training dataset ($\mathcal{D}_{\mathrm{train}}$) and the collocation points ($\mathcal{D}_{\mathrm{phys}}$) are shuffled and batched. The algorithm then iterates over mini-batches for both data and physics-based enforcement.
+    \item \textbf{Forward Pass:} For each mini-batch, predictions of pressure, velocity, and WSS are computed. Simultaneously, physics residuals (\emph{i.e.}, partial derivatives enforcing PDE constraints) are calculated using automatic differentiation.
+    \item \textbf{Loss Computations:} The loss components are assembled—\emph{i.e.}, physics loss ($\mathcal{L}_{\mathrm{phys}}$), boundary loss ($\mathcal{L}_{\mathrm{boundary}}$), data loss ($\mathcal{L}_{\mathrm{data}}$), and inlet loss ($\mathcal{L}_{\mathrm{inlet}}$). Each term is scaled by an exponentiated, learnable weight $\lambda_{i}$, enabling the network to balance different objectives adaptively.
+    \item \textbf{Backward Pass and Optimisation:} The total loss is backpropagated, with gradient clipping applied to ensure training stability, and the weights are updated. Mixed precision training is facilitated by the GradScaler, which dynamically adjusts scaling factors for numerical efficiency on modern GPUs.
+    \item \textbf{Validation and Early Stopping:} After all mini-batches are processed, a validation set is used to monitor progress. If validation loss fails to improve for a specified patience period, training terminates early.
+    \item \textbf{Learning Rate Adjustment and Logging:} A learning rate scheduler refines the step size over epochs, and key metrics, such as losses and adaptive weights, are logged to track training progress.
+\end{itemize}
+
+\subsection{Relevance to Aneurysm Studies}
+By alleviating the need to run complete CFD simulations whenever boundary conditions or model geometries change, PINNs can serve as rapid surrogates for iterative parameter sweeps, sensitivity analyses, or real-time clinical decision-making. This synergy between classical CFD and PINNs ensures that accurate fluid physics are retained, while the neural network structure offers improved computational scaling and the capacity to generalise to different flow conditions with minimal retraining overhead. Consequently, for the case of Marfan Syndrome aortic aneurysms, PINNs provide a promising pathway for expediting haemodynamic evaluations and exploring a range of inflow waveforms, wall properties, or geometric variations in a fraction of the time typically required by CFD alone.
+
+\vspace{2em}
+\noindent\textbf{Note:} All codes and numerical experiments for the PINN-based aneurysm flow analyses were implemented in \texttt{Python} using \texttt{PyTorch}, with the self-adaptive weighting and physics-based PDE residuals integrated into the backpropagation routine. The specific hyperparameters and training protocol are as outlined in Algorithm~\ref{alg:pinn_training} and Section~3.4, ensuring reproducibility and transparency in the results reported herein.
+
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+
+\end{document}
