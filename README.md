@@ -4,27 +4,12 @@
 
 Anuerysm Transient Flow PINNs is a Physics-Informed Neural Networks (PINNs) project designed to model transient flow in aneurysms. The project leverages PyTorch for model development and training, providing a robust framework for simulating and analyzing blood flow dynamics.
 
-## Table of Contents
-
-- [Overview](#overview)
-- [Table of Contents](#table-of-contents)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Methodology](#methodology)
-- [Project Structure](#project-structure)
-- [Data Processing](#data-processing)
-- [Training](#training)
-- [Evaluation](#evaluation)
-- [Results](#results)
-- [Citation](#citation)
-- [License](#license)
-
 ## Installation
 
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/yourusername/Anuerysm_transientFlow_PINNs.git
+   git clone https://github.com/michaelajao/Anuerysm_transientFlow_PINNs.git
    cd Anuerysm_transientFlow_PINNs
    ```
 
@@ -58,14 +43,11 @@ Anuerysm Transient Flow PINNs is a Physics-Informed Neural Networks (PINNs) proj
 3. **Train the Models**
 
    ```bash
-   python src/main_experiment.py
+   python src/full_pinn_experiment.py
    ```
 
    This will initialize the models, train them using the processed data, and save the trained models along with evaluation metrics.
 
-4. **Evaluate the Models**
-
-   Evaluation metrics are automatically generated during training and saved in the `metrics/` directory.
 
 ## Methodology
 
@@ -80,6 +62,8 @@ Anuerysm_transientFlow_PINNs/
 │   │   └── WSS_data/
 │   └── processed/
 ├── src/
+|   ├──models/
+│   │   └── full_pinn_experiment.py
 │   ├── data_processing.py
 │   ├── datasets.py
 │   ├── evaluate.py
@@ -87,11 +71,11 @@ Anuerysm_transientFlow_PINNs/
 │   ├── models.py
 │   ├── train.py
 │   └── utils.py
-│   └── full_pinn_experiment.py
 ├── logs/
 ├── models/
-├── metrics/
-├── plots/
+├── reports/
+│     ├──metrics/
+├── figures/
 ├── requirements.txt
 └── README.md
 ```
@@ -102,11 +86,7 @@ The `data_processing.py` script handles loading, cleaning, and transforming the 
 
 ## Training
 
-The training pipeline is managed by `main_experiment.py`, which initializes models, optimizers, and schedulers. It also handles logging and early stopping based on validation loss.
-
-## Evaluation
-
-After training, models are evaluated using `evaluate.py`, which computes metrics such as R², NRMSE, and MAE. Results are saved for further analysis.
+The training pipeline is managed by `full_pinn_experiment.py`, which initializes models, optimizers, and schedulers. It also handles logging and early stopping based on validation loss.
 
 ## Results
 
