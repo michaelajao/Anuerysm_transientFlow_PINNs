@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex experiment_paper"] 1735657820.34158 "experiment_paper.aux" "experiment_paper.bbl" "experiment_paper" 1735657828.80599 0
+["bibtex experiment_paper"] 1735657820.34158 "experiment_paper.aux" "experiment_paper.bbl" "experiment_paper" 1735659220.89867 0
   "./references.bib" 1735624749 2939 f266893b71ed18e2940a2a4151b1d7fc ""
   "C:/Users/ajaoo/AppData/Local/Programs/MiKTeX/bibtex/bst/natbib/unsrtnat.bst" 1284451856 24550 a41a6405f4de768c43e871d9fbce2bc8 ""
-  "experiment_paper.aux" 1735657827 6628 4484db11b67ac32c1e148f40a4d6a073 "pdflatex"
+  "experiment_paper.aux" 1735659219 6628 4484db11b67ac32c1e148f40a4d6a073 "pdflatex"
   (generated)
   "experiment_paper.bbl"
   "experiment_paper.blg"
   (rewritten before read)
-["pdflatex"] 1735657820.6811 "c:/Users/ajaoo/Desktop/Projects/Anuerysm_transientFlow_PINNs/paper/experiment_paper.tex" "experiment_paper.pdf" "experiment_paper" 1735657828.80687 0
+["pdflatex"] 1735659212.64527 "c:/Users/ajaoo/Desktop/Projects/Anuerysm_transientFlow_PINNs/paper/experiment_paper.tex" "experiment_paper.pdf" "experiment_paper" 1735659220.89956 0
   "C:/Users/ajaoo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1733681270 715705 78dc77ea4329bc65ba9282d767484fa7 ""
   "C:/Users/ajaoo/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1735255439 11986914 ae0e4d377906908a8ff8e344ae011c8a ""
   "C:/Users/ajaoo/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -153,11 +153,11 @@
   "C:/Users/ajaoo/AppData/Local/Programs/MiKTeX/tex/latex/tools/calc.sty" 1730400552 10214 61188260d324e94bc2f66825d7d3fdf4 ""
   "C:/Users/ajaoo/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/ajaoo/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729261622 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "c:/Users/ajaoo/Desktop/Projects/Anuerysm_transientFlow_PINNs/paper/experiment_paper.tex" 1735657810 24679 f4ec099d4391fcce005fb1b147056b0f ""
-  "experiment_paper.aux" 1735657827 6628 4484db11b67ac32c1e148f40a4d6a073 "pdflatex"
+  "c:/Users/ajaoo/Desktop/Projects/Anuerysm_transientFlow_PINNs/paper/experiment_paper.tex" 1735659211 23758 b0238ffe17060480dce58c83eaa2f848 ""
+  "experiment_paper.aux" 1735659219 6628 4484db11b67ac32c1e148f40a4d6a073 "pdflatex"
   "experiment_paper.bbl" 1735657820 2888 d84ff08c6b75776051216fc3980773dc "bibtex experiment_paper"
-  "experiment_paper.out" 1735657827 1495 24c9d8addb3793bdad9457f20fc2d23a "pdflatex"
-  "experiment_paper.tex" 1735657810 24679 f4ec099d4391fcce005fb1b147056b0f ""
+  "experiment_paper.out" 1735659219 1495 24c9d8addb3793bdad9457f20fc2d23a "pdflatex"
+  "experiment_paper.tex" 1735659211 23758 b0238ffe17060480dce58c83eaa2f848 ""
   "figures/0021_diastolic_aneurysm/0021_diastolic_aneurysm/loss_curves_0021_diastolic_aneurysm.png" 1735513063 402381 a0e60d1809f7ace7805a491136623039 ""
   "figures/0021_diastolic_aneurysm/pressure_distribution_0021_diastolic_aneurysm.png" 1735513063 1692312 d8457bcabbc529de33c96444372b97d6 ""
   "figures/0021_diastolic_aneurysm/wss_magnitude_distribution_0021_diastolic_aneurysm.png" 1735513063 2468075 e2ca31fb4df7567ef2e10c014d88b2d6 ""
