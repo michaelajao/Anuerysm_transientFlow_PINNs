@@ -24,6 +24,12 @@
 \usepackage{geometry}                      % Page layout
 \usepackage{doi}                           % DOI links in bibliography
 
+
+% ----- Figures configuration -----
+\graphicspath{{figures/}}                  % Path to figures
+\captionsetup{font=small, labelfont=bf}     % Caption settings
+\captionsetup[sub]{font=small}             % Subcaption settings
+
 % ----- Page Layout -----
 \geometry{
     a4paper,
@@ -158,7 +164,6 @@ These terms penalise any deviation of the network’s predictions from the speci
 
 The CFD data (e.g.\ pressure, velocity, and WSS) are integrated into the loss function. Let \(\mathbf{u}_{\mathrm{NN}}\) and \(p_{\mathrm{NN}}\) denote the PINN’s predicted velocity and pressure, while \(\mathbf{u}_{\mathrm{CFD}}\) and \(p_{\mathrm{CFD}}\) are the corresponding CFD reference fields. Similarly, \(\tau_{\mathrm{NN}}\) and \(\tau_{\mathrm{CFD}}\) refer to the predicted and CFD-derived WSS. The data-fitting loss is given by:
 
-
 \begin{equation}
 L_{\mathrm{data}} = 
 \|\mathbf{u}_{\mathrm{NN}} - \mathbf{u}_{\mathrm{CFD}}\|_2 
@@ -173,6 +178,7 @@ L_{total} =
 + \lambda_{\mathrm{boundary}}\,L_{\mathrm{boundary}}
 + \lambda_{\mathrm{inlet}}\,L_{\mathrm{inlet}}
 + \lambda_{\mathrm{data}}\,L_{\mathrm{data}},
+\label{eq:total_loss}
 \end{equation}
 
 where \(\lambda_{\mathrm{physics}}, \lambda_{\mathrm{boundary}}, \lambda_{\mathrm{inlet}}, \lambda_{\mathrm{data}}\) are self-adaptive weighting coefficients~\citep{mcclenny2020self}. These learnable parameters automatically balance the importance of each loss component during training, ensuring that the PINN respects both the fundamental equations of fluid motion and the given available CFD data. The self-adaptive weighting mechanism is explained futher in Section~\ref{sec:self_adaptive_weighting}. 
@@ -221,14 +227,14 @@ The optimization of $\log \lambda_i$ allows the network to dynamically balance t
             \State \quad $\mathcal{L}_{\mathrm{inlet}} = \|\mathbf{u}_{\mathrm{NN}}|_{\Gamma_{\mathrm{inlet}}} - \mathbf{u}_{\mathrm{inlet}}(t)\|_2^2$
             \State \quad $\mathcal{L}_{\mathrm{data}} = \|\mathbf{u}_{\mathrm{NN}} - \mathbf{u}_{\mathrm{CFD}}\|_2^2 + \|p_{\mathrm{NN}} - p_{\mathrm{CFD}}\|_2^2 + \|\boldsymbol{\tau}_{\mathrm{NN}} - \boldsymbol{\tau}_{\mathrm{CFD}}\|_2^2$
         
-        \State Compute total loss using Equation~\eqref{eq:total_loss}
+        \State \quad $\mathcal{L}_{\mathrm{total}} = \lambda_{\mathrm{phys}} \mathcal{L}_{\mathrm{phys}} + \lambda_{\mathrm{bound}} \mathcal{L}_{\mathrm{bound}} + \lambda_{\mathrm{inlet}} \mathcal{L}_{\mathrm{inlet}} + \lambda_{\mathrm{data}} \mathcal{L}_{\mathrm{data}}$
         
         \State Backpropagate the total loss to compute gradients for $\theta$ and $\log \lambda_i$
         
         \State Update network weights $\theta \gets \theta - \eta_{\theta} \nabla_{\theta} \mathcal{L}$
         \State Update log-weights $\log \lambda_i \gets \log \lambda_i - \eta_{\lambda} \nabla_{\log \lambda_i} \mathcal{L}$
         
-        \State Apply any learning rate schedules or regularization as needed
+        \State StepLR scheduler updates learning rates $\eta_{\theta}$ and $\eta_{\lambda}$ every $N$ epochs
     \EndWhile
     
     \State \textbf{Return} $\theta^*$, $\lambda_i^*$
@@ -247,11 +253,89 @@ Training was conducted using mixed-precision arithmetic via PyTorch's `torch.cud
 By alleviating the need to run complete CFD simulations whenever boundary conditions or model geometries change, PINNs can serve as rapid surrogates for iterative parameter sweeps, sensitivity analyses, or real-time clinical decision-making. This synergy between classical CFD and PINNs ensures that accurate fluid physics are retained, while the neural network structure offers improved computational scaling and the capacity to generalise to different flow conditions with minimal retraining overhead. Consequently, for the case of Marfan Syndrome aortic aneurysms, PINNs provide a promising pathway for expediting haemodynamic evaluations and exploring a range of inflow waveforms, wall properties, or geometric variations in a fraction of the time typically required by CFD alone.
 
 
-
-
 \vspace{2em}
 \noindent\textbf{Note:} All codes and numerical experiments for the PINN-based aneurysm flow analyses were implemented in \texttt{Python} using \texttt{PyTorch}, with the self-adaptive weighting and physics-based PDE residuals integrated into the backpropagation routine. The specific hyperparameters and training protocol are as outlined in this section, ensuring reproducibility and transparency in the results reported herein.
+
+\subsection{Results}
+\label{sec:PINN_Results}
+
+The PINN-based simulations were validated against benchmark CFD data for healthy and aneurysmal aortic geometries, with comparisons made across key haemodynamic variables such as pressure, velocity, and wall shear stress. The results demonstrated excellent agreement between the PINN predictions and the CFD reference fields, with minimal discrepancies in flow patterns and wall interactions. Figures~\ref{fig:PINN_results1} and \ref{fig:PINN_results2} present the von Mises stress and wall shear stress contours for the diseased cases, showcasing the consistency between the PINN and CFD solutions in capturing the complex flow dynamics within the aneurysmal regions.
+
+\begin{figure}[H]
+    \centering
+    \scriptsize
+    \begin{subfigure}{0.9\textwidth}
+        \includegraphics[width=\textwidth]{0021_diastolic_aneurysm/pressure_distribution_0021_diastolic_aneurysm.png}
+        \caption{\small Pressure distribution}
+    \end{subfigure}
+    \begin{subfigure}{0.9\textwidth}
+        \includegraphics[width=\textwidth]{0021_diastolic_aneurysm/wss_magnitude_distribution_0021_diastolic_aneurysm.png}
+        \caption{\small Wall shear stress}
+    \end{subfigure}
+    \caption{Von Mises stress (Pa) and wall shear stress contours for diseased cases. Figures a–d in each show the xy and xz planes for case 0021 dystolic aneurysm comparison between CFD and PINN results.}
+    \label{fig:PINN_results1}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \scriptsize
+    \begin{subfigure}{0.9\textwidth}
+        \includegraphics[width=\textwidth]{0021_systolic_aneurysm/pressure_distribution_0021_systolic_aneurysm.png}
+        \caption{\small Pressure distribution}
+    \end{subfigure}
+    \begin{subfigure}{0.9\textwidth}
+        \includegraphics[width=\textwidth]{0021_systolic_aneurysm/wss_magnitude_distribution_0021_systolic_aneurysm.png}
+        \caption{\small Wall shear stress}
+    \end{subfigure}
+    \caption{Von Mises stress (Pa) and wall shear stress contours for diseased cases. Figures a–d in each show the xy and xz planes for case 0021 systolic aneurysm comparison between CFD and PINN results.}
+    \label{fig:PINN_results2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \scriptsize
+    \begin{subfigure}{0.9\textwidth}
+        \includegraphics[width=\textwidth]{0024_systolic/pressure_distribution_0024_systolic.png}
+        \caption{\small Pressure distribution}
+    \end{subfigure}
+    \begin{subfigure}{0.9\textwidth}
+        \includegraphics[width=\textwidth]{0024_systolic/wss_magnitude_distribution_0024_systolic.png}
+        \caption{\small Wall shear stress}
+    \end{subfigure}
+    \caption{Von Mises stress (Pa) and wall shear stress contours for diseased cases. Figures a–d in each show the xy and xz planes for case 0024 systolic healthy comparison between CFD and PINN results.}
+    \label{fig:PINN_results3}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \scriptsize
+    \begin{subfigure}{0.9\textwidth}
+        \includegraphics[width=\textwidth]{0024_diastolic/pressure_distribution_0024_diastolic.png}
+        \caption{\small Pressure distribution}
+    \end{subfigure}
+    \begin{subfigure}{0.9\textwidth}
+        \includegraphics[width=\textwidth]{0024_diastolic/wss_magnitude_distribution_0024_diastolic.png}
+        \caption{\small Wall shear stress}
+    \end{subfigure}
+    \caption{Von Mises stress (Pa) and wall shear stress contours for diseased cases. Figures a–d in each show the xy and xz planes for case 0024 diastolic healthy comparison between CFD and PINN results.}
+    \label{fig:PINN_results4}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \scriptsize
+    \includegraphics[width=0.9\textwidth]{0021_diastolic_aneurysm/0021_diastolic_aneurysm/loss_curves_0021_diastolic_aneurysm.png}
+    \caption{Loss curves for the PINN training process, showing the evolution of the physics, boundary, inlet, and data-fitting losses over 1000 epochs. The self-adaptive loss weighting mechanism effectively balances the contributions of each loss component, ensuring that the network learns realistic flow solutions while adhering to the governing Navier--Stokes equations.}
+    \label{fig:loss_curves1}
+\end{figure}
+
+
+
 \bibliographystyle{unsrtnat}
 \bibliography{references}
 
 \end{document}
+
