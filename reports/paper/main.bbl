@@ -1,0 +1,13 @@
+\begin{thebibliography}{1}
+
+\bibitem{ramachandran2017searching}
+Prajit Ramachandran, Barret Zoph, and Quoc~V Le.
+\newblock Searching for activation functions.
+\newblock {\em arXiv preprint arXiv:1710.05941}, 2017.
+
+\bibitem{micikevicius2017mixed}
+Paulius Micikevicius, Sharan Narang, Jonah Alben, Gregory Diamos, Erich Elsen, David Garcia, Boris Ginsburg, Michael Houston, Oleksii Kuchaiev, Ganesh Venkatesh, et~al.
+\newblock Mixed precision training.
+\newblock {\em arXiv preprint arXiv:1710.03740}, 2017.
+
+\end{thebibliography}

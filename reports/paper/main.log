@@ -1,0 +1,1341 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.11.6)  9 JAN 2025 18:01
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex
+(c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex
+LaTeX2e <2023-11-01>
+L3 programming layer <2023-11-01>
+(c:/texlive/2023/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
+(c:/texlive/2023/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count186
+\c@section=\count187
+\c@subsection=\count188
+\c@subsubsection=\count189
+\c@paragraph=\count190
+\c@subparagraph=\count191
+\c@figure=\count192
+\c@table=\count193
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
+) (./PRIMEarxiv.sty (c:/texlive/2023/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+ (c:/texlive/2023/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+) (c:/texlive/2023/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+ (c:/texlive/2023/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+))
+\Gm@cnth=\count194
+\Gm@cntv=\count195
+\c@Gm@tempcnt=\count196
+\Gm@bindingoffset=\dimen141
+\Gm@wd@mp=\dimen142
+\Gm@odd@mp=\dimen143
+\Gm@even@mp=\dimen144
+\Gm@layoutwidth=\dimen145
+\Gm@layoutheight=\dimen146
+\Gm@layouthoffset=\dimen147
+\Gm@layoutvoffset=\dimen148
+\Gm@dimlist=\toks18
+) (c:/texlive/2023/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
+\f@nch@headwidth=\skip50
+\f@nch@O@elh=\skip51
+\f@nch@O@erh=\skip52
+\f@nch@O@olh=\skip53
+\f@nch@O@orh=\skip54
+\f@nch@O@elf=\skip55
+\f@nch@O@erf=\skip56
+\f@nch@O@olf=\skip57
+\f@nch@O@orf=\skip58
+)
+\@abovecaptionskip=\skip59
+\@belowcaptionskip=\skip60
+) (c:/texlive/2023/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks19
+\inpenc@posthook=\toks20
+) (c:/texlive/2023/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 112.
+ (c:/texlive/2023/texmf-dist/tex/latex/psnfss/t1ptm.fd
+File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
+)) (c:/texlive/2023/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2023-10-27 v7.01d Hypertext links for LaTeX
+ (c:/texlive/2023/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+) (c:/texlive/2023/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+ (c:/texlive/2023/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+) (c:/texlive/2023/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+) (c:/texlive/2023/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+) (c:/texlive/2023/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+) (c:/texlive/2023/texmf-dist/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+) (c:/texlive/2023/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+) (c:/texlive/2023/texmf-dist/tex/latex/auxhook/auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+) (c:/texlive/2023/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2023-10-05 v2.54 Cross-referencing by name of section
+ (c:/texlive/2023/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+) (c:/texlive/2023/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+ (c:/texlive/2023/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count197
+) (c:/texlive/2023/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count198
+)
+\@linkdim=\dimen149
+\Hy@linkcounter=\count199
+\Hy@pagecounter=\count266
+ (c:/texlive/2023/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2023-10-27 v7.01d Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+) (c:/texlive/2023/texmf-dist/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count267
+ (c:/texlive/2023/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2023-10-27 v7.01d Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Hyper figures OFF on input line 4168.
+Package hyperref Info: Link nesting OFF on input line 4173.
+Package hyperref Info: Hyper index ON on input line 4176.
+Package hyperref Info: Plain pages OFF on input line 4183.
+Package hyperref Info: Backreferencing OFF on input line 4188.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4435.
+\c@Hy@tempcnt=\count268
+ (c:/texlive/2023/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip16
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4773.
+\XeTeXLinkMargin=\dimen150
+ (c:/texlive/2023/texmf-dist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+ (c:/texlive/2023/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
+))
+\Fld@menulength=\count269
+\Field@Width=\dimen151
+\Fld@charsize=\dimen152
+Package hyperref Info: Hyper figures OFF on input line 6052.
+Package hyperref Info: Link nesting OFF on input line 6057.
+Package hyperref Info: Hyper index ON on input line 6060.
+Package hyperref Info: backreferencing OFF on input line 6067.
+Package hyperref Info: Link coloring OFF on input line 6072.
+Package hyperref Info: Link coloring with OCG OFF on input line 6077.
+Package hyperref Info: PDF/A mode OFF on input line 6082.
+ (c:/texlive/2023/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count270
+\c@Item=\count271
+\c@Hfootnote=\count272
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+ (c:/texlive/2023/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2023-10-27 v7.01d Hyperref driver for pdfTeX
+ (c:/texlive/2023/texmf-dist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
+with kernel methods
+)
+\Fld@listcount=\count273
+\c@bookmark@seq@number=\count274
+ (c:/texlive/2023/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+ (c:/texlive/2023/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
+)
+\Hy@SectionHShift=\skip61
+) (c:/texlive/2023/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen153
+\lightrulewidth=\dimen154
+\cmidrulewidth=\dimen155
+\belowrulesep=\dimen156
+\belowbottomsep=\dimen157
+\aboverulesep=\dimen158
+\abovetopsep=\dimen159
+\cmidrulesep=\dimen160
+\cmidrulekern=\dimen161
+\defaultaddspace=\dimen162
+\@cmidla=\count275
+\@cmidlb=\count276
+\@aboverulesep=\dimen163
+\@belowrulesep=\dimen164
+\@thisruleclass=\count277
+\@lastruleclass=\count278
+\@thisrulewidth=\dimen165
+) (c:/texlive/2023/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks21
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+) (c:/texlive/2023/texmf-dist/tex/latex/units/nicefrac.sty
+Package: nicefrac 1998/08/04 v0.9b Nice fractions
+\L@UnitsRaiseDisplaystyle=\skip62
+\L@UnitsRaiseTextstyle=\skip63
+\L@UnitsRaiseScriptstyle=\skip64
+ (c:/texlive/2023/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
+)) (c:/texlive/2023/texmf-dist/tex/latex/microtype/microtype.sty
+Package: microtype 2023/03/13 v3.1a Micro-typographical refinements (RS)
+\MT@toks=\toks22
+\MT@tempbox=\box51
+\MT@count=\count279
+LaTeX Info: Redefining \noprotrusionifhmode on input line 1059.
+LaTeX Info: Redefining \leftprotrusion on input line 1060.
+\MT@prot@toks=\toks23
+LaTeX Info: Redefining \rightprotrusion on input line 1078.
+LaTeX Info: Redefining \textls on input line 1368.
+\MT@outer@kern=\dimen166
+LaTeX Info: Redefining \textmicrotypecontext on input line 1988.
+\MT@listname@count=\count280
+ (c:/texlive/2023/texmf-dist/tex/latex/microtype/microtype-pdftex.def
+File: microtype-pdftex.def 2023/03/13 v3.1a Definitions specific to pdftex (RS)
+LaTeX Info: Redefining \lsstyle on input line 902.
+LaTeX Info: Redefining \lslig on input line 902.
+\MT@outer@space=\skip65
+)
+Package microtype Info: Loading configuration file microtype.cfg.
+ (c:/texlive/2023/texmf-dist/tex/latex/microtype/microtype.cfg
+File: microtype.cfg 2023/03/13 v3.1a microtype main configuration file (RS)
+)) (c:/texlive/2023/texmf-dist/tex/latex/lipsum/lipsum.sty (c:/texlive/2023/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty (c:/texlive/2023/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2023-11-01 L3 programming layer (loader) 
+ (c:/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2023-10-23 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count281
+\l__pdf_internal_box=\box52
+))
+Package: l3keys2e 2023-10-10 LaTeX2e option processing using LaTeX3 keys
+)
+Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
+\g__lipsum_par_int=\count282
+\l__lipsum_a_int=\count283
+\l__lipsum_b_int=\count284
+ (c:/texlive/2023/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex)) (c:/texlive/2023/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+ (c:/texlive/2023/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+ (c:/texlive/2023/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+) (c:/texlive/2023/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+ (c:/texlive/2023/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen167
+\Gin@req@width=\dimen168
+) (./main.aux)
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: letterpaper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(92.14519pt, 430.00462pt, 92.14519pt)
+* v-part:(T,H,B)=(95.39737pt, 556.47656pt, 143.09605pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=430.00462pt
+* \textheight=556.47656pt
+* \oddsidemargin=19.8752pt
+* \evensidemargin=19.8752pt
+* \topmargin=-13.87262pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+*geometry* verbose mode - [ newgeometry ] result:
+* driver: pdftex
+* paper: letterpaper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(72.27pt, 469.75499pt, 72.27pt)
+* v-part:(T,H,B)=(72.26999pt, 650.43pt, 72.27pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=469.75499pt
+* \textheight=650.43pt
+* \oddsidemargin=0.00002pt
+* \evensidemargin=0.00002pt
+* \topmargin=-39.0pt
+* \headheight=14.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+Package hyperref Info: Link coloring OFF on input line 70.
+\@outlinefile=\write3
+\openout3 = `main.out'.
+
+LaTeX Info: Redefining \microtypecontext on input line 70.
+Package microtype Info: Applying patch `item' on input line 70.
+Package microtype Info: Applying patch `toc' on input line 70.
+Package microtype Info: Applying patch `eqnum' on input line 70.
+Package microtype Info: Applying patch `footnote' on input line 70.
+Package microtype Info: Applying patch `verbatim' on input line 70.
+Package microtype Info: Generating PDF output.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using default protrusion set `alltext'.
+Package microtype Info: Automatic font expansion enabled (level 2),
+(microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
+Package microtype Info: Using default expansion set `alltext-nott'.
+LaTeX Info: Redefining \showhyphens on input line 70.
+Package microtype Info: No adjustment of tracking.
+Package microtype Info: No adjustment of interword spacing.
+Package microtype Info: No adjustment of character kerning.
+(c:/texlive/2023/texmf-dist/tex/latex/microtype/mt-ptm.cfg
+File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
+) (c:/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count285
+\scratchdimen=\dimen169
+\scratchbox=\box53
+\nofMPsegments=\count286
+\nofMParguments=\count287
+\everyMPshowfont=\toks24
+\MPscratchCnt=\count288
+\MPscratchDim=\dimen170
+\MPnumerator=\count289
+\makeMPintoPDFobject=\count290
+\everyMPtoPDFconversion=\toks25
+) (c:/texlive/2023/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (c:/texlive/2023/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+)) (c:/texlive/2023/texmf-dist/tex/latex/microtype/mt-cmr.cfg
+File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+msa on input line 72.
+ (c:/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+) (c:/texlive/2023/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 72.
+ (c:/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) (c:/texlive/2023/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 72.
+ (c:/texlive/2023/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `cmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+
+
+LaTeX Warning: Reference `sec:headings' on page 1 undefined on input line 91.
+
+
+Underfull \vbox (badness 1668) has occurred while \output is active []
+
+ [1
+
+
+{c:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2023/texmf-dist/fonts/enc/dvips/base/8r.enc}{c:/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
+
+LaTeX Warning: Citation `kour2014real' on page 2 undefined on input line 107.
+
+
+LaTeX Warning: Citation `kour2014fast' on page 2 undefined on input line 107.
+
+
+LaTeX Warning: Citation `hadash2018estimate' on page 2 undefined on input line 107.
+
+
+LaTeX Warning: Reference `fig:fig1' on page 2 undefined on input line 130.
+
+[2]
+
+LaTeX Warning: Reference `tab:table' on page 3 undefined on input line 142.
+
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 163.
+(c:/texlive/2023/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:171: Undefined control sequence.
+l.171 ...works (PINNs), first introduced by \citet
+                                                  {raissi2019physics}, have ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[3]
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:190: Undefined control sequence.
+l.190 ...rial walls \((\mathbf{u}=\mathbf{0} \text
+                                                  { on } \partial\Omega_{\te...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:190: Undefined control sequence.
+l.190 ...thbf{0} \text{ on } \partial\Omega_{\text
+                                                  {wall}})\), zero relative ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:190: Undefined control sequence.
+l.190 ...inlet velocity on \(\partial\Omega_{\text
+                                                  {inlet}}\) (Section~2.3). ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:213: Undefined control sequence.
+l.213 ... \|\mathbf{u}\big|_{\partial\Omega_{\text
+                                                  {wall}}} - \mathbf{0}\|_2,
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:238: Undefined control sequence.
+l.238 ...lf-adaptive weighting coefficients~\citep
+                                                  {mcclenny2020self}. These ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Reference `sec:self_adaptive_weighting' on page 4 undefined on input line 238.
+
+[4]
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:243: Undefined control sequence.
+l.243 ...ent. The Swish activation function \citep
+                                                  {ramachandran2017searching...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:243: Undefined control sequence.
+l.243 ...itialised using the Kaiming normal \citep
+                                                  {he2015delving} to ensure ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Citation `ramachandran2017searching' on page 5 undefined on input line 245.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:256: Undefined control sequence.
+l.256 ... loss weighting scheme inspired by \citet
+                                                  {mcclenny2020self}. Specif...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:265: Undefined control sequence.
+l.265 ...erm dominates the training process \citep
+                                                  {wang2022and}. This adapti...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:267: LaTeX Error: Environment algorithm undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.267 \begin{algorithm}
+                       [htbp]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:268: LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.268     \caption
+                  {Self-Adaptive Loss Weighting in PINNs}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:270: LaTeX Error: Environment algorithmic undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.270     \begin{algorithmic}
+                             [1]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:271: Undefined control sequence.
+l.271     \Require
+                   Initial network weights $\theta$, initial $\log \lambda_i...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:272: Undefined control sequence.
+l.272     \Ensure
+                  Trained network weights $\theta^*$ and optimized $\lambda_...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:274: Undefined control sequence.
+l.274     \While
+                {not converged}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:275: Undefined control sequence.
+l.275         \State
+                     Sample mini-batch of training points
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:276: Undefined control sequence.
+l.276         \State
+                     Forward pass to compute predictions $\mathbf{u}_{\mathr...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:276: Undefined control sequence.
+<recently read> \boldsymbol 
+                            
+l.276 ...rm{NN}}$, $p_{\mathrm{NN}}$, $\boldsymbol
+                                                  {\tau}_{\mathrm{NN}}$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:278: Undefined control sequence.
+l.278         \State
+                     Compute individual loss components:
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:279: Undefined control sequence.
+l.279             \State
+                         \quad $\mathcal{L}_{\mathrm{phys}} = \|F(\mathbf{u}...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:280: Undefined control sequence.
+l.280             \State
+                         \quad $\mathcal{L}_{\mathrm{bound}} = \|\mathbf{u}_...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:281: Undefined control sequence.
+l.281             \State
+                         \quad $\mathcal{L}_{\mathrm{inlet}} = \|\mathbf{u}_...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:282: Undefined control sequence.
+l.282             \State
+                         \quad $\mathcal{L}_{\mathrm{data}} = \|\mathbf{u}_{...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:282: Undefined control sequence.
+l.282 ... - p_{\mathrm{CFD}}\|_2^2 + \|\boldsymbol
+                                                  {\tau}_{\mathrm{NN}} - \bo...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:282: Undefined control sequence.
+l.282 ...dsymbol{\tau}_{\mathrm{NN}} - \boldsymbol
+                                                  {\tau}_{\mathrm{CFD}}\|_2^2$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:284: Undefined control sequence.
+l.284         \State
+                     \quad $\mathcal{L}_{\mathrm{total}} = \lambda_{\mathrm{...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:286: Undefined control sequence.
+l.286         \State
+                     Backpropagate the total loss to compute gradients for $...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:288: Undefined control sequence.
+l.288         \State
+                     Update network weights $\theta \gets \theta - \eta_{\th...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:289: Undefined control sequence.
+l.289         \State
+                     Update log-weights $\log \lambda_i \gets \log \lambda_i...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:291: Undefined control sequence.
+l.291         \State
+                     StepLR scheduler updates learning rates $\eta_{\theta}$...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:292: Undefined control sequence.
+l.292     \EndWhile
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:294: Undefined control sequence.
+l.294     \State
+                 \textbf{Return} $\theta^*$, $\lambda_i^*$
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:295: LaTeX Error: \begin{document} ended by \end{algorithmic}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.295     \end{algorithmic}
+                           
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:296: LaTeX Error: \begin{document} ended by \end{algorithm}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.296 \end{algorithm}
+                     
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:300: Undefined control sequence.
+l.300 ...lemented using the PyTorch library \citep
+                                                  {paszke2019pytorch}, lever...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[5]
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:302: Undefined control sequence.
+l.302 ... trained using the AdamW optimizer \citep
+                                                  {loshchilov2017decoupled} ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Citation `micikevicius2017mixed' on page 6 undefined on input line 304.
+
+
+LaTeX Warning: Reference `fig:PINN_results1' on page 6 undefined on input line 316.
+
+
+LaTeX Warning: Reference `fig:PINN_results2' on page 6 undefined on input line 316.
+
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:318: LaTeX Error: Unknown float option `H'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.318 \begin{figure}[H]
+                       
+Option `H' ignored and `p' used.
+
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:321: LaTeX Error: Environment subfigure undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.321     \begin{subfigure}
+                           {0.9\textwidth}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:321: Missing number, treated as zero.
+<to be read again> 
+                   }
+l.321     \begin{subfigure}{0.9\textwidth}
+                                          
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:321: Illegal unit of measure (pt inserted).
+<to be read again> 
+                   }
+l.321     \begin{subfigure}{0.9\textwidth}
+                                          
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+<figures/0021_diastolic_aneurysm/pressure_distribution_0021_diastolic_aneurysm.png, id=67, 848.6907pt x 550.6974pt>
+File: figures/0021_diastolic_aneurysm/pressure_distribution_0021_diastolic_aneurysm.png Graphic file (type png)
+<use figures/0021_diastolic_aneurysm/pressure_distribution_0021_diastolic_aneurysm.png>
+Package pdftex.def Info: figures/0021_diastolic_aneurysm/pressure_distribution_0021_diastolic_aneurysm.png  used on input line 322.
+(pdftex.def)             Requested size: 469.75499pt x 304.80878pt.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:324: LaTeX Error: \begin{figure} on input line 318 ended by \end{subfigure}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.324     \end{subfigure}
+                         
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:325: LaTeX Error: Environment subfigure undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.325     \begin{subfigure}
+                           {0.9\textwidth}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:325: Missing number, treated as zero.
+<to be read again> 
+                   }
+l.325     \begin{subfigure}{0.9\textwidth}
+                                          
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:325: Illegal unit of measure (pt inserted).
+<to be read again> 
+                   }
+l.325     \begin{subfigure}{0.9\textwidth}
+                                          
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+<figures/0021_diastolic_aneurysm/wss_magnitude_distribution_0021_diastolic_aneurysm.png, id=69, 846.2817pt x 550.6974pt>
+File: figures/0021_diastolic_aneurysm/wss_magnitude_distribution_0021_diastolic_aneurysm.png Graphic file (type png)
+<use figures/0021_diastolic_aneurysm/wss_magnitude_distribution_0021_diastolic_aneurysm.png>
+Package pdftex.def Info: figures/0021_diastolic_aneurysm/wss_magnitude_distribution_0021_diastolic_aneurysm.png  used on input line 326.
+(pdftex.def)             Requested size: 469.75499pt x 305.69109pt.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:328: LaTeX Error: \begin{figure} on input line 318 ended by \end{subfigure}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.328     \end{subfigure}
+                         
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+LaTeX Warning: Float too large for page by 42.08865pt on input line 331.
+
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:334: LaTeX Error: Unknown float option `H'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.334 \begin{figure}[H]
+                       
+Option `H' ignored and `p' used.
+
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:337: LaTeX Error: Environment subfigure undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.337     \begin{subfigure}
+                           {0.9\textwidth}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:337: Missing number, treated as zero.
+<to be read again> 
+                   }
+l.337     \begin{subfigure}{0.9\textwidth}
+                                          
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:337: Illegal unit of measure (pt inserted).
+<to be read again> 
+                   }
+l.337     \begin{subfigure}{0.9\textwidth}
+                                          
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+<figures/0021_systolic_aneurysm/pressure_distribution_0021_systolic_aneurysm.png, id=70, 849.1725pt x 550.6974pt>
+File: figures/0021_systolic_aneurysm/pressure_distribution_0021_systolic_aneurysm.png Graphic file (type png)
+<use figures/0021_systolic_aneurysm/pressure_distribution_0021_systolic_aneurysm.png>
+Package pdftex.def Info: figures/0021_systolic_aneurysm/pressure_distribution_0021_systolic_aneurysm.png  used on input line 338.
+(pdftex.def)             Requested size: 469.75499pt x 304.64072pt.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:340: LaTeX Error: \begin{figure} on input line 334 ended by \end{subfigure}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.340     \end{subfigure}
+                         
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:341: LaTeX Error: Environment subfigure undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.341     \begin{subfigure}
+                           {0.9\textwidth}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:341: Missing number, treated as zero.
+<to be read again> 
+                   }
+l.341     \begin{subfigure}{0.9\textwidth}
+                                          
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:341: Illegal unit of measure (pt inserted).
+<to be read again> 
+                   }
+l.341     \begin{subfigure}{0.9\textwidth}
+                                          
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+<figures/0021_systolic_aneurysm/wss_magnitude_distribution_0021_systolic_aneurysm.png, id=71, 847.2453pt x 550.6974pt>
+File: figures/0021_systolic_aneurysm/wss_magnitude_distribution_0021_systolic_aneurysm.png Graphic file (type png)
+<use figures/0021_systolic_aneurysm/wss_magnitude_distribution_0021_systolic_aneurysm.png>
+Package pdftex.def Info: figures/0021_systolic_aneurysm/wss_magnitude_distribution_0021_systolic_aneurysm.png  used on input line 342.
+(pdftex.def)             Requested size: 469.75499pt x 305.33817pt.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:344: LaTeX Error: \begin{figure} on input line 334 ended by \end{subfigure}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.344     \end{subfigure}
+                         
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+LaTeX Warning: Float too large for page by 41.56767pt on input line 347.
+
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:349: LaTeX Error: Unknown float option `H'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.349 \begin{figure}[H]
+                       
+Option `H' ignored and `p' used.
+
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:352: LaTeX Error: Environment subfigure undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.352     \begin{subfigure}
+                           {0.9\textwidth}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:352: Missing number, treated as zero.
+<to be read again> 
+                   }
+l.352     \begin{subfigure}{0.9\textwidth}
+                                          
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:352: Illegal unit of measure (pt inserted).
+<to be read again> 
+                   }
+l.352     \begin{subfigure}{0.9\textwidth}
+                                          
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+<figures/0024_systolic/pressure_distribution_0024_systolic.png, id=72, 848.2089pt x 550.6974pt>
+File: figures/0024_systolic/pressure_distribution_0024_systolic.png Graphic file (type png)
+<use figures/0024_systolic/pressure_distribution_0024_systolic.png>
+Package pdftex.def Info: figures/0024_systolic/pressure_distribution_0024_systolic.png  used on input line 353.
+(pdftex.def)             Requested size: 469.75499pt x 304.99365pt.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:355: LaTeX Error: \begin{figure} on input line 349 ended by \end{subfigure}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.355     \end{subfigure}
+                         
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:356: LaTeX Error: Environment subfigure undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.356     \begin{subfigure}
+                           {0.9\textwidth}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:356: Missing number, treated as zero.
+<to be read again> 
+                   }
+l.356     \begin{subfigure}{0.9\textwidth}
+                                          
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:356: Illegal unit of measure (pt inserted).
+<to be read again> 
+                   }
+l.356     \begin{subfigure}{0.9\textwidth}
+                                          
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+<figures/0024_systolic/wss_magnitude_distribution_0024_systolic.png, id=73, 847.2453pt x 550.6974pt>
+File: figures/0024_systolic/wss_magnitude_distribution_0024_systolic.png Graphic file (type png)
+<use figures/0024_systolic/wss_magnitude_distribution_0024_systolic.png>
+Package pdftex.def Info: figures/0024_systolic/wss_magnitude_distribution_0024_systolic.png  used on input line 357.
+(pdftex.def)             Requested size: 469.75499pt x 305.33817pt.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:359: LaTeX Error: \begin{figure} on input line 349 ended by \end{subfigure}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.359     \end{subfigure}
+                         
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+LaTeX Warning: Float too large for page by 41.92061pt on input line 362.
+
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:365: LaTeX Error: Unknown float option `H'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.365 \begin{figure}[H]
+                       
+Option `H' ignored and `p' used.
+
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:368: LaTeX Error: Environment subfigure undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.368     \begin{subfigure}
+                           {0.9\textwidth}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:368: Missing number, treated as zero.
+<to be read again> 
+                   }
+l.368     \begin{subfigure}{0.9\textwidth}
+                                          
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:368: Illegal unit of measure (pt inserted).
+<to be read again> 
+                   }
+l.368     \begin{subfigure}{0.9\textwidth}
+                                          
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+<figures/0024_diastolic/pressure_distribution_0024_diastolic.png, id=74, 847.7271pt x 550.6974pt>
+File: figures/0024_diastolic/pressure_distribution_0024_diastolic.png Graphic file (type png)
+<use figures/0024_diastolic/pressure_distribution_0024_diastolic.png>
+Package pdftex.def Info: figures/0024_diastolic/pressure_distribution_0024_diastolic.png  used on input line 369.
+(pdftex.def)             Requested size: 469.75499pt x 305.16171pt.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:371: LaTeX Error: \begin{figure} on input line 365 ended by \end{subfigure}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.371     \end{subfigure}
+                         
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:372: LaTeX Error: Environment subfigure undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.372     \begin{subfigure}
+                           {0.9\textwidth}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:372: Missing number, treated as zero.
+<to be read again> 
+                   }
+l.372     \begin{subfigure}{0.9\textwidth}
+                                          
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:372: Illegal unit of measure (pt inserted).
+<to be read again> 
+                   }
+l.372     \begin{subfigure}{0.9\textwidth}
+                                          
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+<figures/0024_diastolic/wss_magnitude_distribution_0024_diastolic.png, id=75, 846.2817pt x 550.6974pt>
+File: figures/0024_diastolic/wss_magnitude_distribution_0024_diastolic.png Graphic file (type png)
+<use figures/0024_diastolic/wss_magnitude_distribution_0024_diastolic.png>
+Package pdftex.def Info: figures/0024_diastolic/wss_magnitude_distribution_0024_diastolic.png  used on input line 373.
+(pdftex.def)             Requested size: 469.75499pt x 305.69109pt.
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:375: LaTeX Error: \begin{figure} on input line 365 ended by \end{subfigure}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.375     \end{subfigure}
+                         
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+LaTeX Warning: Float too large for page by 42.44159pt on input line 378.
+
+
+c:/Users/olarinoyem/Project/Aneurysm_transientFlow_PINNs/reports/paper/main.tex:381: LaTeX Error: Unknown float option `H'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.381 \begin{figure}[H]
+                       
+Option `H' ignored and `p' used.
+
+<figures/0021_diastolic_aneurysm/0021_diastolic_aneurysm/loss_curves_0021_diastolic_aneurysm.png, id=76, 855.6768pt x 520.344pt>
+File: figures/0021_diastolic_aneurysm/0021_diastolic_aneurysm/loss_curves_0021_diastolic_aneurysm.png Graphic file (type png)
+<use figures/0021_diastolic_aneurysm/0021_diastolic_aneurysm/loss_curves_0021_diastolic_aneurysm.png>
+Package pdftex.def Info: figures/0021_diastolic_aneurysm/0021_diastolic_aneurysm/loss_curves_0021_diastolic_aneurysm.png  used on input line 384.
+(pdftex.def)             Requested size: 422.77661pt x 257.09865pt.
+(./main.bbl [6] [7 <./figures/0021_diastolic_aneurysm/pressure_distribution_0021_diastolic_aneurysm.png> <./figures/0021_diastolic_aneurysm/wss_magnitude_distribution_0021_diastolic_aneurysm.png>] [8 <./figures/0021_systolic_aneurysm/pressure_distribution_0021_systolic_aneurysm.png> <./figures/0021_systolic_aneurysm/wss_magnitude_distribution_0021_systolic_aneurysm.png>] [9 <./figures/0024_systolic/pressure_distribution_0024_systolic.png> <./figures/0024_systolic/wss_magnitude_distribution_0024_systolic.png>] [10 <./figures/0024_diastolic/pressure_distribution_0024_diastolic.png> <./figures/0024_diastolic/wss_magnitude_distribution_0024_diastolic.png>]) [11] [12 <./figures/0021_diastolic_aneurysm/0021_diastolic_aneurysm/loss_curves_0021_diastolic_aneurysm.png>] (./main.aux)
+ ***********
+LaTeX2e <2023-11-01>
+L3 programming layer <2023-11-01>
+ ***********
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  F4EE5030C47E5EF93952075E0C59B2C6;2465.
+ ) 
+Here is how much of TeX's memory you used:
+ 12484 strings out of 474271
+ 205004 string characters out of 5751527
+ 1939533 words of memory out of 5000000
+ 34227 multiletter control sequences out of 15000+600000
+ 619153 words of font info for 228 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 79i,12n,93p,1072b,573s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb><c:/texlive/2023/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2023/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb><c:/texlive/2023/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2023/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (12 pages, 14728598 bytes).
+PDF statistics:
+ 220 PDF objects out of 1000 (max. 8388607)
+ 154 compressed objects within 2 object streams
+ 57 named destinations out of 1000 (max. 500000)
+ 63022 words of extra memory for PDF output out of 74296 (max. 10000000)
+
