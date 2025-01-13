@@ -2,7 +2,7 @@
 
 ## Overview
 
-Anuerysm Transient Flow PINNs is a Physics-Informed Neural Networks (PINNs) project designed to model transient flow in aneurysms. The project leverages PyTorch for model development and training, providing a robust framework for simulating and analyzing blood flow dynamics.
+Anuerysm Transient Flow PINNs is a Physics-Informed Neural Networks (PINNs) project designed to model transient flow in aneurysms. The project leverages PyTorch for model development and training, providing a robust framework for simulating and analyzing blood flow dynamics. Cerebral aneurysms are pathological dilations of blood vessels in the brain, posing significant health risks due to their potential to rupture. Understanding the transient blood flow dynamics within aneurysms is crucial for risk assessment and treatment planning. Traditional computational fluid dynamics (CFD) methods, while accurate, are computationally intensive and time-consuming.
 
 ## Installation
 
@@ -60,23 +60,41 @@ Anuerysm_transientFlow_PINNs/
 ├── data/
 │   ├── raw/
 │   │   └── WSS_data/
+│   │       ├── 0021 Diastolic aneurysm.csv
+│   │       ├── 0021 Diastolic global.csv
+│   │       └── ... (other CSV files)
 │   └── processed/
+│       └── ... (processed CSV files organized by condition and phase)
+├── aneurysm_pinns/
+│   ├── __init__.py
+│   ├── config.py
+│   ├── dataset.py
+│   ├── features.py
+│   ├── utils.py
+│   ├── modeling/
+│   │   ├── __init__.py
+│   │   ├── model.py
+│   │   ├── train.py
+│   │   └── predict.py
+│   ├── plots.py
+│   └── main.py
 ├── src/
 |   ├──models/
 │   │   └── full_pinn_experiment.py
-│   ├── data_processing.py
-│   ├── datasets.py
-│   ├── evaluate.py
-│   ├── main_experiment.py
-│   ├── models.py
-│   ├── train.py
-│   └── utils.py
+│   ├── data
+│   │   └── data_processing.py
 ├── logs/
 ├── models/
 ├── reports/
-│     ├──metrics/
+│   ├── metrics/
+│   │   └── ... (CSV files with performance metrics)
+│   └── paper/
+│       ├── main.tex
+│       ├── references.bib
+│       └── figures/
 ├── figures/
 ├── requirements.txt
+|── .gitignore
 └── README.md
 ```
 
