@@ -241,6 +241,74 @@ The optimization of $\log \lambda_i$ allows the network to dynamically balance t
     \end{algorithmic}
 \end{algorithm}
 
+
+\subsection{Data Processing and Experimental Setup}
+\label{sec:data_processing}
+
+The experimental data consists of CFD simulations from both healthy and aneurysmal aortic geometries, with measurements taken during systolic and diastolic phases. Each dataset contains spatial coordinates (X, Y, Z), time points, pressure values, velocity components (u, v, w), and wall shear stress components. The raw data was processed through the following steps:
+
+\begin{enumerate}
+    \item \textbf{Data Cleaning}: Initial preprocessing involved removing any incomplete records and validating the physical consistency of measurements. This resulted in a clean dataset of 11,005 points per time step.
+    
+    \item \textbf{Normalization}: All input features and target variables were normalized using Min-Max scaling to ensure stable training:
+    \begin{itemize}
+        \item Spatial coordinates (X, Y, Z) were scaled to [-1, 1]
+        \item Time points were normalized to [0, 1] over the cardiac cycle
+        \item Pressure, velocity, and wall shear stress components were independently scaled
+    \end{itemize}
+    
+    \item \textbf{Boundary Point Identification}: Points on vessel walls were identified using velocity magnitude thresholds ($|u| < \varepsilon$, $|v| < \varepsilon$, $|w| < \varepsilon$, where $\varepsilon = 10^{-5}$), enabling proper enforcement of no-slip boundary conditions.
+    
+    \item \textbf{Data Organization}: The processed data was organized into:
+    \begin{itemize}
+        \item Healthy cases: 0024 and 0142 (systolic and diastolic phases)
+        \item Aneurysmal cases: 0021, 0022, 0023, and 0025 (systolic and diastolic phases)
+        \item Each case contains approximately 11,005 spatial points per time step
+        \item Time steps were uniformly sampled across the cardiac cycle
+    \end{itemize}
+    
+    \item \textbf{Quality Control}:
+    \begin{itemize}
+        \item Physical consistency checks were performed on velocity and pressure fields
+        \item Wall shear stress components were validated against analytical solutions
+        \item Conservation of mass was verified at inlet/outlet boundaries
+        \item Temporal continuity was ensured across cardiac cycles
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Point Density Analysis and Spatial Discretization}
+\label{sec:point_density}
+
+A key advantage of the PINN approach is its mesh-free nature, which eliminates the need for traditional CFD mesh generation and refinement. Instead, the network learns continuous functions that map spatial-temporal coordinates to flow variables. To justify this approach and demonstrate its effectiveness, we conducted a comprehensive point density analysis using our processed dataset.
+
+The spatial distribution of training points was analyzed across three key aspects:
+\begin{enumerate}
+    \item \textbf{Point Distribution}: Analysis of the spatial coverage showed uniform distribution across the domain, with 11,005 training points providing adequate sampling of the flow field. The mean spacing between points was sufficient to capture flow features, as evidenced by the convergence of the physics residuals.
+    
+    \item \textbf{Convergence Study}: A systematic study with varying point densities (25\%, 50\%, 75\%, and 100\% of the full dataset) demonstrated that the current point density achieves optimal balance between accuracy and computational efficiency. The physics loss showed consistent convergence, decreasing from 149.66 to 4.97 during training.
+    
+    \item \textbf{Prediction Density}: The trained network achieved a 100.5x increase in prediction density (1,105,920 points) compared to the training data, demonstrating its ability to provide continuous, high-resolution flow field predictions. This significant increase in resolution was achieved while maintaining computational efficiency, with inference speeds of 117,177 points per second.
+\end{enumerate}
+
+The point density analysis results are visualized in Figure~\ref{fig:mesh_analysis}, which shows the 2D projections of point distributions and the corresponding density histograms. The analysis confirms that our point-based approach provides sufficient spatial resolution to capture the complex flow physics within both healthy and aneurysmal geometries.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{0024_diastolic/wss_magnitude_distribution_0024_diastolic.png}
+    \caption{Point distribution analysis showing 2D projections (XY, XZ, YZ planes) of the training points, demonstrating uniform spatial coverage across the domain. Color mapping indicates the depth dimension in each projection.}
+    \label{fig:mesh_analysis}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{0024_diastolic/pressure_distribution_0024_diastolic.png}
+    \caption{Comparison between CFD data points and PINN predictions, showing (a) original CFD point distribution, (b) enhanced PINN prediction density, and (c) computational time comparison between traditional CFD and PINN approaches.}
+    \label{fig:density_comparison}
+\end{figure}
+
+The computational efficiency of our approach is particularly noteworthy. Training the PINN required only 0.68 hours, with minimal memory usage (7.36 GB for training, 0.02 GB for inference). This represents a significant improvement over traditional CFD mesh generation and simulation times, which typically require multiple days for mesh refinement studies alone. The PINN's ability to provide high-resolution predictions with rapid inference times underscores its potential for real-time clinical applications and large-scale parametric studies.
+
+
 \subsection{Training of the PINNs}
 
 The PINN framework was implemented using the PyTorch library \citep{paszke2019pytorch}, leveraging its automatic differentiation capabilities for efficient computation of PDE residuals and trained on a high-performance computing cluster with NVIDIA Rtx8000. 
