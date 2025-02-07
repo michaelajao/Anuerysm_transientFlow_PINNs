@@ -1,0 +1,49 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{raissi2019physics}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Physics-Informed Neural Networks}{1}{section.1}\protected@file@percent }
+\newlabel{sec:PINNs}{{1}{1}{Physics-Informed Neural Networks}{section.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1}overview}{1}{subsection.1.1}\protected@file@percent }
+\newlabel{sec:PINN_Overview}{{1.1}{1}{overview}{subsection.1.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Formulation of Physics-Informed Neural Networks}{2}{subsection.1.2}\protected@file@percent }
+\newlabel{sec:PINN_Formulation}{{1.2}{2}{Formulation of Physics-Informed Neural Networks}{subsection.1.2}{}}
+\newlabel{eq:navier_stokes}{{1}{2}{Formulation of Physics-Informed Neural Networks}{equation.1}{}}
+\citation{mcclenny2020self}
+\citation{ramachandran2017searching}
+\citation{he2015delving}
+\citation{ramachandran2017searching}
+\newlabel{eq:total_loss}{{5}{4}{Formulation of Physics-Informed Neural Networks}{equation.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3}Neural Network Architecture}{4}{subsection.1.3}\protected@file@percent }
+\newlabel{sec:PINN_Architecture_Training}{{1.3}{4}{Neural Network Architecture}{subsection.1.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.3.1}Self-Adaptive Loss Weighting}{4}{subsubsection.1.3.1}\protected@file@percent }
+\newlabel{sec:self_adaptive_weighting}{{1.3.1}{4}{Self-Adaptive Loss Weighting}{subsubsection.1.3.1}{}}
+\citation{mcclenny2020self}
+\citation{wang2022and}
+\citation{paszke2019pytorch}
+\citation{loshchilov2017decoupled}
+\citation{micikevicius2017mixed}
+\newlabel{eq:lambda_definition}{{7}{5}{Self-Adaptive Loss Weighting}{equation.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.4}Training of the PINNs}{5}{subsection.1.4}\protected@file@percent }
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Self-Adaptive Loss Weighting in PINNs}}{6}{algorithm.1}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{alg:self_adaptive_weighting}{{1}{6}{Self-Adaptive Loss Weighting in PINNs}{algorithm.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.5}Relevance to Aneurysm Studies}{6}{subsection.1.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.6}Results}{7}{subsection.1.6}\protected@file@percent }
+\newlabel{sec:PINN_Results}{{1.6}{7}{Results}{subsection.1.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Von Mises stress (Pa) and wall shear stress contours for diseased cases. Figures a–d in each show the xy and xz planes for case 0021 dystolic aneurysm comparison between CFD and PINN results.}}{8}{figure.caption.1}\protected@file@percent }
+\newlabel{fig:PINN_results1}{{1}{8}{Von Mises stress (Pa) and wall shear stress contours for diseased cases. Figures a–d in each show the xy and xz planes for case 0021 dystolic aneurysm comparison between CFD and PINN results}{figure.caption.1}{}}
+\bibstyle{unsrtnat}
+\bibdata{references}
+\bibcite{raissi2019physics}{{1}{2019}{{Raissi et~al.}}{{Raissi, Perdikaris, and Karniadakis}}}
+\bibcite{mcclenny2020self}{{2}{2020}{{McClenny and Braga-Neto}}{{}}}
+\bibcite{ramachandran2017searching}{{3}{2017}{{Ramachandran et~al.}}{{Ramachandran, Zoph, and Le}}}
+\bibcite{he2015delving}{{4}{2015}{{He et~al.}}{{He, Zhang, Ren, and Sun}}}
+\bibcite{wang2022and}{{5}{2022}{{Wang et~al.}}{{Wang, Yu, and Perdikaris}}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Loss curves for the PINN training process, showing the evolution of the physics, boundary, inlet, and data-fitting losses over 1000 epochs. The self-adaptive loss weighting mechanism effectively balances the contributions of each loss component, ensuring that the network learns realistic flow solutions while adhering to the governing Navier--Stokes equations.}}{9}{figure.caption.2}\protected@file@percent }
+\newlabel{fig:loss_curves1}{{2}{9}{Loss curves for the PINN training process, showing the evolution of the physics, boundary, inlet, and data-fitting losses over 1000 epochs. The self-adaptive loss weighting mechanism effectively balances the contributions of each loss component, ensuring that the network learns realistic flow solutions while adhering to the governing Navier--Stokes equations}{figure.caption.2}{}}
+\bibcite{paszke2019pytorch}{{6}{2019}{{Paszke et~al.}}{{Paszke, Gross, Massa, Lerer, Bradbury, Chanan, Killeen, Lin, Gimelshein, Antiga, et~al.}}}
+\bibcite{loshchilov2017decoupled}{{7}{2017}{{Loshchilov}}{{}}}
+\bibcite{micikevicius2017mixed}{{8}{2017}{{Micikevicius et~al.}}{{Micikevicius, Narang, Alben, Diamos, Elsen, Garcia, Ginsburg, Houston, Kuchaiev, Venkatesh, et~al.}}}
+\gdef \@abspage@last{10}
