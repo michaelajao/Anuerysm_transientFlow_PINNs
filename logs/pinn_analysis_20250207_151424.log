@@ -1,0 +1,71 @@
+2025-02-07 15:14:24,989 - pinn_density_analysis - INFO - Starting PINN Density Analysis
+2025-02-07 15:14:25,014 - pinn_density_analysis - INFO - Initializing scalers...
+2025-02-07 15:14:25,022 - pinn_density_analysis - INFO - Creating dataset...
+2025-02-07 15:14:25,033 - pinn_density_analysis - INFO - Training PINN...
+2025-02-07 15:14:25,051 - pinn_density_analysis - INFO - Initialized 7 separate PINN models for p, u, v, w, tau_x, tau_y, tau_z.
+2025-02-07 15:14:25,776 - pinn_density_analysis - INFO - Optimizer and scheduler initialized for all separate PINNs.
+2025-02-07 15:15:13,693 - pinn_density_analysis - INFO - Epoch 10/500 - Loss: 149.660767, Time: 4.351s
+2025-02-07 15:15:57,293 - pinn_density_analysis - INFO - Epoch 20/500 - Loss: 65.948563, Time: 4.282s
+2025-02-07 15:16:41,402 - pinn_density_analysis - INFO - Epoch 30/500 - Loss: 40.996563, Time: 4.956s
+2025-02-07 15:17:34,968 - pinn_density_analysis - INFO - Epoch 40/500 - Loss: 30.203270, Time: 5.743s
+2025-02-07 15:18:26,204 - pinn_density_analysis - INFO - Epoch 50/500 - Loss: 25.543465, Time: 4.742s
+2025-02-07 15:19:15,108 - pinn_density_analysis - INFO - Epoch 60/500 - Loss: 22.087114, Time: 5.340s
+2025-02-07 15:20:05,319 - pinn_density_analysis - INFO - Epoch 70/500 - Loss: 19.827366, Time: 4.996s
+2025-02-07 15:20:52,250 - pinn_density_analysis - INFO - Epoch 80/500 - Loss: 18.115437, Time: 4.497s
+2025-02-07 15:21:40,204 - pinn_density_analysis - INFO - Epoch 90/500 - Loss: 16.731739, Time: 4.717s
+2025-02-07 15:22:27,585 - pinn_density_analysis - INFO - Epoch 100/500 - Loss: 15.581802, Time: 4.675s
+2025-02-07 15:23:17,028 - pinn_density_analysis - INFO - Epoch 110/500 - Loss: 14.605743, Time: 5.809s
+2025-02-07 15:24:06,459 - pinn_density_analysis - INFO - Epoch 120/500 - Loss: 13.763297, Time: 4.765s
+2025-02-07 15:24:53,602 - pinn_density_analysis - INFO - Epoch 130/500 - Loss: 13.027812, Time: 4.921s
+2025-02-07 15:25:40,514 - pinn_density_analysis - INFO - Epoch 140/500 - Loss: 12.378313, Time: 4.645s
+2025-02-07 15:26:29,634 - pinn_density_analysis - INFO - Epoch 150/500 - Loss: 11.798748, Time: 4.537s
+2025-02-07 15:27:17,233 - pinn_density_analysis - INFO - Epoch 160/500 - Loss: 11.276970, Time: 4.562s
+2025-02-07 15:28:04,610 - pinn_density_analysis - INFO - Epoch 170/500 - Loss: 10.804185, Time: 4.625s
+2025-02-07 15:28:52,340 - pinn_density_analysis - INFO - Epoch 180/500 - Loss: 10.373133, Time: 4.515s
+2025-02-07 15:29:39,726 - pinn_density_analysis - INFO - Epoch 190/500 - Loss: 9.977880, Time: 5.066s
+2025-02-07 15:30:28,935 - pinn_density_analysis - INFO - Epoch 200/500 - Loss: 9.613769, Time: 5.330s
+2025-02-07 15:31:18,552 - pinn_density_analysis - INFO - Epoch 210/500 - Loss: 9.306424, Time: 5.127s
+2025-02-07 15:32:11,445 - pinn_density_analysis - INFO - Epoch 220/500 - Loss: 9.022225, Time: 5.225s
+2025-02-07 15:33:05,023 - pinn_density_analysis - INFO - Epoch 230/500 - Loss: 8.755431, Time: 5.514s
+2025-02-07 15:33:53,025 - pinn_density_analysis - INFO - Epoch 240/500 - Loss: 8.504420, Time: 5.000s
+2025-02-07 15:34:39,910 - pinn_density_analysis - INFO - Epoch 250/500 - Loss: 8.267822, Time: 4.497s
+2025-02-07 15:35:27,337 - pinn_density_analysis - INFO - Epoch 260/500 - Loss: 8.044439, Time: 4.528s
+2025-02-07 15:36:15,072 - pinn_density_analysis - INFO - Epoch 270/500 - Loss: 7.833177, Time: 5.100s
+2025-02-07 15:37:03,533 - pinn_density_analysis - INFO - Epoch 280/500 - Loss: 7.633072, Time: 4.820s
+2025-02-07 15:37:51,933 - pinn_density_analysis - INFO - Epoch 290/500 - Loss: 7.443254, Time: 4.628s
+2025-02-07 15:38:40,714 - pinn_density_analysis - INFO - Epoch 300/500 - Loss: 7.262928, Time: 4.640s
+2025-02-07 15:39:29,286 - pinn_density_analysis - INFO - Epoch 310/500 - Loss: 7.091381, Time: 4.641s
+2025-02-07 15:40:17,930 - pinn_density_analysis - INFO - Epoch 320/500 - Loss: 6.927957, Time: 4.638s
+2025-02-07 15:41:06,400 - pinn_density_analysis - INFO - Epoch 330/500 - Loss: 6.772056, Time: 5.144s
+2025-02-07 15:41:54,879 - pinn_density_analysis - INFO - Epoch 340/500 - Loss: 6.623160, Time: 4.716s
+2025-02-07 15:42:44,007 - pinn_density_analysis - INFO - Epoch 350/500 - Loss: 6.480748, Time: 5.018s
+2025-02-07 15:43:33,296 - pinn_density_analysis - INFO - Epoch 360/500 - Loss: 6.344380, Time: 4.609s
+2025-02-07 15:44:21,840 - pinn_density_analysis - INFO - Epoch 370/500 - Loss: 6.213654, Time: 4.695s
+2025-02-07 15:45:10,253 - pinn_density_analysis - INFO - Epoch 380/500 - Loss: 6.088184, Time: 4.635s
+2025-02-07 15:45:59,060 - pinn_density_analysis - INFO - Epoch 390/500 - Loss: 5.967634, Time: 4.991s
+2025-02-07 15:46:47,747 - pinn_density_analysis - INFO - Epoch 400/500 - Loss: 5.851682, Time: 5.062s
+2025-02-07 15:47:36,104 - pinn_density_analysis - INFO - Epoch 410/500 - Loss: 5.749945, Time: 5.117s
+2025-02-07 15:48:24,282 - pinn_density_analysis - INFO - Epoch 420/500 - Loss: 5.652598, Time: 4.645s
+2025-02-07 15:49:12,982 - pinn_density_analysis - INFO - Epoch 430/500 - Loss: 5.558269, Time: 4.643s
+2025-02-07 15:50:01,724 - pinn_density_analysis - INFO - Epoch 440/500 - Loss: 5.466782, Time: 5.153s
+2025-02-07 15:50:50,197 - pinn_density_analysis - INFO - Epoch 450/500 - Loss: 5.377988, Time: 5.192s
+2025-02-07 15:51:39,873 - pinn_density_analysis - INFO - Epoch 460/500 - Loss: 5.291762, Time: 4.880s
+2025-02-07 15:52:30,042 - pinn_density_analysis - INFO - Epoch 470/500 - Loss: 5.207976, Time: 4.731s
+2025-02-07 15:53:19,385 - pinn_density_analysis - INFO - Epoch 480/500 - Loss: 5.126532, Time: 5.263s
+2025-02-07 15:54:07,706 - pinn_density_analysis - INFO - Epoch 490/500 - Loss: 5.047316, Time: 5.202s
+2025-02-07 15:54:56,271 - pinn_density_analysis - INFO - Epoch 500/500 - Loss: 4.970229, Time: 4.697s
+2025-02-07 15:54:56,278 - pinn_density_analysis - INFO - Generating dense predictions...
+2025-02-07 15:55:05,745 - pinn_density_analysis - INFO - Creating visualizations...
+2025-02-07 15:55:06,878 - pinn_density_analysis - INFO - 
+Performance Comparison:
+2025-02-07 15:55:06,879 - pinn_density_analysis - INFO - CFD Data Points: 11005
+2025-02-07 15:55:06,880 - pinn_density_analysis - INFO - PINN Prediction Points: 1105920
+2025-02-07 15:55:06,880 - pinn_density_analysis - INFO - Density Increase: 100.5x
+2025-02-07 15:55:06,881 - pinn_density_analysis - INFO - 
+Computational Performance:
+2025-02-07 15:55:06,881 - pinn_density_analysis - INFO - Training Time: 0.68 hours
+2025-02-07 15:55:06,881 - pinn_density_analysis - INFO - Inference Time: 9.44 seconds
+2025-02-07 15:55:06,881 - pinn_density_analysis - INFO - Points per Second: 117177
+2025-02-07 15:55:06,882 - pinn_density_analysis - INFO - Memory Usage - Training: 7.36 GB
+2025-02-07 15:55:06,882 - pinn_density_analysis - INFO - Memory Usage - Inference: 0.02 GB
+2025-02-07 15:55:06,883 - pinn_density_analysis - INFO - Analysis complete!

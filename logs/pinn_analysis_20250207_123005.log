@@ -1,0 +1,57 @@
+2025-02-07 12:30:05,353 - pinn_density_analysis - INFO - Starting PINN Density Analysis
+2025-02-07 12:30:05,383 - pinn_density_analysis - INFO - Initializing scalers...
+2025-02-07 12:30:05,393 - pinn_density_analysis - INFO - Creating dataset...
+2025-02-07 12:30:05,405 - pinn_density_analysis - INFO - Training PINN...
+2025-02-07 12:30:05,425 - pinn_density_analysis - INFO - Initialized 7 separate PINN models for p, u, v, w, tau_x, tau_y, tau_z.
+2025-02-07 12:30:06,289 - pinn_density_analysis - INFO - Optimizer and scheduler initialized for all separate PINNs.
+2025-02-07 12:31:03,454 - pinn_density_analysis - INFO - Epoch 10/500 - Loss: 60.705753, Time: 5.542s
+2025-02-07 12:31:59,456 - pinn_density_analysis - INFO - Epoch 20/500 - Loss: 35.434135, Time: 6.295s
+2025-02-07 12:32:53,579 - pinn_density_analysis - INFO - Epoch 30/500 - Loss: 25.662893, Time: 5.307s
+2025-02-07 12:33:46,749 - pinn_density_analysis - INFO - Epoch 40/500 - Loss: 20.080126, Time: 5.276s
+2025-02-07 12:34:39,982 - pinn_density_analysis - INFO - Epoch 50/500 - Loss: 16.562153, Time: 5.240s
+2025-02-07 12:35:33,746 - pinn_density_analysis - INFO - Epoch 60/500 - Loss: 14.416634, Time: 5.509s
+2025-02-07 12:36:29,943 - pinn_density_analysis - INFO - Epoch 70/500 - Loss: 12.891371, Time: 5.800s
+2025-02-07 12:37:21,121 - pinn_density_analysis - INFO - Epoch 80/500 - Loss: 11.710433, Time: 5.066s
+2025-02-07 12:38:13,767 - pinn_density_analysis - INFO - Epoch 90/500 - Loss: 10.757372, Time: 5.406s
+2025-02-07 12:39:07,570 - pinn_density_analysis - INFO - Epoch 100/500 - Loss: 9.958142, Time: 5.586s
+2025-02-07 12:40:00,694 - pinn_density_analysis - INFO - Epoch 110/500 - Loss: 9.271832, Time: 4.982s
+2025-02-07 12:40:51,503 - pinn_density_analysis - INFO - Epoch 120/500 - Loss: 8.672285, Time: 5.113s
+2025-02-07 12:41:42,391 - pinn_density_analysis - INFO - Epoch 130/500 - Loss: 8.142344, Time: 5.284s
+2025-02-07 12:42:33,447 - pinn_density_analysis - INFO - Epoch 140/500 - Loss: 7.669128, Time: 5.582s
+2025-02-07 12:43:25,265 - pinn_density_analysis - INFO - Epoch 150/500 - Loss: 7.243508, Time: 4.765s
+2025-02-07 12:44:17,460 - pinn_density_analysis - INFO - Epoch 160/500 - Loss: 6.858803, Time: 4.726s
+2025-02-07 12:45:07,983 - pinn_density_analysis - INFO - Epoch 170/500 - Loss: 6.509769, Time: 5.103s
+2025-02-07 12:45:58,733 - pinn_density_analysis - INFO - Epoch 180/500 - Loss: 6.192022, Time: 5.268s
+2025-02-07 12:46:49,424 - pinn_density_analysis - INFO - Epoch 190/500 - Loss: 5.901729, Time: 5.322s
+2025-02-07 12:47:39,925 - pinn_density_analysis - INFO - Epoch 200/500 - Loss: 5.635507, Time: 5.428s
+2025-02-07 12:48:30,422 - pinn_density_analysis - INFO - Epoch 210/500 - Loss: 5.411766, Time: 5.248s
+2025-02-07 12:49:21,160 - pinn_density_analysis - INFO - Epoch 220/500 - Loss: 5.205676, Time: 4.895s
+2025-02-07 12:50:11,324 - pinn_density_analysis - INFO - Epoch 230/500 - Loss: 5.012839, Time: 4.662s
+2025-02-07 12:51:01,757 - pinn_density_analysis - INFO - Epoch 240/500 - Loss: 4.831886, Time: 5.132s
+2025-02-07 12:51:52,838 - pinn_density_analysis - INFO - Epoch 250/500 - Loss: 4.661727, Time: 5.297s
+2025-02-07 12:52:43,823 - pinn_density_analysis - INFO - Epoch 260/500 - Loss: 4.501427, Time: 5.344s
+2025-02-07 12:53:34,075 - pinn_density_analysis - INFO - Epoch 270/500 - Loss: 4.350181, Time: 4.841s
+2025-02-07 12:54:24,287 - pinn_density_analysis - INFO - Epoch 280/500 - Loss: 4.207276, Time: 4.671s
+2025-02-07 12:55:15,153 - pinn_density_analysis - INFO - Epoch 290/500 - Loss: 4.072068, Time: 5.180s
+2025-02-07 12:56:05,521 - pinn_density_analysis - INFO - Epoch 300/500 - Loss: 3.943973, Time: 5.152s
+2025-02-07 12:56:55,912 - pinn_density_analysis - INFO - Epoch 310/500 - Loss: 3.822467, Time: 5.268s
+2025-02-07 12:57:46,515 - pinn_density_analysis - INFO - Epoch 320/500 - Loss: 3.707065, Time: 5.467s
+2025-02-07 12:58:36,819 - pinn_density_analysis - INFO - Epoch 330/500 - Loss: 3.597329, Time: 4.777s
+2025-02-07 12:59:27,288 - pinn_density_analysis - INFO - Epoch 340/500 - Loss: 3.492862, Time: 4.686s
+2025-02-07 13:00:17,867 - pinn_density_analysis - INFO - Epoch 350/500 - Loss: 3.393292, Time: 5.127s
+2025-02-07 13:01:08,988 - pinn_density_analysis - INFO - Epoch 360/500 - Loss: 3.298296, Time: 5.543s
+2025-02-07 13:01:59,501 - pinn_density_analysis - INFO - Epoch 370/500 - Loss: 3.207570, Time: 5.016s
+2025-02-07 13:02:54,912 - pinn_density_analysis - INFO - Epoch 380/500 - Loss: 3.120835, Time: 4.968s
+2025-02-07 13:03:44,938 - pinn_density_analysis - INFO - Epoch 390/500 - Loss: 3.037840, Time: 5.323s
+2025-02-07 13:04:34,781 - pinn_density_analysis - INFO - Epoch 400/500 - Loss: 2.958351, Time: 5.182s
+2025-02-07 13:05:25,436 - pinn_density_analysis - INFO - Epoch 410/500 - Loss: 2.888902, Time: 5.187s
+2025-02-07 13:06:14,767 - pinn_density_analysis - INFO - Epoch 420/500 - Loss: 2.822731, Time: 4.961s
+2025-02-07 13:07:04,072 - pinn_density_analysis - INFO - Epoch 430/500 - Loss: 2.758885, Time: 4.661s
+2025-02-07 13:07:53,655 - pinn_density_analysis - INFO - Epoch 440/500 - Loss: 2.697228, Time: 4.685s
+2025-02-07 13:08:44,196 - pinn_density_analysis - INFO - Epoch 450/500 - Loss: 2.637655, Time: 5.487s
+2025-02-07 13:09:35,184 - pinn_density_analysis - INFO - Epoch 460/500 - Loss: 2.580060, Time: 5.328s
+2025-02-07 13:10:26,590 - pinn_density_analysis - INFO - Epoch 470/500 - Loss: 2.524355, Time: 5.284s
+2025-02-07 13:11:17,430 - pinn_density_analysis - INFO - Epoch 480/500 - Loss: 2.470455, Time: 4.949s
+2025-02-07 13:12:08,037 - pinn_density_analysis - INFO - Epoch 490/500 - Loss: 2.418278, Time: 4.969s
+2025-02-07 13:12:59,136 - pinn_density_analysis - INFO - Epoch 500/500 - Loss: 2.367748, Time: 4.822s
+2025-02-07 13:12:59,142 - pinn_density_analysis - INFO - Generating dense predictions...
