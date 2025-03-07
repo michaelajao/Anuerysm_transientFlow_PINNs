@@ -1,129 +1,223 @@
-# Anuerysm Transient Flow PINNs
+# Aneurysm Transient Flow PINNs
+
+![GitHub](https://img.shields.io/github/license/michaelajao/Anuerysm_transientFlow_PINNs)
+![Python](https://img.shields.io/badge/python-3.8%2B-blue)
+![PyTorch](https://img.shields.io/badge/PyTorch-1.10%2B-orange)
 
 ## Overview
 
-Anuerysm Transient Flow PINNs is a Physics-Informed Neural Networks (PINNs) project designed to model transient flow in aneurysms. The project leverages PyTorch for model development and training, providing a robust framework for simulating and analyzing blood flow dynamics. Cerebral aneurysms are pathological dilations of blood vessels in the brain, posing significant health risks due to their potential to rupture. Understanding the transient blood flow dynamics within aneurysms is crucial for risk assessment and treatment planning. Traditional computational fluid dynamics (CFD) methods, while accurate, are computationally intensive and time-consuming.
+Aneurysm Transient Flow PINNs is a research project that applies Physics-Informed Neural Networks (PINNs) to model and predict transient blood flow dynamics in cerebral aneurysms. Cerebral aneurysms are pathological dilations of blood vessels in the brain that can rupture and cause severe medical complications. By combining deep learning with fundamental physics principles, this project aims to create accurate and efficient models for hemodynamic simulation, potentially contributing to improved risk assessment and treatment planning.
+
+The models in this project incorporate the Navier-Stokes equations and learn from real computational fluid dynamics (CFD) data to predict pressure distributions, velocity fields, and wall shear stress in both healthy and aneurysmal blood vessels under various cardiac cycle conditions.
+
+## Project Features
+
+- 🧠 Modeling of both healthy and aneurysmal blood flow dynamics
+- 🔄 Capturing transient flow patterns across cardiac cycles
+- ⚖️ Physics-informed constraint enforcement using Navier-Stokes equations
+- 📊 Comprehensive data visualization tools for flow analysis
+- 📈 Performance metrics for model evaluation
+- 🧪 Comparative analysis between healthy and pathological conditions
 
 ## Installation
 
-1. **Clone the Repository**
+### Prerequisites
+
+- Python 3.8+
+- CUDA-capable GPU (recommended for training)
+
+### Setup Instructions
+
+1. **Clone the repository**
 
    ```bash
    git clone https://github.com/michaelajao/Anuerysm_transientFlow_PINNs.git
    cd Anuerysm_transientFlow_PINNs
    ```
 
-2. **Create a Virtual Environment**
+2. **Create and activate a virtual environment**
 
    ```bash
    python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   
+   # On Windows
+   venv\Scripts\activate
+   
+   # On macOS/Linux
+   source venv/bin/activate
    ```
 
-3. **Install Dependencies**
+3. **Install dependencies**
 
    ```bash
    pip install -r requirements.txt
    ```
 
-## Usage
+## Dataset Description
 
-1. **Prepare the Data**
+The project uses a collection of CFD simulation data from both healthy and aneurysmal blood vessels. The datasets include:
 
-   Ensure that your raw data is placed in the `data/raw/WSS_data/` directory. The data should contain spatial coordinates `'X [m]'`, `'Y [m]'`, `'Z [m]'`, and other relevant flow variables.
+- Spatial coordinates (X, Y, Z)
+- Pressure values (P)
+- Velocity components (u, v, w)
+- Wall shear stress components (X, Y, Z)
+- Time-varying data for systolic and diastolic cardiac phases (t)
 
-2. **Process the Data**
-
-   ```bash
-   python src/data_processing.py
-   ```
-
-   This script will clean the data, rename columns to `'x'`, `'y'`, `'z'`, and save the processed data in `data/processed/`.
-
-3. **Train the Models**
-
-   ```bash
-   python src/full_pinn_experiment.py
-   ```
-
-   This will initialize the models, train them using the processed data, and save the trained models along with evaluation metrics.
-
-
-## Methodology
-
-The project employs Physics-Informed Neural Networks (PINNs) to integrate CFD data with physical laws governing fluid dynamics. The methodology encompasses data preprocessing, model architecture design, training with self-adaptive loss weighting, and comprehensive evaluation using metrics such as R², NRMSE, and MAE. Boundary conditions and inlet velocity profiles are enforced to ensure realistic simulations. Visualization tools are utilized to analyze loss curves and model performance.
+All raw data files should be placed in the `data/WSS_data/` directory before processing. The system supports multiple patient cases, with both healthy and aneurysmal conditions.
 
 ## Project Structure
 
 ```
 Anuerysm_transientFlow_PINNs/
-├── data/
-│   ├── raw/
-│   │   └── WSS_data/
-│   │       ├── 0021 Diastolic aneurysm.csv
-│   │       ├── 0021 Diastolic global.csv
-│   │       └── ... (other CSV files)
-│   └── processed/
-│       └── ... (processed CSV files organized by condition and phase)
-├── aneurysm_pinns/
+├── aneurysm_pinns/              # Main Python package
 │   ├── __init__.py
-│   ├── config.py
-│   ├── dataset.py
-│   ├── features.py
-│   ├── utils.py
-│   ├── modeling/
-│   │   ├── __init__.py
-│   │   ├── model.py
-│   │   ├── train.py
-│   │   └── predict.py
-│   ├── plots.py
-│   └── main.py
-├── src/
-|   ├──models/
-│   │   └── full_pinn_experiment.py
-│   ├── data
-│   │   └── data_processing.py
-├── logs/
-├── models/
-├── reports/
-│   ├── metrics/
-│   │   └── ... (CSV files with performance metrics)
-│   └── paper/
-│       ├── main.tex
-│       ├── references.bib
-│       └── figures/
-├── figures/
-├── requirements.txt
-|── .gitignore
-└── README.md
+│   ├── config.py                # Configuration settings
+│   ├── dataset.py               # Data loading and processing
+│   ├── main.py                  # Main execution script
+│   ├── plots.py                 # Plotting utilities for model outputs
+│   ├── utils.py                 # Utility functions
+│   ├── visualization.py         # Data visualization tools
+│   ├── modeling/                # Neural network models
+│       ├── __init__.py
+│       ├── model.py             # PINNs architecture 
+│       ├── train.py             # Training procedures
+│       ├── predict.py           # Model prediction functions
+├── data/                        # Data directory
+│   ├── processed/               # Processed data
+│   │   ├── aneurysm/            # Aneurysmal cases
+│   │   │   ├── systolic/
+│   │   │   └── diastolic/ 
+│   │   └── healthy/             # Healthy cases
+│   │       ├── systolic/
+│   │       └── diastolic/
+│   └── WSS_data/                # Raw data files
+├── figures/                     # Output visualizations
+│   ├── data_plots/              # Data analysis visualizations
+│   └── [patient_id]/            # Patient-specific results
+├── models/                      # Saved model checkpoints
+├── reports/                     # Performance reports
+│   └── metrics/                 # Quantitative evaluation metrics
+├── requirements.txt             # Project dependencies
+└── README.md                    # Project documentation
 ```
 
-## Data Processing
+## Usage Guide
 
-The `data_processing.py` script handles loading, cleaning, and transforming the raw data. It ensures that the spatial coordinates are correctly named `'x'`, `'y'`, and `'z'` for consistency across the project.
+### 1. Data Processing
 
-## Training
+The first step is to process the raw CFD data:
 
-The training pipeline is managed by `full_pinn_experiment.py`, which initializes models, optimizers, and schedulers. It also handles logging and early stopping based on validation loss.
+```bash
+python -m aneurysm_pinns.dataset
+```
+
+This script will:
+- Load raw data from CSV files
+- Clean and normalize the data
+- Add cardiac cycle time information
+- Save processed datasets to `data/processed/`
+
+### 2. Training PINNs Models
+
+To train models on the processed data:
+
+```bash
+python -m aneurysm_pinns.main
+```
+
+The training process will:
+- Initialize neural networks for pressure, velocity components, and wall shear stress
+- Apply physics-informed constraints using Navier-Stokes equations
+- Enforce boundary conditions
+- Save model checkpoints to the `models/` directory
+
+### 3. Data Visualization
+
+To generate visualizations of the raw data:
+
+```bash
+python -m aneurysm_pinns.visualization
+```
+
+This will produce various plots including:
+- Wall shear stress distributions
+- Velocity vector fields
+- Pressure contours
+- Interactive 3D representations
+
+### 4. Configuration
+
+The system behavior can be customized by modifying parameters in `config.py`:
+
+- Data paths and directory structure
+- Training hyperparameters (learning rate, batch size, epochs)
+- Physical parameters (fluid density, viscosity)
+- Neural network architecture (layer count, units per layer)
+- Early stopping criteria
+
+## Scientific Background
+
+### Physics-Informed Neural Networks
+
+PINNs combine neural networks with physical constraints derived from governing equations. For fluid dynamics, the models are trained to satisfy:
+
+1. **Data-driven loss**: Minimizing error between predictions and CFD data
+2. **Physics-informed loss**: Enforcing adherence to Navier-Stokes equations
+3. **Boundary condition loss**: Ensuring proper behavior at domain boundaries
+
+### Navier-Stokes Equations
+
+The incompressible Navier-Stokes equations governing blood flow are:
+
+- **Continuity**: ∇·u = 0
+- **Momentum**: ρ(∂u/∂t + u·∇u) = -∇p + μ∇²u
+
+Where:
+- u is the velocity vector field
+- p is pressure
+- ρ is fluid density (1060 kg/m³ for blood)
+- μ is dynamic viscosity (0.0035 Pa·s for blood)
 
 ## Results
 
-The trained PINN models achieved high accuracy in predicting flow-related variables, as evidenced by evaluation metrics. Loss curves indicate stable convergence, and visualizations of pressure distributions and wall shear stress align closely with CFD data. Histograms and distribution plots further validate the models' performance, demonstrating their potential applicability in biomedical research.
+The trained models demonstrate the ability to:
 
-## Citation
+1. Accurately predict pressure distributions in vessels
+2. Capture complex velocity flow patterns
+3. Estimate wall shear stress distributions
+4. Identify regions of high hemodynamic stress in aneurysms
 
-If you use this project in your research, please cite it as follows:
+Comparative analysis between healthy and aneurysmal vessels reveals significant differences in flow patterns and wall shear stress distributions.
 
-```bibtex
-@misc{anuerysm2024transient,
-  author = {Your Name},
-  title = {Anuerysm Transient Flow PINNs},
-  year = {2024},
-  howpublished = {\url{https://github.com/yourusername/Anuerysm_transientFlow_PINNs}},
-  note = {Accessed: YYYY-MM-DD}
+## Contributing
+
+Contributions to this project are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+<!-- ## Citation
+
+If you use this project in your research, please cite it as:
+
+```
+@software{aneurysm_transient_pinns,
+  author = {Ajao, Michael},
+  title = {Aneurysm Transient Flow PINNs},
+  year = {2023},
+  url = {https://github.com/michaelajao/Anuerysm_transientFlow_PINNs}
 }
 ```
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- Special thanks to the collaborators who provided CFD datasets
+- [PyTorch](https://pytorch.org/) for the deep learning framework
+- [SciPy](https://scipy.org/) for scientific computing tools -->

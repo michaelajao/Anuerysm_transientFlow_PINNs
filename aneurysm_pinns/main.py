@@ -16,8 +16,8 @@ from aneurysm_pinns.plots import (
     plot_loss_curves,
     plot_pressure_and_wss_magnitude_distribution,
     plot_wss_histogram,
-    plot_time_varying_slices,
-    plot_3d_representation
+    # plot_time_varying_slices,
+    # plot_3d_representation
 )
 from aneurysm_pinns.utils import ensure_dir
 
@@ -38,27 +38,26 @@ def main():
 
     # File paths for raw data
     file_paths = {
-        "0021_diastolic_aneurysm": os.path.join(config.data_dir, "raw", "WSS_data", "0021 Diastolic aneurysm.csv"),
-        "0021_systolic_aneurysm": os.path.join(config.data_dir, "raw", "WSS_data", "0021 Systolic aneurysm.csv"),
-        "0021_diastolic_global": os.path.join(config.data_dir, "raw", "WSS_data", "0021 Diastolic global.csv"),
-        "0021_systolic_global": os.path.join(config.data_dir, "raw", "WSS_data", "0021 systolic global.csv"),
-        "0022_systolic_aneurysm": os.path.join(config.data_dir, "raw", "WSS_data", "0022 systolic aneurysm.csv"),
-        "0022_diastolic_aneurysm": os.path.join(config.data_dir, "raw", "WSS_data", "0022 diastolic aneurysm.csv"),
-        "0022_systolic_global": os.path.join(config.data_dir, "raw", "WSS_data", "0022 systolic global.csv"),
-        "0022_diastolic_global": os.path.join(config.data_dir, "raw", "WSS_data", "0022 diastolic global.csv"),
-        "0023_diastolic_global": os.path.join(config.data_dir, "raw", "WSS_data", "0023 diastolic global.csv"),
-        "0023_systolic_aneurysm": os.path.join(config.data_dir, "raw", "WSS_data", "0023 systolic aneurysm.csv"),
-        "0023_diastolic_aneurysm": os.path.join(config.data_dir, "raw", "WSS_data", "0023 diastolic aneurysm.csv"),
-        "0023_systolic_global": os.path.join(config.data_dir, "raw", "WSS_data", "systolic global 0023.csv"),
-        "0024_systolic": os.path.join(config.data_dir, "raw", "WSS_data", "0024 systolic.csv"),
-        "0024_diastolic": os.path.join(config.data_dir, "raw", "WSS_data", "0024 diastolic.csv"),
-        "0025_diastolic_aneurysm": os.path.join(config.data_dir, "raw", "WSS_data", "0025 diastolic aneurysm.csv"),
-        "0025_diastolic_global": os.path.join(config.data_dir, "raw", "WSS_data", "0025 diastolic global.csv"),
-        "0025_systolic_aneurysm": os.path.join(config.data_dir, "raw", "WSS_data", "0025 systolic aneurysm.csv"),
-        "0025_systolic_global": os.path.join(config.data_dir, "raw", "WSS_data", "0025 systolic global.csv"),
-        "0142_systolic": os.path.join(config.data_dir, "raw", "WSS_data", "0142 systolic.csv"),
-        "0142_diastolic": os.path.join(config.data_dir, "raw", "WSS_data", "0142 diastolic.csv"),
-        # Add any additional datasets here
+        "0021_diastolic_aneurysm": os.path.join(config.data_dir, "WSS_data", "0021 Diastolic aneurysm.csv"),
+        "0021_systolic_aneurysm": os.path.join(config.data_dir, "WSS_data", "0021 Systolic aneurysm.csv"),
+        "0021_diastolic_global": os.path.join(config.data_dir, "WSS_data", "0021 Diastolic global.csv"),
+        "0021_systolic_global": os.path.join(config.data_dir, "WSS_data", "0021 systolic global.csv"),
+        "0022_systolic_aneurysm": os.path.join(config.data_dir, "WSS_data", "0022 systolic aneurysm.csv"),
+        "0022_diastolic_aneurysm": os.path.join(config.data_dir, "WSS_data", "0022 diastolic aneurysm.csv"),
+        "0022_systolic_global": os.path.join(config.data_dir, "WSS_data", "0022 systolic global.csv"),
+        "0022_diastolic_global": os.path.join(config.data_dir, "WSS_data", "0022 diastolic global.csv"),
+        "0023_diastolic_global": os.path.join(config.data_dir, "WSS_data", "0023 diastolic global.csv"),
+        "0023_systolic_aneurysm": os.path.join(config.data_dir, "WSS_data", "0023 systolic aneurysm.csv"),
+        "0023_diastolic_aneurysm": os.path.join(config.data_dir, "WSS_data", "0023 diastolic aneurysm.csv"),
+        "0023_systolic_global": os.path.join(config.data_dir, "WSS_data", "systolic global 0023.csv"),
+        "0024_systolic": os.path.join(config.data_dir, "WSS_data", "0024 systolic.csv"),
+        "0024_diastolic": os.path.join(config.data_dir, "WSS_data", "0024 diastolic.csv"),
+        "0025_diastolic_aneurysm": os.path.join(config.data_dir, "WSS_data", "0025 diastolic aneurysm.csv"),
+        "0025_diastolic_global": os.path.join(config.data_dir, "WSS_data", "0025 diastolic global.csv"),
+        "0025_systolic_aneurysm": os.path.join(config.data_dir, "WSS_data", "0025 systolic aneurysm.csv"),
+        "0025_systolic_global": os.path.join(config.data_dir, "WSS_data", "0025 systolic global.csv"),
+        "0142_systolic": os.path.join(config.data_dir, "WSS_data", "0142 systolic.csv"),
+        "0142_diastolic": os.path.join(config.data_dir, "WSS_data", "0142 diastolic.csv"),
     }
 
     # 1) Process & Save
