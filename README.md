@@ -112,20 +112,21 @@ python -m aneurysm_pinns.dataset
 ```
 
 This script will:
-- Load raw data from CSV files
+- Load raw data from CSV files in `data/WSS_data/`
 - Clean and normalize the data
 - Add cardiac cycle time information
 - Save processed datasets to `data/processed/`
 
 ### 2. Training PINNs Models
+The `main.py` file contains the full training pipeline for the PINNs models, including data loading, model initialization, training, and evaluation. You can skip the dataset preprocessing step and run the `main.py` script directly.
 
-To train models on the processed data:
 
 ```bash
 python -m aneurysm_pinns.main
 ```
 
 The training process will:
+
 - Initialize neural networks for pressure, velocity components, and wall shear stress
 - Apply physics-informed constraints using Navier-Stokes equations
 - Enforce boundary conditions
