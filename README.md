@@ -6,7 +6,7 @@
 
 ## Overview
 
-Aneurysm Transient Flow PINNs is a research project that applies Physics-Informed Neural Networks (PINNs) to model and predict transient blood flow dynamics in cerebral aneurysms. Cerebral aneurysms are pathological dilations of blood vessels in the brain that can rupture and cause severe medical complications. By combining deep learning with fundamental physics principles, this project aims to create accurate and efficient models for hemodynamic simulation, potentially contributing to improved risk assessment and treatment planning.
+Aneurysm Transient Flow PINNs is a research project that applies Physics-Informed Neural Networks (PINNs) to model and predict transient blood flow dynamics in aortic aneurysms. Aortic aneurysms are pathological dilations of the aorta that can rupture and cause severe vascular complications. By combining deep learning with fundamental physics principles, this project aims to create accurate and efficient models for hemodynamic simulation, potentially contributing to improved risk assessment and treatment planning.
 
 The models in this project incorporate the Navier-Stokes equations and learn from real computational fluid dynamics (CFD) data to predict pressure distributions, velocity fields, and wall shear stress in both healthy and aneurysmal blood vessels under various cardiac cycle conditions.
 
@@ -55,7 +55,7 @@ The models in this project incorporate the Navier-Stokes equations and learn fro
 
 ## Dataset Description
 
-The project uses a collection of CFD simulation data from both healthy and aneurysmal blood vessels. The datasets include:
+The project uses a collection of CFD simulation data from both healthy and aneurysmal aortic vessels. The datasets include:
 
 - Spatial coordinates (X, Y, Z)
 - Pressure values (P)
@@ -165,7 +165,7 @@ PINNs combine neural networks with physical constraints derived from governing e
 1. **Data-driven loss**: Minimizing error between predictions and CFD data
 2. **Physics-informed loss**: Enforcing adherence to Navier-Stokes equations
 3. **Boundary condition loss**: Ensuring proper behavior at domain boundaries
-
+<!-- 
 ### Navier-Stokes Equations
 
 The incompressible Navier-Stokes equations governing blood flow are:
@@ -177,18 +177,18 @@ Where:
 - u is the velocity vector field
 - p is pressure
 - ρ is fluid density (1060 kg/m³ for blood)
-- μ is dynamic viscosity (0.0035 Pa·s for blood)
+- μ is dynamic viscosity (0.0035 Pa·s for blood) -->
 
 ## Results
 
 The trained models demonstrate the ability to:
 
-1. Accurately predict pressure distributions in vessels
+1. Accurately predict pressure distributions in aortic vessels
 2. Capture complex velocity flow patterns
 3. Estimate wall shear stress distributions
 4. Identify regions of high hemodynamic stress in aneurysms
 
-Comparative analysis between healthy and aneurysmal vessels reveals significant differences in flow patterns and wall shear stress distributions.
+Comparative analysis between healthy and aneurysmal aortic vessels reveals significant differences in flow patterns and wall shear stress distributions, which may contribute to our understanding of aneurysm development and progression.
 
 ## Contributing
 
@@ -222,3 +222,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - Special thanks to the collaborators who provided CFD datasets
 - [PyTorch](https://pytorch.org/) for the deep learning framework
 - [SciPy](https://scipy.org/) for scientific computing tools -->
+*
