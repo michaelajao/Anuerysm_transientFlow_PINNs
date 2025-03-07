@@ -134,7 +134,7 @@ The training process will:
 
 ### 3. Data Visualization
 
-To generate visualizations of the raw data:
+To generate visualizations of the raw data for analysis, run:
 
 ```bash
 python -m aneurysm_pinns.visualization
@@ -199,7 +199,7 @@ Contributions to this project are welcome! Please follow these steps:
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-
+  
 <!-- ## Citation
 
 If you use this project in your research, please cite it as:
