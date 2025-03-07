@@ -256,171 +256,171 @@ def plot_wss_histogram(
     print(f"Saved WSS histogram to '{out_path}'.")
 
 
-def plot_time_varying_slices(
-    dataset: CFDDataset,
-    models: Dict[str, torch.nn.Module],
-    config: Config,
-    run_id: str,
-    variable: str = "pressure",
-    num_times: int = 5
-):
-    """
-    Example: Show how 'variable' changes at different times (slices).
-    We'll pick N time slices and do 2D scatter for each slice.
-    """
-    for m in models.values():
-        m.eval()
+# def plot_time_varying_slices(
+#     dataset: CFDDataset,
+#     models: Dict[str, torch.nn.Module],
+#     config: Config,
+#     run_id: str,
+#     variable: str = "pressure",
+#     num_times: int = 5
+# ):
+#     """
+#     Example: Show how 'variable' changes at different times (slices).
+#     We'll pick N time slices and do 2D scatter for each slice.
+#     """
+#     for m in models.values():
+#         m.eval()
 
-    # Determine time range
-    t_vals = dataset.t.numpy().flatten()
-    t_min, t_max = t_vals.min(), t_vals.max()
-    time_slices = np.linspace(t_min, t_max, num_times)
+#     # Determine time range
+#     t_vals = dataset.t.numpy().flatten()
+#     t_min, t_max = t_vals.min(), t_vals.max()
+#     time_slices = np.linspace(t_min, t_max, num_times)
 
-    x_s = dataset.x.numpy().flatten()
-    y_s = dataset.y.numpy().flatten()
-    z_s = dataset.z.numpy().flatten()
+#     x_s = dataset.x.numpy().flatten()
+#     y_s = dataset.y.numpy().flatten()
+#     z_s = dataset.z.numpy().flatten()
 
-    # We'll do a row of subplots
-    fig, axes = plt.subplots(1, num_times, figsize=(5*num_times, 5), sharey=True)
+#     # We'll do a row of subplots
+#     fig, axes = plt.subplots(1, num_times, figsize=(5*num_times, 5), sharey=True)
 
-    # Precompute predictions for entire dataset
-    batch_size = 1024
-    N = len(x_s)
+#     # Precompute predictions for entire dataset
+#     batch_size = 1024
+#     N = len(x_s)
 
-    predictions = []
-    with torch.no_grad():
-        for i in range(0, N, batch_size):
-            end = i + batch_size
-            bx = torch.tensor(x_s[i:end], dtype=torch.float32, device=config.device).unsqueeze(1)
-            by = torch.tensor(y_s[i:end], dtype=torch.float32, device=config.device).unsqueeze(1)
-            bz = torch.tensor(z_s[i:end], dtype=torch.float32, device=config.device).unsqueeze(1)
-            bt = torch.tensor(t_vals[i:end], dtype=torch.float32, device=config.device).unsqueeze(1)
+#     predictions = []
+#     with torch.no_grad():
+#         for i in range(0, N, batch_size):
+#             end = i + batch_size
+#             bx = torch.tensor(x_s[i:end], dtype=torch.float32, device=config.device).unsqueeze(1)
+#             by = torch.tensor(y_s[i:end], dtype=torch.float32, device=config.device).unsqueeze(1)
+#             bz = torch.tensor(z_s[i:end], dtype=torch.float32, device=config.device).unsqueeze(1)
+#             bt = torch.tensor(t_vals[i:end], dtype=torch.float32, device=config.device).unsqueeze(1)
 
-            if variable in ["pressure"]:
-                pred_var = models["p"](bx, by, bz, bt)
-            elif variable == "velocity_u":
-                pred_var = models["u"](bx, by, bz, bt)
-            elif variable == "velocity_v":
-                pred_var = models["v"](bx, by, bz, bt)
-            elif variable == "velocity_w":
-                pred_var = models["w"](bx, by, bz, bt)
-            else:
-                # fallback: assume user wants 'pressure'
-                pred_var = models["p"](bx, by, bz, bt)
+#             if variable in ["pressure"]:
+#                 pred_var = models["p"](bx, by, bz, bt)
+#             elif variable == "velocity_u":
+#                 pred_var = models["u"](bx, by, bz, bt)
+#             elif variable == "velocity_v":
+#                 pred_var = models["v"](bx, by, bz, bt)
+#             elif variable == "velocity_w":
+#                 pred_var = models["w"](bx, by, bz, bt)
+#             else:
+#                 # fallback: assume user wants 'pressure'
+#                 pred_var = models["p"](bx, by, bz, bt)
 
-            predictions.append(pred_var.cpu().numpy())
+#             predictions.append(pred_var.cpu().numpy())
 
-            del (bx, by, bz, bt, pred_var)
-            torch.cuda.empty_cache()
+#             del (bx, by, bz, bt, pred_var)
+#             torch.cuda.empty_cache()
 
-    predictions = np.concatenate(predictions, axis=0).flatten()
-    # Inverse transform
-    predictions = dataset.scalers[variable].inverse_transform(predictions.reshape(-1, 1)).flatten()
+#     predictions = np.concatenate(predictions, axis=0).flatten()
+#     # Inverse transform
+#     predictions = dataset.scalers[variable].inverse_transform(predictions.reshape(-1, 1)).flatten()
 
-    # Plot each time slice
-    for i, ax in enumerate(axes):
-        t_slice = time_slices[i]
-        # pick a small tolerance
-        tol = 1e-3
-        mask = np.abs(t_vals - t_slice) < tol
-        if not np.any(mask):
-            # fallback: pick nearest time
-            idx = np.argmin(np.abs(t_vals - t_slice))
-            mask = np.array([False]*len(t_vals))
-            mask[idx] = True
+#     # Plot each time slice
+#     for i, ax in enumerate(axes):
+#         t_slice = time_slices[i]
+#         # pick a small tolerance
+#         tol = 1e-3
+#         mask = np.abs(t_vals - t_slice) < tol
+#         if not np.any(mask):
+#             # fallback: pick nearest time
+#             idx = np.argmin(np.abs(t_vals - t_slice))
+#             mask = np.array([False]*len(t_vals))
+#             mask[idx] = True
 
-        x_sel = x_s[mask]
-        y_sel = y_s[mask]
-        var_sel = predictions[mask]
+#         x_sel = x_s[mask]
+#         y_sel = y_s[mask]
+#         var_sel = predictions[mask]
 
-        sc = ax.scatter(x_sel, y_sel, c=var_sel, cmap="plasma", alpha=0.8)
-        ax.set_title(f"Time ~ {t_slice:.3f} s")
-        ax.set_xlabel("X [m]")
-        if i == 0:
-            ax.set_ylabel("Y [m]")
+#         sc = ax.scatter(x_sel, y_sel, c=var_sel, cmap="plasma", alpha=0.8)
+#         ax.set_title(f"Time ~ {t_slice:.3f} s")
+#         ax.set_xlabel("X [m]")
+#         if i == 0:
+#             ax.set_ylabel("Y [m]")
 
-        cbar = plt.colorbar(sc, ax=ax)
-        cbar.set_label(f"{variable.title()}")
+#         cbar = plt.colorbar(sc, ax=ax)
+#         cbar.set_label(f"{variable.title()}")
 
-    fig.suptitle(f"Time-Varying {variable.title()} - {run_id}", fontsize=16)
-    plt.tight_layout()
-    out_dir = os.path.join(config.plot_dir, run_id)
-    ensure_dir(out_dir)
-    out_file = os.path.join(out_dir, f"{variable}_time_varying_{run_id}.png")
-    plt.savefig(out_file, dpi=config.plot_resolution, bbox_inches='tight')
-    plt.close()
-    print(f"Saved time-varying {variable} slices to '{out_file}'.")
+#     fig.suptitle(f"Time-Varying {variable.title()} - {run_id}", fontsize=16)
+#     plt.tight_layout()
+#     out_dir = os.path.join(config.plot_dir, run_id)
+#     ensure_dir(out_dir)
+#     out_file = os.path.join(out_dir, f"{variable}_time_varying_{run_id}.png")
+#     plt.savefig(out_file, dpi=config.plot_resolution, bbox_inches='tight')
+#     plt.close()
+#     print(f"Saved time-varying {variable} slices to '{out_file}'.")
 
 
-def plot_3d_representation(
-    dataset: CFDDataset,
-    models: Dict[str, torch.nn.Module],
-    config: Config,
-    run_id: str,
-    variable: str = "pressure",
-    time_value: float = 0.1,
-    tolerance: float = 1e-3
-):
-    """
-    Create a 3D scatter plot (x,y,z) of a chosen variable at a specific time_value ± tolerance.
-    """
-    for m in models.values():
-        m.eval()
+# def plot_3d_representation(
+#     dataset: CFDDataset,
+#     models: Dict[str, torch.nn.Module],
+#     config: Config,
+#     run_id: str,
+#     variable: str = "pressure",
+#     time_value: float = 0.1,
+#     tolerance: float = 1e-3
+# ):
+#     """
+#     Create a 3D scatter plot (x,y,z) of a chosen variable at a specific time_value ± tolerance.
+#     """
+#     for m in models.values():
+#         m.eval()
 
-    x_s = dataset.x.numpy().flatten()
-    y_s = dataset.y.numpy().flatten()
-    z_s = dataset.z.numpy().flatten()
-    t_s = dataset.t.numpy().flatten()
+#     x_s = dataset.x.numpy().flatten()
+#     y_s = dataset.y.numpy().flatten()
+#     z_s = dataset.z.numpy().flatten()
+#     t_s = dataset.t.numpy().flatten()
 
-    # mask the data
-    mask = np.abs(t_s - time_value) < tolerance
-    if not np.any(mask):
-        print(f"No points found near time={time_value}s within tolerance={tolerance}.")
-        return
+#     # mask the data
+#     mask = np.abs(t_s - time_value) < tolerance
+#     if not np.any(mask):
+#         print(f"No points found near time={time_value}s within tolerance={tolerance}.")
+#         return
 
-    x_sel = x_s[mask]
-    y_sel = y_s[mask]
-    z_sel = z_s[mask]
-    t_sel = t_s[mask]
+#     x_sel = x_s[mask]
+#     y_sel = y_s[mask]
+#     z_sel = z_s[mask]
+#     t_sel = t_s[mask]
 
-    # Predict
-    with torch.no_grad():
-        bx = torch.tensor(x_sel, dtype=torch.float32, device=config.device).unsqueeze(1)
-        by = torch.tensor(y_sel, dtype=torch.float32, device=config.device).unsqueeze(1)
-        bz = torch.tensor(z_sel, dtype=torch.float32, device=config.device).unsqueeze(1)
-        bt = torch.tensor(t_sel, dtype=torch.float32, device=config.device).unsqueeze(1)
+#     # Predict
+#     with torch.no_grad():
+#         bx = torch.tensor(x_sel, dtype=torch.float32, device=config.device).unsqueeze(1)
+#         by = torch.tensor(y_sel, dtype=torch.float32, device=config.device).unsqueeze(1)
+#         bz = torch.tensor(z_sel, dtype=torch.float32, device=config.device).unsqueeze(1)
+#         bt = torch.tensor(t_sel, dtype=torch.float32, device=config.device).unsqueeze(1)
 
-        if variable == "pressure":
-            v_pred = models["p"](bx, by, bz, bt)
-        elif variable == "velocity_u":
-            v_pred = models["u"](bx, by, bz, bt)
-        elif variable == "velocity_v":
-            v_pred = models["v"](bx, by, bz, bt)
-        elif variable == "velocity_w":
-            v_pred = models["w"](bx, by, bz, bt)
-        else:
-            print(f"Unsupported variable: {variable}, defaulting to 'pressure'.")
-            v_pred = models["p"](bx, by, bz, bt)
+#         if variable == "pressure":
+#             v_pred = models["p"](bx, by, bz, bt)
+#         elif variable == "velocity_u":
+#             v_pred = models["u"](bx, by, bz, bt)
+#         elif variable == "velocity_v":
+#             v_pred = models["v"](bx, by, bz, bt)
+#         elif variable == "velocity_w":
+#             v_pred = models["w"](bx, by, bz, bt)
+#         else:
+#             print(f"Unsupported variable: {variable}, defaulting to 'pressure'.")
+#             v_pred = models["p"](bx, by, bz, bt)
 
-    v_pred = v_pred.cpu().numpy().flatten()
-    v_pred = dataset.scalers[variable].inverse_transform(v_pred.reshape(-1,1)).flatten()
+#     v_pred = v_pred.cpu().numpy().flatten()
+#     v_pred = dataset.scalers[variable].inverse_transform(v_pred.reshape(-1,1)).flatten()
 
-    # 3D scatter
-    from mpl_toolkits.mplot3d import Axes3D  # needed for 3D projection
-    fig = plt.figure(figsize=(10,7))
-    ax = fig.add_subplot(111, projection='3d')
-    p = ax.scatter(x_sel, y_sel, z_sel, c=v_pred, cmap="viridis", alpha=0.8)
-    ax.set_xlabel("X [m]")
-    ax.set_ylabel("Y [m]")
-    ax.set_zlabel("Z [m]")
-    ax.set_title(f"{variable.title()} at t={time_value:.3f}s ± {tolerance}")
+#     # 3D scatter
+#     from mpl_toolkits.mplot3d import Axes3D  # needed for 3D projection
+#     fig = plt.figure(figsize=(10,7))
+#     ax = fig.add_subplot(111, projection='3d')
+#     p = ax.scatter(x_sel, y_sel, z_sel, c=v_pred, cmap="viridis", alpha=0.8)
+#     ax.set_xlabel("X [m]")
+#     ax.set_ylabel("Y [m]")
+#     ax.set_zlabel("Z [m]")
+#     ax.set_title(f"{variable.title()} at t={time_value:.3f}s ± {tolerance}")
 
-    cbar = plt.colorbar(p, ax=ax, shrink=0.6)
-    cbar.set_label(variable)
+#     cbar = plt.colorbar(p, ax=ax, shrink=0.6)
+#     cbar.set_label(variable)
 
-    out_dir = os.path.join(config.plot_dir, run_id)
-    ensure_dir(out_dir)
-    out_file = os.path.join(out_dir, f"3D_{variable}_{run_id}_t{time_value:.3f}.png")
-    plt.savefig(out_file, dpi=config.plot_resolution, bbox_inches='tight')
-    plt.close()
-    print(f"Saved 3D representation to '{out_file}'.")
+#     out_dir = os.path.join(config.plot_dir, run_id)
+#     ensure_dir(out_dir)
+#     out_file = os.path.join(out_dir, f"3D_{variable}_{run_id}_t{time_value:.3f}.png")
+#     plt.savefig(out_file, dpi=config.plot_resolution, bbox_inches='tight')
+#     plt.close()
+#     print(f"Saved 3D representation to '{out_file}'.")

@@ -43,7 +43,7 @@ class Config:
     })
 
     # Training Hyperparameters
-    epochs: int = 500                 
+    epochs: int = 1000                 
     batch_size: int = 1024             
     learning_rate: float = 1e-4        
     optimizer_params: Dict[str, Any] = field(default_factory=lambda: {

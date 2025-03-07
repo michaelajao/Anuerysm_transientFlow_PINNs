@@ -134,10 +134,6 @@ def main():
         plot_pressure_and_wss_magnitude_distribution(dataset, models, config, run_id)
         plot_wss_histogram(dataset, models, config, run_id)
 
-        # **New**: Example usage
-        plot_time_varying_slices(dataset, models, config, run_id, variable="pressure", num_times=5)
-        plot_3d_representation(dataset, models, config, run_id, variable="pressure", time_value=0.01)
-
         # Save final model
         final_model_path = os.path.join(config.model_dir, run_id, f"final_model_{run_id}.pt")
         ensure_dir(os.path.dirname(final_model_path))
