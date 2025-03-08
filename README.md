@@ -223,4 +223,3 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - Special thanks to the collaborators who provided CFD datasets
 - [PyTorch](https://pytorch.org/) for the deep learning framework
 - [SciPy](https://scipy.org/) for scientific computing tools -->
-*
