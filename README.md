@@ -1,8 +1,8 @@
 # Aneurysm Transient Flow PINNs
 
-![GitHub](https://img.shields.io/github/license/michaelajao/Anuerysm_transientFlow_PINNs)
-![Python](https://img.shields.io/badge/python-3.8%2B-blue)
-![PyTorch](https://img.shields.io/badge/PyTorch-1.10%2B-orange)
+<!-- ![GitHub](https://img.shields.io/github/license/michaelajao/Anuerysm_transientFlow_PINNs) -->
+![Python](https://img.shields.io/badge/python-3.10%2B-blue)
+![PyTorch](https://img.shields.io/badge/PyTorch-2.1%2B-orange)
 
 ## Overview
 
@@ -23,7 +23,7 @@ The models in this project incorporate the Navier-Stokes equations and learn fro
 
 ### Prerequisites
 
-- Python 3.8+
+- Python 3.10+
 - CUDA-capable GPU (recommended for training)
 
 ### Setup Instructions
