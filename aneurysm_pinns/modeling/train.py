@@ -106,12 +106,12 @@ def compute_data_loss(
 
 def compute_inlet_loss(u_pred, v_pred, w_pred, t, heart_rate=120) -> torch.Tensor:
     """
-    Example sinusoidal inlet boundary condition
+    sinusoidal inlet boundary condition
     """
     period = 60.0 / heart_rate
     t_mod = torch.fmod(t, period)
 
-    # e.g., quick assumption: up to 0.218s is peak systole, else 0.1
+    # up to 0.218s is peak systole, else 0.1
     u_inlet_true = torch.where(
         t_mod <= 0.218,
         0.5 * torch.sin(4.0 * np.pi * (t_mod + 0.0160236)),
