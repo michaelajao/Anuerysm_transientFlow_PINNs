@@ -31,7 +31,21 @@ def load_csv(path: str) -> pd.DataFrame:
 
 def plot_scatter(ax, x, y, c, title, xlabel, ylabel, cmap, label, vmin=None, vmax=None, num_ticks=5):
     """
-    Helper function for 2D scatter plots with color mapping & colorbars.
+    Helper function to create scatter plots with color mapping and enhanced colorbars.
+
+    Args:
+        ax (matplotlib.axes.Axes): Axes object to plot on.
+        x (array-like): X-axis data.
+        y (array-like): Y-axis data.
+        c (array-like): Color-mapped data.
+        title (str): Plot title.
+        xlabel (str): X-axis label.
+        ylabel (str): Y-axis label.
+        cmap (str): Colormap name.
+        label (str): Colorbar label.
+        vmin (float, optional): Minimum color value.
+        vmax (float, optional): Maximum color value.
+        num_ticks (int, optional): Number of ticks on the colorbar. Defaults to 5.
     """
     sc = ax.scatter(x, y, c=c, cmap=cmap, vmin=vmin, vmax=vmax, alpha=0.8, rasterized=True)
     ax.set_title(title, fontsize=14)

@@ -69,7 +69,14 @@ plt.rcParams.update(
 
 def plot_loss_curves(loss_history: Dict[str, List[float]], config: Config, run_id: str, dataset_name: str):
     """
-    Plots the training loss curves for different components.
+    Plots the training loss curves for different loss components.
+
+    Args:
+        loss_history (Dict[str, list]): Dictionary containing loss history.
+        config (Config): Configuration object.
+        logger (logging.Logger): Logger for logging information.
+        run_id (str): Unique identifier for the experiment run.
+        dataset_name (str): Name of the dataset.
     """
     epochs = range(1, len(loss_history["total"]) + 1)
     plt.figure(figsize=(10, 6))
@@ -101,7 +108,15 @@ def plot_pressure_and_wss_magnitude_distribution(
     run_id: str
 ):
     """
-    2D scatter (XY, XZ planes) for pressure & WSS magnitude.
+    Generates and saves plots comparing the distribution of Pressure and WSS Magnitude
+    between CFD data and PINN predictions in both XY and XZ planes.
+
+    Args:
+        dataset (CFDDataset): Dataset instance containing CFD data.
+        models (Dict[str, nn.Module]): Dictionary of trained PINN models.
+        config (Config): Configuration object.
+        logger (logging.Logger): Logger for logging information.
+        run_id (str): Unique identifier for the experiment run.
     """
     for m in models.values():
         m.eval()

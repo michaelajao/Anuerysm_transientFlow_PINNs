@@ -18,14 +18,24 @@ from aneurysm_pinns.utils import ensure_dir
 
 def compute_metrics(predictions: Dict[str, np.ndarray], truths: Dict[str, np.ndarray]) -> Dict[str, float]:
     """
-    Computes evaluation metrics for the model predictions against the true values.
+    Evaluates the trained PINN models on the entire dataset and computes evaluation metrics.
+
+    Metrics Computed:
+    - R² Score
+    - Normalized Root Mean Squared Error (NRMSE)
+    - Mean Absolute Error (MAE)
 
     Args:
-        predictions (Dict[str, np.ndarray]): Model predictions for different variables.
-        truths (Dict[str, np.ndarray]): True values for the corresponding variables.
+        models (Dict[str, nn.Module]): Dictionary of trained PINN models.
+        dataloader (DataLoader): DataLoader for evaluation data.
+        dataset (CFDDataset): Dataset instance for inverse transformations.
+        config (Config): Configuration object.
+        logger (logging.Logger): Logger for logging information.
+        run_id (str): Unique identifier for the experiment run.
 
     Returns:
-        Dict[str, float]: A dictionary containing computed metrics including R², NRMSE, and MAE for each variable.
+        Tuple[Dict[str, float], Dict[str, float], Dict[str, float], float]:
+            Dictionaries containing R² scores, NRMSE scores, MAE scores, and total MAE.
     """
     variables = [
         "pressure",

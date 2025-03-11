@@ -24,7 +24,25 @@ def compute_physics_loss(
     rho, mu
 ):
     """
-    Navier-Stokes + Continuity
+    Computes the Physics-based Loss incorporating Navier-Stokes Equations and Continuity.
+
+    This function calculates the residuals of the momentum equations and the continuity equation,
+    and computes their Mean Squared Errors (MSE).
+
+    Args:
+        p_pred (torch.Tensor): Predicted pressure.
+        u_pred (torch.Tensor): Predicted u-velocity.
+        v_pred (torch.Tensor): Predicted v-velocity.
+        w_pred (torch.Tensor): Predicted w-velocity.
+        x (torch.Tensor): X-coordinate tensor with gradients enabled.
+        y (torch.Tensor): Y-coordinate tensor with gradients enabled.
+        z (torch.Tensor): Z-coordinate tensor with gradients enabled.
+        t (torch.Tensor): Time tensor with gradients enabled.
+        rho (float): Fluid density.
+        mu (float): Dynamic viscosity.
+
+    Returns:
+        torch.Tensor: Combined physics-based loss.
     """
     u_x = torch.autograd.grad(u_pred, x, grad_outputs=torch.ones_like(u_pred), retain_graph=True, create_graph=True)[0]
     u_y = torch.autograd.grad(u_pred, y, grad_outputs=torch.ones_like(u_pred), retain_graph=True, create_graph=True)[0]
@@ -76,7 +94,17 @@ def compute_physics_loss(
 
 def compute_boundary_loss(u_bc_pred, v_bc_pred, w_bc_pred) -> torch.Tensor:
     """
-    No-slip boundary
+    Computes the Boundary Condition Loss enforcing no-slip conditions.
+
+    No-slip condition implies that the velocity components at the boundary are zero.
+
+    Args:
+        u_bc_pred (torch.Tensor): Predicted u-velocity at boundary points.
+        v_bc_pred (torch.Tensor): Predicted v-velocity at boundary points.
+        w_bc_pred (torch.Tensor): Predicted w-velocity at boundary points.
+
+    Returns:
+        torch.Tensor: Boundary condition loss.
     """
     mse = nn.MSELoss()
     return (mse(u_bc_pred, torch.zeros_like(u_bc_pred))
@@ -93,6 +121,30 @@ def compute_data_loss(
     tau_y_pred, tau_y_true,
     tau_z_pred, tau_z_true
 ) -> torch.Tensor:
+        """
+    Computes the Supervised Data Loss using Mean Squared Error (MSE).
+
+    This loss measures the discrepancy between the PINN predictions and the actual CFD data.
+
+    Args:
+        p_pred (torch.Tensor): Predicted pressure.
+        p_true (torch.Tensor): True pressure.
+        u_pred (torch.Tensor): Predicted u-velocity.
+        u_true (torch.Tensor): True u-velocity.
+        v_pred (torch.Tensor): Predicted v-velocity.
+        v_true (torch.Tensor): True v-velocity.
+        w_pred (torch.Tensor): Predicted w-velocity.
+        w_true (torch.Tensor): True w-velocity.
+        tau_x_pred (torch.Tensor): Predicted tau_x.
+        tau_x_true (torch.Tensor): True tau_x.
+        tau_y_pred (torch.Tensor): Predicted tau_y.
+        tau_y_true (torch.Tensor): True tau_y.
+        tau_z_pred (torch.Tensor): Predicted tau_z.
+        tau_z_true (torch.Tensor): True tau_z.
+
+    Returns:
+        torch.Tensor: Combined data loss for all variables.
+    """
     mse = nn.MSELoss()
     loss_p = mse(p_pred, p_true)
     loss_u = mse(u_pred, u_true)
@@ -106,7 +158,19 @@ def compute_data_loss(
 
 def compute_inlet_loss(u_pred, v_pred, w_pred, t, heart_rate=120) -> torch.Tensor:
     """
-    sinusoidal inlet boundary condition
+    Computes the Inlet Velocity Profile Loss based on a sinusoidal wave.
+
+    This loss enforces an inflow boundary condition with a specified velocity profile.
+
+    Args:
+        u_pred (torch.Tensor): Predicted u-velocity.
+        v_pred (torch.Tensor): Predicted v-velocity.
+        w_pred (torch.Tensor): Predicted w-velocity.
+        t (torch.Tensor): Time tensor.
+        heart_rate (int): Heart rate in beats per minute to define the sinusoidal period.
+
+    Returns:
+        torch.Tensor: Inlet condition loss.
     """
     period = 60.0 / heart_rate
     t_mod = torch.fmod(t, period)
@@ -209,6 +273,25 @@ def train_pinn(
     early_stopping: EarlyStopping,
     run_id: str,
 ):
+    """
+    Trains the PINN models using the provided DataLoader and configuration.
+
+    The training process incorporates physics-based loss, boundary condition loss,
+    data loss, and inlet condition loss, each weighted by self-adaptive parameters.
+
+    Args:
+        models (Dict[str, nn.Module]): Dictionary of PINN models.
+        dataloader (DataLoader): DataLoader for training data.
+        config (Config): Configuration object.
+        optimizer (optim.Optimizer): Optimizer instance.
+        scheduler (optim.lr_scheduler._LRScheduler): Scheduler instance.
+        early_stopping (EarlyStopping): EarlyStopping instance.
+        logger (logging.Logger): Logger for logging information.
+        run_id (str): Unique identifier for the experiment run.
+
+    Returns:
+        Dict[str, list]: History of losses recorded during training.
+    """
     scaler = torch.cuda.amp.GradScaler() if config.device.startswith("cuda") else None
     loss_history = {"total": [], "physics": [], "boundary": [], "data": [], "inlet": []}
 
