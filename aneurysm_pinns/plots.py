@@ -4,11 +4,67 @@ import os
 import numpy as np
 import torch
 import matplotlib.pyplot as plt
+from scipy.interpolate import griddata
+from mpl_toolkits.mplot3d import Axes3D
 from typing import Dict, List
 
 from aneurysm_pinns.config import Config
 from aneurysm_pinns.dataset import CFDDataset
 from aneurysm_pinns.utils import ensure_dir, plot_scatter
+
+
+# Use Seaborn's "paper" style for clean and professional aesthetics
+plt.style.use("seaborn-v0_8-paper")
+
+# =========================================
+# 2. Update rcParams for Publication-Quality Plots
+# =========================================
+
+plt.rcParams.update(
+    {
+        # -------------------------------------
+        # General Figure Settings
+        # -------------------------------------
+        "font.size": 12,                       # Base font size for all text elements
+        "figure.figsize": [7, 4],              # Figure size suitable for double-column layouts
+        "text.usetex": False,                  # Disable LaTeX rendering; set to True if needed
+        "figure.facecolor": "white",           # White background for compatibility
+        "figure.autolayout": True,             # Automatically adjust subplot params
+        "figure.dpi": 300,                     # High resolution for print quality
+        "savefig.dpi": 300,                    # High resolution for saved figures
+        "savefig.format": "pdf",               # Vector format for scalability; use 'png' if raster is needed
+        "savefig.bbox": "tight",               # Minimize whitespace around the figure
+
+        # -------------------------------------
+        # Axes and Titles
+        # -------------------------------------
+        # "axes.labelweight": "bold",            # Bold axis labels for emphasis
+        # "axes.titleweight": "bold",            # Bold titles for emphasis
+        "axes.labelsize": 12,                  # Font size for axis labels
+        "axes.titlesize": 16,                  # Font size for plot titles
+        "axes.facecolor": "white",             # White background for axes
+        "axes.grid": False,                    # Disable gridlines for clarity
+        "axes.spines.top": False,              # Remove top spine for a cleaner look
+        "axes.spines.right": False,            # Remove right spine for a cleaner look
+        "axes.formatter.use_mathtext": True,   # Use LaTeX-style formatting for tick labels
+        "axes.formatter.useoffset": False,     # Disable offset in tick labels
+        # "axes.xmargin": 0,                      # Remove horizontal margin
+        # "axes.ymargin": 0,                      # Remove vertical margin
+
+        # -------------------------------------
+        # Legend Settings
+        # -------------------------------------
+        "legend.fontsize": 12,                  # Font size for legend text
+        # "legend.frameon": False,                # Remove legend frame for a cleaner look
+        "legend.loc": "best",                   # Automatically place legend in the best location
+
+
+        # -------------------------------------
+        # Image Settings
+        # -------------------------------------
+        "image.cmap": "viridis",                 # Default colormap for images
+    }
+)
 
 
 def plot_loss_curves(loss_history: Dict[str, List[float]], config: Config, run_id: str, dataset_name: str):

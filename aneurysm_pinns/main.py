@@ -21,6 +21,9 @@ from aneurysm_pinns.plots import (
 )
 from aneurysm_pinns.utils import ensure_dir
 
+
+
+
 def main():
     config = Config()
     
