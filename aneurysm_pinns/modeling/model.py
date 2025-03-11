@@ -73,6 +73,10 @@ class TauZPINN(BasePINN):
     pass
 
 def initialize_models(config: Config) -> Dict[str, nn.Module]:
+    """
+    Initialize PINN models for pressure, velocities, and wall shear stresses.
+    """
+    
     model_p = PressurePINN(config, out_dim=1).to(config.device)
     model_u = UVelocityPINN(config, out_dim=1).to(config.device)
     model_v = VVelocityPINN(config, out_dim=1).to(config.device)

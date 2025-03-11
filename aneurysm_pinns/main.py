@@ -145,6 +145,16 @@ def main():
 
         torch.save(ckpt, final_model_path)
         print(f"Saved final model to '{final_model_path}'.")
+        
+        
+        # Save metrics
+        metrics_log_path = os.path.join(config.metrics_dir, run_id, f"metrics_log_{run_id}.txt")
+        with open(metrics_log_path, 'w') as f:
+            for key, value in metrics.items():
+                f.write(f"{key}: {value}\n")
+        print(f"Metrics for '{run_id}':")
+        print(metrics)        
+        print(f"Saved metrics to '{metrics_log_path}'.")        
 
         print(f"===== Finished experiment for '{run_id}' =====")
 

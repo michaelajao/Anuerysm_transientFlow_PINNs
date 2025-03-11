@@ -17,6 +17,16 @@ from aneurysm_pinns.utils import ensure_dir
 
 
 def compute_metrics(predictions: Dict[str, np.ndarray], truths: Dict[str, np.ndarray]) -> Dict[str, float]:
+    """
+    Computes evaluation metrics for the model predictions against the true values.
+
+    Args:
+        predictions (Dict[str, np.ndarray]): Model predictions for different variables.
+        truths (Dict[str, np.ndarray]): True values for the corresponding variables.
+
+    Returns:
+        Dict[str, float]: A dictionary containing computed metrics including R², NRMSE, and MAE for each variable.
+    """
     variables = [
         "pressure",
         "velocity_u",
@@ -40,6 +50,17 @@ def compute_metrics(predictions: Dict[str, np.ndarray], truths: Dict[str, np.nda
 
 
 def evaluate_pinn(models: Dict[str, torch.nn.Module], dataloader: DataLoader, dataset: CFDDataset, config: Config, run_id: str) -> Dict[str, float]:
+    """
+    Evaluates the trained PINN models on the given dataset.
+    
+    Args:
+        models (Dict[str, torch.nn.Module]): Dictionary of trained PINN models.
+        dataloader (DataLoader): DataLoader for the evaluation dataset.
+        dataset (CFDDataset): Dataset object for the evaluation dataset.
+        config (Config): Configuration object.
+        run_id (str): Run ID for the current experiment.
+        
+    """
     for m in models.values():
         m.eval()
 
