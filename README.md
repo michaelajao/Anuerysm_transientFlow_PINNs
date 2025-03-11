@@ -179,6 +179,7 @@ Where:
 - ρ is fluid density (1060 kg/m³ for blood)
 - μ is dynamic viscosity (0.0035 Pa·s for blood) -->
 
+
 ## Results
 
 The trained models demonstrate the ability to:
@@ -189,6 +190,20 @@ The trained models demonstrate the ability to:
 4. Identify regions of high hemodynamic stress in aneurysms
 
 Comparative analysis between healthy and aneurysmal aortic vessels reveals significant differences in flow patterns and wall shear stress distributions, which may contribute to our understanding of aneurysm development and progression.
+
+For each experiment run (identified by the dataset name, like "0021_diastolic_aneurysm"), the system creates:
+
+1. **A detailed log file** named `experiment_[dataset_name].log` that records:
+   - Training progress with timestamps
+   - Loss values for different components (physics, boundary, data, inlet)
+   - Early stopping triggers and model checkpoints
+   - Dataset processing information
+   - Visualization generation confirmations
+
+2. **A metrics summary CSV file** named `metrics_summary_[dataset_name].csv` containing evaluation metrics like:
+   - R² (coefficient of determination)
+   - NRMSE (normalized root mean square error)
+   - MAE (mean absolute error) for each output variable
 
 ## Contributing
 
