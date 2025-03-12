@@ -121,7 +121,7 @@ def compute_data_loss(
     tau_y_pred, tau_y_true,
     tau_z_pred, tau_z_true
 ) -> torch.Tensor:
-        """
+    """
     Computes the Supervised Data Loss using Mean Squared Error (MSE).
 
     This loss measures the discrepancy between the PINN predictions and the actual CFD data.
@@ -292,7 +292,7 @@ def train_pinn(
     Returns:
         Dict[str, list]: History of losses recorded during training.
     """
-    scaler = torch.cuda.amp.GradScaler() if config.device.startswith("cuda") else None
+    scaler = torch.amp.GradScaler() if config.device.startswith("cuda") else None
     loss_history = {"total": [], "physics": [], "boundary": [], "data": [], "inlet": []}
 
     epochs = config.epochs
@@ -342,7 +342,7 @@ def train_pinn(
             optimizer.zero_grad()
 
             if scaler:
-                with torch.cuda.amp.autocast():
+                with torch.amp.autocast(device_type=config.device):
                     p_pred = model_p(x_batch, y_batch, z_batch, t_batch)
                     u_pred = model_u(x_batch, y_batch, z_batch, t_batch)
                     v_pred = model_v(x_batch, y_batch, z_batch, t_batch)
@@ -467,8 +467,7 @@ def train_pinn(
                  loss_physics, loss_boundary, loss_data_, loss_inlet_, total_loss)
             torch.cuda.empty_cache()
 
-        scheduler.step()
-
+        # scheduler.step() - after all batches are processed for the epoch
         n_batches = len(dataloader)
         avg_t = epoch_loss_total / n_batches
         avg_phy = epoch_loss_physics / n_batches
@@ -481,6 +480,9 @@ def train_pinn(
         loss_history["boundary"].append(avg_bdy)
         loss_history["data"].append(avg_dat)
         loss_history["inlet"].append(avg_inl)
+
+        # scheduler.step() - after all batches are processed for the epoch
+        scheduler.step()
 
         early_stopping(avg_t, models, optimizer, scheduler, run_id, config.model_dir)
         if early_stopping.early_stop:

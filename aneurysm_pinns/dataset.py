@@ -278,4 +278,6 @@ def process_and_save_all_datasets(file_paths: Dict[str, str], processed_dir: str
     Wrapper to process & save all datasets.
     """
     processed_data = process_all_datasets(file_paths, processed_dir)
+    
+    return processed_data
     print("All datasets processed and saved.")
