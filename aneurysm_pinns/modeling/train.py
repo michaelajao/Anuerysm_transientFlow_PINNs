@@ -292,7 +292,7 @@ def train_pinn(
     Returns:
         Dict[str, list]: History of losses recorded during training.
     """
-    scaler = torch.amp.GradScaler() if config.device.startswith("cuda") else None
+    scaler = torch.cuda.amp.GradScaler() if config.device.startswith("cuda") else None
     loss_history = {"total": [], "physics": [], "boundary": [], "data": [], "inlet": []}
 
     epochs = config.epochs
@@ -342,7 +342,8 @@ def train_pinn(
             optimizer.zero_grad()
 
             if scaler:
-                with torch.amp.autocast(device_type=config.device):
+                device_type = 'cuda' if config.device.startswith('cuda') else 'cpu'
+                with torch.amp.autocast(device_type=device_type):
                     p_pred = model_p(x_batch, y_batch, z_batch, t_batch)
                     u_pred = model_u(x_batch, y_batch, z_batch, t_batch)
                     v_pred = model_v(x_batch, y_batch, z_batch, t_batch)
