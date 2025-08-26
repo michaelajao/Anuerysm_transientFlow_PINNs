@@ -1,14 +1,21 @@
-# Aneurysm Transient Flow PINNs
+# Fluid–Structure Interaction Analysis of Arterial Aneurysms with Physics-Informed Neural Networks
 
 <!-- ![GitHub](https://img.shields.io/github/license/michaelajao/Anuerysm_transientFlow_PINNs) -->
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.1%2B-orange)
+[![DOI](https://img.shields.io/badge/DOI-10.1063%2F5.0259296-blue)](https://doi.org/10.1063/5.0259296)
+[![Physics of Fluids](https://img.shields.io/badge/Published%20in-Physics%20of%20Fluids-red)](https://doi.org/10.1063/5.0259296)
 
 ## Overview
 
-Aneurysm Transient Flow PINNs is a research project that applies Physics-Informed Neural Networks (PINNs) to model and predict transient blood flow dynamics in aortic aneurysms. Aortic aneurysms are pathological dilations of the aorta that can rupture and cause severe vascular complications. By combining deep learning with fundamental physics principles, this project aims to create accurate and efficient models for hemodynamic simulation, potentially contributing to improved risk assessment and treatment planning.
+This repository contains the implementation and code for the research published in **Physics of Fluids** (2025): "*Fluid–structure interaction analysis of pulsatile flow in arterial aneurysms with physics-informed neural networks and computational fluid dynamics*".
 
-The models in this project incorporate the Navier-Stokes equations and learn from real computational fluid dynamics (CFD) data to predict pressure distributions, velocity fields, and wall shear stress in both healthy and aneurysmal blood vessels under various cardiac cycle conditions.
+**Abstract:** Marfan syndrome (MS) is a genetic disorder often associated with the development of aortic aneurysms, leading to severe vascular complications. The progression of this condition is intricately linked to hemodynamic factors such as wall shear stress (WSS) and von Mises stress, as abnormal distributions can contribute to thrombus formation, endothelial damage, and the worsening of aneurysmal conditions. In this study, six vascular models were analyzed: four representing diseased aortas with Marfan syndrome aneurysms and two healthy aortic models for comparison. The models were sourced from Vascular Model Repository, and computational fluid dynamics (CFD) simulations were conducted using a Newtonian fluid model and the shear stress transport (SST) k-ω turbulent transitional model to evaluate WSS and von Mises stress. Fluid–structure interaction was employed to incorporate vessel wall interaction, and pulsatile inlet velocity profiles were used to simulate physiological blood flow, capturing time-dependent hemodynamic variations.
+
+The results revealed significant differences between healthy and diseased aortic models. In healthy models, WSS was uniformly distributed, with values consistently below 40 Pa, reflecting stable vascular conditions. Conversely, the diseased models exhibited highly non-uniform WSS distributions, with notably lower values in aneurysmal regions, contributing to thrombus formation, with elevated WSS in areas like the carotid and subclavian arteries due to geometric and hemodynamic complexities. The von Mises stress analysis identified regions of heightened rupture risk, particularly on the superior side of case MS1, where both von Mises stress and WSS reached their highest values among all cases. **Physics-informed neural networks demonstrated strong agreement with CFD results while significantly reducing computational cost**, highlighting their potential for real-time clinical applications.
+
+This project applies Physics-Informed Neural Networks (PINNs) to model and predict transient blood flow dynamics in aortic aneurysms. By combining deep learning with fundamental physics principles, the models incorporate the Navier-Stokes equations and learn from real computational fluid dynamics (CFD) data to predict pressure distributions, velocity fields, and wall shear stress in both healthy and aneurysmal blood vessels under various cardiac cycle conditions.
+
 
 ## Project Features
 
@@ -55,15 +62,32 @@ The models in this project incorporate the Navier-Stokes equations and learn fro
 
 ## Dataset Description
 
-The project uses a collection of CFD simulation data from both healthy and aneurysmal aortic vessels. The datasets include:
+This study analyzes **six vascular models** sourced from the Vascular Model Repository:
+- **Four diseased aortas** with Marfan syndrome aneurysms (Cases MS1-MS4)
+- **Two healthy aortic models** for comparison (Cases 0024, 0142)
 
+### Data Structure
+
+The CFD simulation datasets include:
+
+**Spatial and Flow Variables:**
 - Spatial coordinates (X, Y, Z)
-- Pressure values (P)
-- Velocity components (u, v, w)
-- Wall shear stress components (X, Y, Z)
-- Time-varying data for systolic and diastolic cardiac phases (t)
+- Pressure values (P) [Pa]
+- Velocity components (u, v, w) [m/s]
+- Wall shear stress components (X, Y, Z) [Pa]
 
-All raw data files should be placed in the `data/WSS_data/` directory before processing. The system supports multiple patient cases, with both healthy and aneurysmal conditions.
+**Temporal Information:**
+- Time-varying data for systolic and diastolic cardiac phases (t)
+- Pulsatile inlet velocity profiles simulating physiological blood flow
+
+**CFD Simulation Parameters:**
+- Newtonian fluid model for blood
+- Shear stress transport (SST) k-ω turbulent transitional model
+- Fluid–structure interaction for vessel wall dynamics
+- Blood density: ρ = 1060 kg/m³
+- Blood dynamic viscosity: μ = 0.0035 Pa·s
+
+All raw data files should be placed in the `data/WSS_data/` directory before processing. The system supports multiple patient cases with both healthy and aneurysmal conditions, enabling comparative hemodynamic analysis.
 
 ## Project Structure
 
@@ -156,41 +180,6 @@ The system behavior can be customized by modifying parameters in `config.py`:
 - Neural network architecture (layer count, units per layer)
 - Early stopping criteria
 
-## Scientific Background
-
-### Physics-Informed Neural Networks
-
-PINNs combine neural networks with physical constraints derived from governing equations. For fluid dynamics, the models are trained to satisfy:
-
-1. **Data-driven loss**: Minimizing error between predictions and CFD data
-2. **Physics-informed loss**: Enforcing adherence to Navier-Stokes equations
-3. **Boundary condition loss**: Ensuring proper behavior at domain boundaries
-<!-- 
-### Navier-Stokes Equations
-
-The incompressible Navier-Stokes equations governing blood flow are:
-
-- **Continuity**: ∇·u = 0
-- **Momentum**: ρ(∂u/∂t + u·∇u) = -∇p + μ∇²u
-
-Where:
-- u is the velocity vector field
-- p is pressure
-- ρ is fluid density (1060 kg/m³ for blood)
-- μ is dynamic viscosity (0.0035 Pa·s for blood) -->
-
-
-## Results
-
-The trained models demonstrate the ability to:
-
-1. Accurately predict pressure distributions in aortic vessels
-2. Capture complex velocity flow patterns
-3. Estimate wall shear stress distributions
-4. Identify regions of high hemodynamic stress in aneurysms
-
-Comparative analysis between healthy and aneurysmal aortic vessels reveals significant differences in flow patterns and wall shear stress distributions, which may contribute to our understanding of aneurysm development and progression.
-
 For each experiment run (identified by the dataset name, like "0021_diastolic_aneurysm"), the system creates:
 
 1. **A detailed log file** named `experiment_[dataset_name].log` that records:
@@ -216,25 +205,28 @@ Contributions to this project are welcome! Please follow these steps:
 5. Open a Pull Request
 
 
-<!-- ## Citation
+## Citation
 
-If you use this project in your research, please cite it as:
+If you use this project in your research, please cite the original paper:
 
-```
-@software{aneurysm_transient_pinns,
-  author = {Ajao, Michael},
-  title = {Aneurysm Transient Flow PINNs},
-  year = {2023},
-  url = {https://github.com/michaelajao/Anuerysm_transientFlow_PINNs}
+```bibtex
+@article{ur2025fluid,
+  title={Fluid--structure interaction analysis of pulsatile flow in arterial aneurysms with physics-informed neural networks and computational fluid dynamics},
+  author = {Ur Rehman, M. Abaid and Ekici, Ozgur (Özgür Ekici) and Farooq, M. Asif and Butt, Khayam and Ajao-Olarinoye, Michael and Wang, Zhen and Liu, Haipeng},
+  journal = {Physics of Fluids},
+  volume = {37},
+  number = {3},
+  pages = {031913},
+  year = {2025},
+  month = {03},
+  issn = {1070-6631},
+  publisher = {AIP Publishing},
+  doi = {10.1063/5.0259296},
+  url = {https://doi.org/10.1063/5.0259296}
 }
 ```
+
 
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Acknowledgments
-
-- Special thanks to the collaborators who provided CFD datasets
-- [PyTorch](https://pytorch.org/) for the deep learning framework
-- [SciPy](https://scipy.org/) for scientific computing tools -->
